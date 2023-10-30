@@ -1,0 +1,33 @@
+/* Hover text gradient */
+@keyframes textShine {
+    0% {
+      background-position: 100% 0;
+    }
+    50% {
+      background-position: 0 0;
+    }  
+    100% {
+      background-position: 0 0;
+    }
+  }
+  
+.gradient-hover {
+    transition: all 0.3s;
+}
+
+  .gradient-hover:hover {
+    background: linear-gradient(
+      to right,
+      var(--velaro--light),
+      var(--velaro--light),
+      var(--velaro--accent),
+      var(--velaro--light),
+      var(--velaro--light)
+  );
+  font-weight: 900;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 500% auto;
+  animation: textShine 2s linear infinite;
+  }

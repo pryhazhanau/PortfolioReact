@@ -1,0 +1,9 @@
+.about-container {
+    padding: 100px 200px 10px 100px;
+}
+
+div.about-flex-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}

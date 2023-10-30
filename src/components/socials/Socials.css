@@ -1,0 +1,60 @@
+.follow-me-container {
+    position: fixed;
+    bottom: 20px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    gap: 30px;
+}
+
+.follow-me-vertical-line {
+    background-color: var(--spacero--gray);
+    height: 36px;
+    width: 1px;
+}
+
+.follow-me-label {
+    transform: rotate(90deg);
+    margin-bottom: 30px;
+    color: var(--spacero--gray);
+    transition: color 0.3s;
+}
+
+.follow-me-label:hover {
+    color: var(--velaro--accent);
+}
+
+.social-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.social-icon-link {
+    text-decoration: none;
+}
+
+.social-icon-link svg {
+    width: 20px;
+    height: 20px;
+}
+
+.social-icon path {
+    transition: fill 0.3s;
+    fill: var(--spacero--gray);
+}
+
+.social-icon:hover path {
+    fill: var(--velaro--accent);
+}
+
+.social-icon {
+    transition: scale 0.3s;
+}
+
+.social-icon:hover {
+    scale: 1.1;
+}

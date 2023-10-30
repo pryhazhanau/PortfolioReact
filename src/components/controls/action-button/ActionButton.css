@@ -1,0 +1,14 @@
+.action-button {
+    padding: 10px 38px;
+    color: black !important;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.1s;
+    border: none;
+    background: var(--velaro--accent);
+}
+
+
+.action-button:hover {
+    transform: translate(-3px, -3px);
+}

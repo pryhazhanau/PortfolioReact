@@ -1,0 +1,7 @@
+div.main-container {
+    padding-top: 200px;
+    padding-left: 130px;
+    padding-right: 130px;
+    padding-bottom: 200px;
+    background-color: var(--background--primary);
+}
