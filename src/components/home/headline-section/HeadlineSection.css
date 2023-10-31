@@ -1,8 +1,8 @@
-.home-page-container {
+.headline-container {
     display: flex;
     flex-direction: column;
     gap: 64px;
-    height: 70vh;
+    height: 700px;
     cursor: default;
 }
 
@@ -44,4 +44,16 @@ div.main-title-block {
     display: inline;
     justify-content: center;
     align-items: center;
+}
+
+@media (max-width: 800px) {
+    .headline-title {
+        font-size: 90px;
+    }
+}
+
+@media (max-width: 800px) {
+    .title-secondary {
+        font-size: 20px;
+    }
 }

@@ -2,7 +2,7 @@ import "./Navbar.css";
 import "../../common/css/gradient.css";
 import cvFile from "../../assets/cv.pdf";
 import { useState } from "react";
-import ActionButton from "../controls/action-button/ActionButton";
+import ActionButton from "../common/controls/action-button/ActionButton";
 
 function Navbar() {
   const [isOnTop, setOnTop] = useState(true);

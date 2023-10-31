@@ -1,6 +1,6 @@
 import "./HeadlineSection.css";
 import "../../../common/css/div-layout.css";
-import ActionButton from "../../controls/action-button/ActionButton";
+import ActionButton from "../../common/controls/action-button/ActionButton";
 
 function HeadlineSection() {
     const emailAddress = "vprigozhanov@gmail.com";
@@ -11,7 +11,7 @@ function HeadlineSection() {
   
     return (
       <>
-          <div className="home-page-container">
+          <div className="headline-container">
             <div className="main-title-block">
               <h1 className="headline-title">
                 Hello<span className="colored-dot">.</span>
