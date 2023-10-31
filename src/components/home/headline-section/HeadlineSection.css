@@ -3,6 +3,7 @@
     flex-direction: column;
     gap: 64px;
     height: 70vh;
+    cursor: default;
 }
 
 .headline-title {
