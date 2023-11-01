@@ -1,0 +1,27 @@
+.tech-block-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    cursor: pointer;
+}
+
+.tech-block-wrapper p {
+    transition: all 0.1s;
+    margin: -5px 0 0 0;
+    color: var(--spacero--gray);
+}
+
+.tech-svg * {
+    transition: all 0.1s;
+    fill: var(--spacero--gray);
+    fill-opacity: 1;
+}
+
+
+.tech-block-wrapper:hover * {
+    fill: var(--velaro--accent);
+    fill-opacity: 1;
+    color: var(--velaro--accent);
+}
