@@ -3,8 +3,8 @@ import {
   CircularProgressbarWithChildren,
   buildStyles,
 } from "react-circular-progressbar";
-import React, { useState, useEffect, useRef } from 'react';
-import { InView, useInView } from 'react-intersection-observer';
+import React, { useState } from 'react';
+import { InView } from 'react-intersection-observer';
 
 import "react-circular-progressbar/dist/styles.css";
 
@@ -29,7 +29,7 @@ const SkillProgress: React.FC<CircularProgressBarProps> = ({
 
   return (
     <>
-    <InView as="div" triggerOnce onChange={(inView, entry) => handleInView(inView)}>
+    <InView as="div" triggerOnce onChange={(inView) => handleInView(inView)}>
     <div className="skill-progress-wrapper">
     <CircularProgressbarWithChildren
       value={value}
