@@ -12,6 +12,17 @@
     padding: 0 24px 0 24px;
 }
 
+.title-tech-stack-block p {
+    max-width: 300px;
+}
+
+@media (max-width: 1000px) {
+    .title-tech-stack-block p {
+        font-size: 18px;
+    }
+}
+
+
 /* Grid System */
 
 .grid-container {
@@ -23,19 +34,12 @@
 
 .grid-system {
     --max-width: 70vw;
-    --min-width: 368px;
-    --guide-width: 0px;
-    --horizontal-margin: 2rem;
-    --grid-system-width: 100vw;
     display: flex;
     position: relative;
     flex-direction: column;
     max-width: var(--max-width);
     min-width: var(--min-width);
     padding: var(--guide-width);
-    background-color: var(--stroke--black);
-
-
 }
 
 .grid {
@@ -43,8 +47,7 @@
     --min-width: 250px;
     --height: calc(var(--column-width) * var(2));
     --grid-rows: 2;
-    --grid-columns: 5;
-    --cell-padding: 0px;
+    --grid-columns: 6;
 
     --width: var(--max-width);
     width: var(--width);
@@ -63,10 +66,7 @@
     height: var(--column-width);
     overflow: hidden;
     z-index: 2;
-    grid-row: var(400);
-    grid-column: var(200);
     display: block;
-    padding: var(--cell-padding);
 }
 
 .grid-item-mw {
@@ -74,14 +74,56 @@
     height: var(--column-width);
     overflow: hidden;
     z-index: 2;
-    margin-bottom: var(--guide-width);
-    margin-right: var(--guide-width);
-    grid-row: var(400);
-    grid-column: var(200);
     display: block;
-    padding: var(--cell-padding);
 }
 
+.grid-item-devider-area {
+    height: 70px;
+    width: 100%;
+    border-right: 1px solid var(--stroke--black);
+    border-left: 1px solid var(--stroke--black);
+}
+
+.grid-section-title {
+    position: absolute;
+    margin-left: 100px;
+    margin-top: 0;
+}
+
+
+/* Bottom grid */
+.grid-large {
+    height: 400px;
+    width: 100%;
+    display: grid;
+    position: relative;
+    border: 1px solid var(--stroke--black);
+    grid-template-columns: 2fr 4fr;
+}
+
+.grid-item-large-left {
+    display: block;
+    height: 100%;
+}
+
+
+.grid-item-large-right {
+    display: block;
+    height: 100%;
+}
+
+
+@media (max-width: 600px) {
+    .grid {
+        --grid-rows: 4;
+        --grid-columns: 3;
+    }
+
+    .grid-large {
+        grid-template-columns: auto;
+        grid-template-rows: 2fr 5fr;
+    }
+}
 
 /* Guides */
 
@@ -91,7 +133,19 @@
 }
 
 
-.grid-cell-section::before {
+
+.grid::before {
+    content: "+";
+    font-weight: 200;
+    top: -19.5px;
+    left: -8.5px;
+    font-size: 26px;
+    color: var(--spacero--gray);
+    position: absolute;
+    z-index: 3;
+}
+
+.grid-large::before {
     content: "+";
     font-weight: 200;
     top: -19.5px;
@@ -114,4 +168,30 @@
 
 .grid-cell-last {
     border-bottom: 1px solid var(--stroke--black);
+}
+
+
+.grid-section-title p {
+    z-index: 3;
+    color: var(--aluminor--gray);
+}
+
+.grid-section-title p span {
+    color: var(--velaro--text);
+}
+
+
+/* About section containers */
+
+.red {
+    background-color: red;
+    height: 100%;
+    width: 100%;
+}
+
+.green {
+    height: 100%;
+    width: 100%;
+    background-color: green;
+
 }

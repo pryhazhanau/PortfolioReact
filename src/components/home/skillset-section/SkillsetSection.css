@@ -4,10 +4,10 @@
 
 div.skill-box {
     display: flex;
+    flex-wrap: nowrap;
     justify-content: space-between;
     margin-top: 58px;
     padding: 28px 44px 28px 44px;
-    height: 180px;
     gap: 32px;
 }
 

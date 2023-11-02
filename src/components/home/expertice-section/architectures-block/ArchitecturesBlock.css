@@ -1,0 +1,33 @@
+.architectures-block-wrapper {
+    width: 100%;
+    height: 100%;
+}
+.architecture-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 100%;
+}
+.architecture-col {
+    display: flex;
+    flex-direction: column;
+    padding: 64px 24px 0 24px;
+    border-right: 1px solid var(--stroke--black);
+}
+
+.architecture-col p {
+}
+
+.architecture-title {
+    color: var(--aluminor--gray);
+    text-align: center;
+    margin: 0;
+}
+
+span.hightlight {
+    font-weight: var(--);
+}
+
+span.link {
+
+}
+
