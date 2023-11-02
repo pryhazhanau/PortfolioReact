@@ -1,0 +1,66 @@
+.feedback-card-container {
+    --card-width: 300px;
+    --card-height: 400px;
+
+    min-width: var(--card-width);
+
+    display: flex;
+    justify-content: center;
+    --card-gradient: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.05),
+        rgba(255, 255, 255, 0.03)
+    );
+
+    background: var(--card-gradient);
+    width: var(--card-width);
+    height: var(--card-height);
+}
+
+.feedback-card-wrapper {
+    padding: 16px 16px 16px 16px;
+}
+
+.feedback-card-image {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+    opacity: 0.5;
+}
+.feedback-card-image img {
+    width: 120px;
+    height: 120px;
+    object-fit: scale-down;
+    background-color: black;
+    border-radius: 999rem;
+}
+
+
+.feedback-card-quote {
+    margin-bottom: 16px;
+}
+
+.feedback-card-quote p {
+    color: var(--spacero--gray);
+    text-align: center;
+}
+
+.feedback-card-name p {
+    color: var(--velaro--text);
+    text-align: center;
+    opacity: 10;
+}
+
+.quotes-background {
+    position: absolute;
+    width: calc(var(--card-width));
+    height: var(--card-height);
+    opacity: 0.05;
+}
+
+.quotes-background img {
+    position: absolute;
+    width: calc(var(--card-width) * 0.7);
+    bottom: 0;
+    right: 0;
+}
