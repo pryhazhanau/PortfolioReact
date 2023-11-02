@@ -1,0 +1,20 @@
+.bubble-button {
+    padding: 4px 24px;
+    color: var(--aluminor--gray);
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.1s;
+    background: var(--background--secondary);
+    border-radius: 999rem;
+    transition: all 0.2s;
+    border: none;
+}
+
+.bubble-button:hover {
+    background: var(--velaro--accent);
+    color: var(--background--primary);
+}
+
+.bubble-button:active {
+    scale: 0.9;
+}
