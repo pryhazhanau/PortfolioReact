@@ -1,5 +1,5 @@
 import "./AboutSection.css";
-import "../Home.css";
+import "../HomePage.css";
 import "../../../common/css/div-layout.css";
 import Photo from "../../../assets/about-photo.png";
 

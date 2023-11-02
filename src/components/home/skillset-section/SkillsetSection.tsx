@@ -1,5 +1,5 @@
 import "./SkillsetSection.css";
-import "../Home.css";
+import "../HomePage.css";
 import "../../../common/css/div-layout.css";
 import SkillProgress from "../../common/skill-progress/SkillProgress";
 

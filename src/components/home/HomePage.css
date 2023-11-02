@@ -1,0 +1,18 @@
+.section-title {
+    color: var(--aluminor--gray);
+    text-align: center;
+}
+
+.thanks-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    width: 100%;
+}
+
+.thanks-section h1 {
+    color: var(--aluminor--gray);
+}
+

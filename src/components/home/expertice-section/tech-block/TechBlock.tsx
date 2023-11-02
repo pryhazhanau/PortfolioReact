@@ -1,5 +1,5 @@
 import { ReactSVG } from "react-svg";
-import React, { useState } from "react";
+import React from "react";
 import "./TechBlock.css";
 
 interface TechBlockProps {

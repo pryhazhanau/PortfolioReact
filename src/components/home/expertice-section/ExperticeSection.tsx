@@ -1,5 +1,5 @@
 import "./ExperticeSection.css";
-import "../Home.css";
+import "../HomePage.css";
 import "../../../common/css/div-layout.css";
 import TechBlock from "./tech-block/TechBlock";
 import { useState } from "react";
