@@ -1,6 +1,6 @@
 .action-button {
     padding: 10px 38px;
-    color: black !important;
+    color: black;
     text-decoration: none;
     cursor: pointer;
     transition: transform 0.1s;
