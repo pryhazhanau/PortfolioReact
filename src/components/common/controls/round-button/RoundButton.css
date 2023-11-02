@@ -1,0 +1,39 @@
+.grid-button-active {
+    padding: 8px 14px;
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.1s;
+    background: var(--aluminor--gray);
+    border-radius: 999rem;
+    transition: scale 0.1s;
+    border: none;
+}
+
+.grid-button {
+    padding: 8px 14px;
+    color: var(--spacero--gray);
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.1s;
+    border: none;
+    background: transparent;
+    border: 1px solid var(--stroke--black);
+    border-radius: 999rem;
+    transition: scale 0.1s;
+    transition: border 0.5s;
+
+}
+
+.grid-button:hover {
+    border: 1px solid var(--spacero--gray)
+}
+
+
+.grid-button-active:active {
+    scale: 0.94;
+}
+
+.grid-button:active {
+    scale: 0.97;
+}
