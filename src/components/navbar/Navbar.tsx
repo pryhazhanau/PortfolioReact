@@ -44,7 +44,7 @@ function Navbar() {
                   Portfolio
                 </a>
               </div>
-              <ActionButton label="CV" onClick={onClick} />
+              <ActionButton className="cv-button" label="CV" onClick={onClick} />
         </div>
       </div>
     </nav>
