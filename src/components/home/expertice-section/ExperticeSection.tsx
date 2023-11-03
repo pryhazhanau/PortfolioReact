@@ -3,8 +3,8 @@ import "../HomePage.css";
 import "../../../common/css/div-layout.css";
 import TechBlock from "./tech-block/TechBlock";
 import { useState } from "react";
-
 import GridButtonsBlock from "./buttons-block/GridButtonsBlock";
+import FadeInOutBox from "../../common/animation/FadeInOutBox";
 
 function ExperticeSection() {
   var initialText: string = "Utilized key technoligies I use";
@@ -22,13 +22,13 @@ function ExperticeSection() {
   };
 
   const openLink = (url: string) => {
-    window.open(url, '_blank');
+    window.open(url, "_blank");
   };
 
   const selectSection = (id: number, name: string, postfix: string) => {
     setSectionId(id);
     setSectionName(name.toLowerCase());
-    setTitlePostfix(postfix)
+    setTitlePostfix(postfix);
   };
 
   const topTechItems = techList.slice(0, 4);
@@ -50,11 +50,11 @@ function ExperticeSection() {
               {topTechItems.map((item) => (
                 <div key={item.id} className="grid-item-sw grid-cell-middle">
                   <TechBlock
-                  name={item.name}
-                  imgSrc={item.img}
+                    name={item.name}
+                    imgSrc={item.img}
                     onMouseEnter={(tech) => handleMouseEnter(tech)}
                     onMouseLeave={() => handleMouseLeave()}
-                    onClick={ () => openLink(item.url) }
+                    onClick={() => openLink(item.url)}
                   />
                 </div>
               ))}
@@ -62,51 +62,48 @@ function ExperticeSection() {
               {bottomTechItems.map((item) => (
                 <div key={item.id} className="grid-item-sw grid-cell-last-row">
                   <TechBlock
-                  name={item.name}
-                  imgSrc={item.img}
+                    name={item.name}
+                    imgSrc={item.img}
                     onMouseEnter={(tech) => handleMouseEnter(tech)}
                     onMouseLeave={() => handleMouseLeave()}
-                    onClick={ () => openLink(item.url) }
+                    onClick={() => openLink(item.url)}
                   />
                 </div>
               ))}
               <div className="grid-item-sw grid-cell-last-row"></div>
               <div className="grid-item-sw grid-cell-last-row"></div>
             </div>
-              <div className="grid-item-devider-area"></div>
-              <div className="grid-large">
-                <div className="grid-section-title">
-                    <p className="subtitle-primary">More about <span>{sectionName}</span> {titlePostfix}</p>
-                </div>
-                <div className="grid-item-large-left grid-cell-section">
-                    <GridButtonsBlock onSelectSection={(id, name, postfix) => {selectSection(id, name, postfix)}}/>
-                </div>
-                <div className="grid-item-large-right">
-                    {
-                        sectionId === 0 &&
-                        <ArchitecturesBlock/>
-                    }
-                    {                     
-                       sectionId === 1 &&
-                        <FrameworksBlock/>
-                    }
-                    {                     
-                       sectionId === 3 &&
-                        <div/>
-                    }
-                    {                     
-                       sectionId === 4 &&
-                       <div/>
-                    }
-                </div>
+            <div className="grid-item-devider-area"></div>
+            <div className="grid-large">
+              <div className="grid-section-title">
+                <p className="subtitle-primary">
+                  More about <span>{sectionName}</span> {titlePostfix}
+                </p>
               </div>
+              <div className="grid-item-large-left grid-cell-section">
+                <GridButtonsBlock
+                  onSelectSection={(id, name, postfix) => {
+                    selectSection(id, name, postfix);
+                  }}
+                />
+              </div>
+              <div className="grid-item-large-right">
+                  <FadeInOutBox visible={sectionId === 0}>
+                    <ArchitecturesBlock />
+                  </FadeInOutBox>
+                  <FadeInOutBox visible={sectionId === 1}>
+                    <FrameworksBlock />
+                  </FadeInOutBox>
+                {sectionId === 3 && null}
+                {sectionId === 4 && null}
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </>
   );
 }
-
 
 import Xcode from "../../../assets/technology/Xcode.svg";
 import TestFlight from "../../../assets/technology/TestFlight.svg";
@@ -119,16 +116,15 @@ import Firebase from "../../../assets/technology/Firebase.svg";
 import ArchitecturesBlock from "./architectures-block/ArchitecturesBlock";
 import FrameworksBlock from "./frameworks-block/FrameworksBlock";
 
-
 const techList = [
-  { id: 0, name: "Swift", url: "#", img: Swift},
-  { id: 1, name: "Test Flight", url: "#", img: TestFlight},
-  { id: 2, name: "Xcode", url: "#", img: Xcode},
-  { id: 3, name: "Figma", url: "#", img: Figma},
-  { id: 4, name: "Github", url: "#", img: Github},
-  { id: 5, name: "Bitrise", url: "#", img: Bitrise},
-  { id: 6, name: "Fastlane", url: "#", img: Fastlane},
-  { id: 6, name: "Firebase", url: "#", img: Firebase}
+  { id: 0, name: "Swift", url: "#", img: Swift },
+  { id: 1, name: "Test Flight", url: "#", img: TestFlight },
+  { id: 2, name: "Xcode", url: "#", img: Xcode },
+  { id: 3, name: "Figma", url: "#", img: Figma },
+  { id: 4, name: "Github", url: "#", img: Github },
+  { id: 5, name: "Bitrise", url: "#", img: Bitrise },
+  { id: 6, name: "Fastlane", url: "#", img: Fastlane },
+  { id: 6, name: "Firebase", url: "#", img: Firebase },
 ];
 
 export default ExperticeSection;

@@ -1,3 +1,4 @@
+import Footer from "../footer/Footer";
 import "./MasterContainer.css";
 import { ReactNode, FC } from "react";
 
@@ -7,9 +8,12 @@ interface MasterContainerProps {
 
 const MasterContainer: FC<MasterContainerProps> = ({children}) => {
   return (
+    <>
     <div className="master-container">
       {children}
     </div>
+    <Footer/>
+    </>
   );
 }
 

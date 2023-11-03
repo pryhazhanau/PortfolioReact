@@ -14,9 +14,6 @@ const FeedbackCard: FC<CardProps> = ({ img, body, description }) => {
   return (
     <>
       <div className="feedback-card-container">
-        <div className="quotes-background">
-            <img src={Quotes}></img>
-        </div>
         <div className="feedback-card-wrapper">
           <div className="feedback-card-image">
             <img src={img} />
@@ -27,6 +24,9 @@ const FeedbackCard: FC<CardProps> = ({ img, body, description }) => {
           <div className="feedback-card-name">
             <p className="body-text-bold">{description}</p>
           </div>
+        </div>
+        <div className="quotes-background">
+            <img src={Quotes}></img>
         </div>
       </div>
     </>

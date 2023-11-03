@@ -18,7 +18,7 @@ function HeadlineSection() {
               </h1>
               <div className="headline-subtitle-block">
                 <div className="horizontal-line-subtitle" />
-                <h1 className="title-secondary">I’m Uladzimir Pryhazhanau</h1>
+                <h1 className="title-secondary">I'm Uladzimir Pryhazhanau</h1>
               </div>
             </div>
             <div className="position-description-block">

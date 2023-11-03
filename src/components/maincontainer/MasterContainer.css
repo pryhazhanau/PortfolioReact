@@ -1,9 +1,17 @@
 div.master-container {
     padding-top: 200px;
-    padding-left: 130px;
-    padding-right: 130px;
-    padding-bottom: 200px;
+    padding-left: 400px;
+    padding-right: 400px;
     background-color: var(--background--primary);
+}
+
+@media (max-width: 1800px) {
+    div.master-container {
+        padding-top: 200px;
+        padding-left: 130px;
+        padding-right: 130px;
+        background-color: var(--background--primary);
+    }
 }
 
 @media (max-width: 800px) {
