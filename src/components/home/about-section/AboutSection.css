@@ -1,5 +1,8 @@
+.about-container {
+    
+}
+
 div.about-content-container {
-    padding: 0 100px 0px 100px;
 }
 
 
@@ -19,7 +22,7 @@ div.about-flex-container {
     gap: 50px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1200px) {
     div.about-flex-container {
       flex-direction: column;
     }
