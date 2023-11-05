@@ -6,15 +6,14 @@ interface MasterContainerProps {
   children: ReactNode;
 }
 
-const MasterContainer: FC<MasterContainerProps> = ({children}) => {
+const MasterContainer: FC<MasterContainerProps> = ({ children }) => {
   return (
     <>
-    <div className="master-container">
-      {children}
-    </div>
-    <Footer/>
+      <div className="master-container">
+        <div className="master-wrapper">{children}</div>
+      </div>
     </>
   );
-}
+};
 
 export default MasterContainer;
