@@ -1,9 +1,9 @@
 import "./Socials.css";
 
-import instImg from "../../assets/socials/instagram.svg";
-import linkedInImg from "../../assets/socials/linkedin.svg";
-import telegramImg from "../../assets/socials/telegram.svg";
-import githubImg from "../../assets/socials/github.svg";
+import instImg from "../../assets/icons/instagram.svg";
+import linkedInImg from "../../assets/icons/linkedin.svg";
+import telegramImg from "../../assets/icons/telegram.svg";
+import githubImg from "../../assets/icons/github.svg";
 import { ReactSVG } from "react-svg";
 
 function Socials() {
