@@ -38,7 +38,7 @@ const frameworksList = [
     { id: 14, name: "CocoaAsyncSocket" },
     { id: 15, name: "FBSnapShotTestCases" },
     { id: 16, name: "Firebase" },
-    { id: 16, name: "Tuist" },
+    { id: 17, name: "Tuist" },
 ]
 
 export default FrameworksBlock;
