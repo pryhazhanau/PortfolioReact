@@ -31,3 +31,11 @@
   background-size: 500% auto;
   animation: textShine 2s linear infinite;
   }
+
+  .gradient-section-background {
+    --geist-background-rgb: 0, 0, 0;
+    --gradient-start-color: 125, 232, 240;
+    --gradient-end-color: 48, 246, 130;
+    --gradient-alpha: 0.15;
+    background: linear-gradient(180deg, rgba(var(--geist-background-rgb), 255) 0, rgba(var(--geist-background-rgb), 0) 100%), linear-gradient(90deg, rgba(var(--gradient-start-color), var(--gradient-alpha)) 0, rgba(var(--gradient-end-color), var(--gradient-alpha)) 100%)
+  }

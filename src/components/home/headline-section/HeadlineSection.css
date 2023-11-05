@@ -1,25 +1,56 @@
 .headline-container {
+    --padding-top: 0px;
+    --margin-left: 10vw;
+    --title-font-size: 300px;
+    --subtitle-font-size: 60px;
+    --subtitle-margin-top: -50px;
+
+    
+    padding: calc(var(--navbar-height) + var(--padding-top)) 0 0 0;
     display: flex;
     flex-direction: column;
+    align-items: start;
+    justify-content: center;
     gap: 64px;
-    height: 700px;
     cursor: default;
+    height: 100vh;
+}
+
+@media (max-width: 1900px) {
+    .headline-container {
+        --title-font-size: 130px;
+        --subtitle-margin-top: -25px;
+        --subtitle-font-size: 30px;
+    }
+}
+
+@media (max-width: 800px) {
+    .headline-container {
+        --title-font-size: 90px;
+        --subtitle-margin-top: -10px;
+        --subtitle-font-size: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .headline-container {
+        --title-font-size: 50px;
+        --subtitle-font-size: 15px;
+    }
 }
 
 .headline-title {
     color: var(--aluminor--gray);
-    padding: 0;
-    margin: 0;
-    line-height: 120px;
-    font-size: 130px;
+    line-height: 12px;
+    font-size: var(--title-font-size);
 }
 
 .colored-dot {
     color: var(--velaro--text);
-  }
+}
 
-.title-secondary {
-    font-size: 30px;
+.headline-subtitle {
+    font-size: var(--subtitle-font-size);
     color: var(--aluminor--gray);
     font-weight: 500;
 }
@@ -27,33 +58,28 @@
 .headline-subtitle-block {
     display: flex;
     align-items: center;
-    gap: 34px
+    gap: 34px;
+    margin-top: var(--subtitle-margin-top);
 }
 
 .horizontal-line-subtitle {
     background-color: var(--velaro--accent);
-    height: 2px;
-    width: 160px;
+    height: 0.15vw;
+    width: 10vw;
 }
 
 .subtitle-description {
     color: var(--velaro--text);
+    margin-left: var(--margin-left);
 }
 
-div.main-title-block {
-    display: inline;
-    justify-content: center;
-    align-items: center;
+.main-title-block {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin-left: var(--margin-left);
 }
 
-@media (max-width: 800px) {
-    .headline-title {
-        font-size: 90px;
-    }
-}
-
-@media (max-width: 800px) {
-    .title-secondary {
-        font-size: 20px;
-    }
+.action-button-wrapper {
+    margin-left: var(--margin-left);
 }

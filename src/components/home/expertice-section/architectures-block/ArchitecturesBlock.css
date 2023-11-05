@@ -1,20 +1,26 @@
 .architectures-block-wrapper {
-    width: 100%;
-    height: 100%;
+    display: flex;
 }
 .architecture-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     height: 100%;
 }
+
+@media (max-width: 1000px) {
+    .architecture-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.architecture-col-wrapper {
+    border-right: 1px solid var(--stroke--black);
+}
+
 .architecture-col {
     display: flex;
     flex-direction: column;
     padding: 64px 24px 0 24px;
-    border-right: 1px solid var(--stroke--black);
-}
-
-.architecture-col p {
 }
 
 .architecture-title {
@@ -23,11 +29,14 @@
     margin: 0;
 }
 
-span.hightlight {
-    font-weight: var(--);
+
+@media (max-width: 1000px) {
+    .architecture-col-wrapper {
+        border-right: 0px;
+        border-bottom: 1px solid var(--stroke--black);
+    }
+
+    .architecture-col {
+        padding: 24px 46px 24px 46px;
+    }
 }
-
-span.link {
-
-}
-

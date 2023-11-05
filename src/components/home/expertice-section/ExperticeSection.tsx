@@ -5,6 +5,10 @@ import TechBlock from "./tech-block/TechBlock";
 import { useState } from "react";
 import GridButtonsBlock from "./buttons-block/GridButtonsBlock";
 import FadeInOutBox from "../../common/animation/FadeInOutBox";
+import AnimatedTextCommon from "../../common/animation/AnimatedTextCommon";
+import AnimatedTitle from "../../common/animation/AnimatedTextCommon";
+import ArchitecturesBlock from "./architectures-block/ArchitecturesBlock";
+import FrameworksBlock from "./frameworks-block/FrameworksBlock";
 
 function ExperticeSection() {
   var initialText: string = "Utilized key technoligies I use";
@@ -43,7 +47,9 @@ function ExperticeSection() {
             <div className="grid">
               <div className="grid-item-mw grid-cell-section">
                 <div className="title-tech-stack-block">
-                  <p className="subtitle-primary">{text}</p>
+                  <AnimatedTextCommon animKey={text}>
+                    <p className="subtitle-primary">{text}</p>
+                  </AnimatedTextCommon>
                 </div>
               </div>
               <div className="grid-item-sw grid-cell-middle"></div>
@@ -76,11 +82,14 @@ function ExperticeSection() {
             <div className="grid-item-devider-area"></div>
             <div className="grid-large">
               <div className="grid-section-title">
+                  <AnimatedTextCommon animKey={`${sectionId}`}>
                 <p className="subtitle-primary">
-                  More about <span>{sectionName}</span> {titlePostfix}
+                  More about{" "}
+                    <span>{sectionName}</span> {titlePostfix}
                 </p>
+                  </AnimatedTextCommon>
               </div>
-              <div className="grid-item-large-left grid-cell-section">
+              <div className="grid-item-large-left grid-cell-section-large">
                 <GridButtonsBlock
                   onSelectSection={(id, name, postfix) => {
                     selectSection(id, name, postfix);
@@ -88,7 +97,7 @@ function ExperticeSection() {
                 />
               </div>
               <div className="grid-item-large-right">
-                  <FadeInOutBox visible={sectionId === 0}>
+                  <FadeInOutBox visible={sectionId === 0} className="grid-item-animation-wrapper">
                     <ArchitecturesBlock />
                   </FadeInOutBox>
                   <FadeInOutBox visible={sectionId === 1}>
@@ -113,8 +122,6 @@ import Bitrise from "../../../assets/technology/Bitrise.svg";
 import Fastlane from "../../../assets/technology/Fastlane.svg";
 import Swift from "../../../assets/technology/Swift.svg";
 import Firebase from "../../../assets/technology/Firebase.svg";
-import ArchitecturesBlock from "./architectures-block/ArchitecturesBlock";
-import FrameworksBlock from "./frameworks-block/FrameworksBlock";
 
 const techList = [
   { id: 0, name: "Swift", url: "#", img: Swift },
@@ -124,7 +131,7 @@ const techList = [
   { id: 4, name: "Github", url: "#", img: Github },
   { id: 5, name: "Bitrise", url: "#", img: Bitrise },
   { id: 6, name: "Fastlane", url: "#", img: Fastlane },
-  { id: 6, name: "Firebase", url: "#", img: Firebase },
+  { id: 7, name: "Firebase", url: "#", img: Firebase },
 ];
 
 export default ExperticeSection;

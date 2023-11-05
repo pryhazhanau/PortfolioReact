@@ -5,13 +5,20 @@
 
 .thanks-section {
     display: flex;
+    align-items: end;
+    height: 70vh;
+    width: 100%;
+}
+
+.thanks-section-wrapper {
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 70vh;
+    width: 100%;
+    height: 70%;
 }
 
 .thanks-section h1 {
     color: var(--aluminor--gray);
 }
-

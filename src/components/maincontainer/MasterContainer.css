@@ -1,24 +1,27 @@
 div.master-container {
-    padding-top: 200px;
-    padding-left: 400px;
-    padding-right: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     background-color: var(--background--primary);
 }
 
+div.master-wrapper {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    --master-container-max-width: 1200px;
+    max-width: var(--master-container-max-width);
+}
+
 @media (max-width: 1800px) {
-    div.master-container {
-        padding-top: 200px;
-        padding-left: 130px;
-        padding-right: 130px;
-        background-color: var(--background--primary);
+    div.master-wrapper {
+        --master-container-max-width: 70vw;
     }
 }
 
-@media (max-width: 800px) {
-    div.master-container {
-        padding-top: 100px;
-        padding-left: 20px;
-        padding-right: 20px;
-        padding-bottom: 20px;
+@media (max-width: 400px) {
+    div.master-wrapper {
+        --master-container-max-width: 90vw;
     }
 }

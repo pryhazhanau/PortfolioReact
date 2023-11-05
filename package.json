@@ -19,7 +19,8 @@
     "react-move": "^6.5.0",
     "react-pdf": "^7.5.1",
     "react-router-dom": "^6.17.0",
-    "react-svg": "^16.1.29"
+    "react-svg": "^16.1.29",
+    "styled-components": "^6.1.0"
   },
   "devDependencies": {
     "@types/d3-ease": "^3.0.1",

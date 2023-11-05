@@ -1,0 +1,33 @@
+.image-link-element {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    --icon-width: 20px;
+    --icon-height: 20px;
+}
+
+
+.footer-link-body a {
+    text-decoration: none;
+    color: var(--spacero--gray);
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.image-link-element .svg-container {
+    height: var(--icon-height);
+}
+
+.image-link-element .svg-container div {
+    height: var(--icon-height);
+}
+
+.image-link-element svg {
+    width: var(--icon-width);
+    height: var(--icon-height);
+}
+
+.image-link-element svg * {
+    fill: var(--velaro--accent);
+}

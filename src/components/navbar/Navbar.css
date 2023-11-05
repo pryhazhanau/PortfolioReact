@@ -6,7 +6,7 @@ nav {
 
 .container {
   background-color: var(--background--primary);
-  height: 70px;
+  height: var(--navbar-height);
   padding-left: 130px;
   padding-right: 130px;
   display: flex;
