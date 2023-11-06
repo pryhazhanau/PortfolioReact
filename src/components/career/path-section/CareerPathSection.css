@@ -1,0 +1,33 @@
+.career-path-section {
+    margin-top: var(--navbar-height);
+    display: flex;
+    position: relative;
+    margin-bottom: 200px;
+}
+
+.career-path-grid {
+    display: grid;
+    grid-template-columns: 5fr 1fr 5fr;
+    gap: 20px;
+}
+
+.timeline-progress-container {
+    display: "flex";
+}
+
+.timeline-progress {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+.career-left-col {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.career-right-col {
+    display: flex;
+    flex-direction: column;
+}
