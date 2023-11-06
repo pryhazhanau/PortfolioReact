@@ -1,0 +1,40 @@
+.year-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.career-item-container {
+    display: flex;
+    gap: 26px;
+}
+
+.career-item-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.career-item-img img {
+    width: 64px;
+    height: 64px;
+}
+
+.career-item-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.career-item-container p {
+    text-align: justify;
+}
+
+.year-headline-container{
+    display: flex;
+}
+
+.year-headline-container p {
+    color: var(--velaro--accent);
+}
