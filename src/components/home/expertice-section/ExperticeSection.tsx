@@ -6,7 +6,6 @@ import { useState } from "react";
 import GridButtonsBlock from "./buttons-block/GridButtonsBlock";
 import FadeInOutBox from "../../common/animation/FadeInOutBox";
 import AnimatedTextCommon from "../../common/animation/AnimatedTextCommon";
-import AnimatedTitle from "../../common/animation/AnimatedTextCommon";
 import ArchitecturesBlock from "./architectures-block/ArchitecturesBlock";
 import FrameworksBlock from "./frameworks-block/FrameworksBlock";
 

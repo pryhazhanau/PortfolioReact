@@ -1,4 +1,3 @@
-import Footer from "../footer/Footer";
 import "./MasterContainer.css";
 import { ReactNode, FC } from "react";
 

@@ -14,10 +14,6 @@ function Footer() {
     window.open("https://vercel.com", "_blank");
   }
 
-  function openMail() {
-    window.location.href = `${Constants.contact.email.link}`
-  }
-
   return (
     <footer>
       <div className="footer-top-container-wrapper"></div>

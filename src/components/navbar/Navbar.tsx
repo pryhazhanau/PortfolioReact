@@ -15,7 +15,9 @@ function Navbar() {
     }
   };
 
-  const onClick = () => {};
+  const onClick = () => {
+    window.open(cvFile, "_blank")
+  };
 
   window.addEventListener("scroll", handleScroll);
 
@@ -35,7 +37,7 @@ function Navbar() {
                 </a>
               </div>
               <div className="menu-item-container">
-                <a className="menu-item gradient-hover body-text" href="/portfolio">
+                <a className="menu-item gradient-hover body-text" href="/career">
                   Career
                 </a>
               </div>
