@@ -11,7 +11,7 @@ div.about-content-container {
 }
 
 .about-flex-container img {
-    max-width: 100%;
+    width: 40%
 }
 
 
@@ -26,6 +26,11 @@ div.about-flex-container {
     div.about-flex-container {
       flex-direction: column;
     }
+
+
+    .about-flex-container img {
+        width: 60%;
+    }
 }
 
 @media (max-width: 800px) {
@@ -35,10 +40,6 @@ div.about-flex-container {
 
     .about-flex-container h1 {
         min-width: 150px;
-    }
-
-    .about-flex-container img {
-        max-width: 70%;
     }
     
 }
