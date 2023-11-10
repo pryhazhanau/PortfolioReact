@@ -4,6 +4,8 @@ const Constants = {
     email: { display: "vprigozhanov@gmail.com", link: "mailto:vprigozhanov@gmail.com?subject=Hello, Uladzimir" },
     linkedIn: { display: "in/prigozhanov", link: "https://www.linkedin.com/in/prigozhanov" },
     telegram: { display: "@prigozhanov", link: "t.me/prigozhanov" },
+    github: { display: "GitHub", link: "https://github.com/Prigozhanov" },
+    instagram: { display: "Instagram", link: "https://www.instagram.com/prigozhanov" }
   },
 };
 
