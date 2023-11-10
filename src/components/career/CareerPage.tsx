@@ -8,6 +8,7 @@ function CareerPage() {
   return (
     <>
     <MainContainer>
+        <p className="headline-aluminor page-title">Career</p>
         <CareerPathSection/>
     </MainContainer>
     <Footer/>

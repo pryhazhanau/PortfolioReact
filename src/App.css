@@ -5,3 +5,8 @@
 .app-overflow-visible {
     overflow: visible;
 }
+
+.page-title {
+    margin-top: calc(var(--navbar-height) + 100px);
+    text-align: center;
+}

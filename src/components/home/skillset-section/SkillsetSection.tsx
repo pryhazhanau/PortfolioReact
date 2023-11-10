@@ -8,7 +8,7 @@ function SkillsetSection() {
     <>
       <div className="skillset-container">
         <h1 className="headline section-title">Skillset</h1>
-        <p className="body-text-spacero">
+        <p className="body-text-spacero skill-set-desc">
         Throughout my IT career, I've cultivated a versatile skillset that encompasses core competencies crucial to the field. These skills, refined through years of experience, form the bedrock of my professional journey.
         </p>
         <div className="skill-box">

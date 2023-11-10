@@ -1,4 +1,7 @@
 .skillset-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 100px 0 0 0;
 }
 
@@ -9,6 +12,11 @@ div.skill-box {
     margin-top: 58px;
     padding: 28px 44px 28px 44px;
     gap: 32px;
+}
+
+.skill-set-desc {
+    max-width: 400px;
+    text-align: center;
 }
 
 

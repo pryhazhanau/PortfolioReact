@@ -123,14 +123,14 @@ import Swift from "../../../assets/technology/Swift.svg";
 import Firebase from "../../../assets/technology/Firebase.svg";
 
 const techList = [
-  { id: 0, name: "Swift", url: "#", img: Swift },
-  { id: 1, name: "Test Flight", url: "#", img: TestFlight },
-  { id: 2, name: "Xcode", url: "#", img: Xcode },
-  { id: 3, name: "Figma", url: "#", img: Figma },
-  { id: 4, name: "Github", url: "#", img: Github },
-  { id: 5, name: "Bitrise", url: "#", img: Bitrise },
-  { id: 6, name: "Fastlane", url: "#", img: Fastlane },
-  { id: 7, name: "Firebase", url: "#", img: Firebase },
+  { id: 0, name: "Swift", url: "https://developer.apple.com/swift", img: Swift },
+  { id: 1, name: "Test Flight", url: "https://developer.apple.com/testflight", img: TestFlight },
+  { id: 2, name: "Xcode", url: "https://developer.apple.com/xcode", img: Xcode },
+  { id: 3, name: "Figma", url: "https://www.figma.com", img: Figma },
+  { id: 4, name: "Github", url: "https://github.com", img: Github },
+  { id: 5, name: "Bitrise", url: "https://bitrise.io", img: Bitrise },
+  { id: 6, name: "Fastlane", url: "https://fastlane.tools", img: Fastlane },
+  { id: 7, name: "Firebase", url: "https://firebase.google.com", img: Firebase },
 ];
 
 export default ExperticeSection;
