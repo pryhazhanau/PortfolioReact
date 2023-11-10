@@ -128,6 +128,7 @@ body {
   font-size: var(--body);
   font-weight: 400;
   color: var(--aluminor--gray);
+  line-height: calc(var(--body) * 1.5);
 }
 
 .body-text-spacero {
@@ -135,6 +136,7 @@ body {
   font-size: var(--body);
   font-weight: 400;
   color: var(--spacero--gray);
+  line-height: calc(var(--body) * 1.5);
 }
 
 
@@ -143,6 +145,7 @@ body {
   font-size: var(--body);
   font-weight: 600;
   color: var(--aluminor--gray);
+  line-height: calc(var(--body) * 1.5);
 }
 
 .body-bold-spacero {
@@ -150,6 +153,7 @@ body {
   font-size: var(--body);
   font-weight: 600;
   color: var(--spacero--gray);
+  line-height: calc(var(--body) * 1.5);
 }
 
 .subtitle-primary-aluminor {
