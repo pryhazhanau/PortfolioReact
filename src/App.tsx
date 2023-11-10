@@ -9,9 +9,13 @@ import CareerPage from './components/career/CareerPage.tsx'
 import NotFoundPage from './components/error/NotFoundPage.tsx'
 
 function App() {
+  const setOverflowVisible = (visible: boolean) => {
+    document.body.style.overflow = visible ? 'visible' : 'hidden';
+  }
+  
   return (
-    <>
-        <Navbar/>
+    <div className="app-overflow-visible">
+        <Navbar menuVisibilityChanged={(visible) => {setOverflowVisible(visible)}}/>
         <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage/>}/>
@@ -22,7 +26,7 @@ function App() {
         </Routes>
         </BrowserRouter>
       <Socials />
-    </>
+    </div>
   )
 }
 
