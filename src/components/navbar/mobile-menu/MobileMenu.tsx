@@ -1,7 +1,9 @@
 import { FC, useState } from "react";
+import { useLocation } from "react-router-dom";
 import "./MobileMenu.css";
 import { ReactSVG } from "react-svg";
 import { AnimatePresence, motion } from "framer-motion";
+import AnimationConstants from "../../common/animation/AnimationConstants"
 
 import Constants from "../../../common/ConstantsObj";
 import instImg from "../../../assets/icons/instagram.svg";
@@ -9,6 +11,7 @@ import linkedInImg from "../../../assets/icons/linkedin.svg";
 import telegramImg from "../../../assets/icons/telegram.svg";
 import githubImg from "../../../assets/icons/github.svg";
 import emailImg from "../../../assets/icons/mail.svg";
+import MobileMenuItem from "./MobileMenuItem";
 
 interface MobileMenuProps {
   menuVisibilityChanged: (visible: boolean) => void;
@@ -22,6 +25,8 @@ const MobileMenu: FC<MobileMenuProps> = ({ menuVisibilityChanged }) => {
     menuVisibilityChanged(isMenuOpen);
   };
 
+  const currentPath = location.pathname;
+
   return (
     <div className="menu-mobile-button-container">
       <div
@@ -29,7 +34,6 @@ const MobileMenu: FC<MobileMenuProps> = ({ menuVisibilityChanged }) => {
         className={isMenuOpen ? "open" : ""}
         onClick={toggleMenu}
       >
-        <span></span>
         <span></span>
         <span></span>
       </div>
@@ -41,20 +45,13 @@ const MobileMenu: FC<MobileMenuProps> = ({ menuVisibilityChanged }) => {
               key={"mobileMenuOpen"}
               exit={{ opacity: 0, translateY: -200 }}
               initial={variants.hidden}
-              animate={ variants.flip }
-              transition={{ duration: 0.3 }}
+              animate={ variants.visible }
               variants={variants}
             >
                 <div className="menu-mobile-items">
-                  <a href="/">
-                    <p className="subtitle-primary-aluminor">Home</p>
-                  </a>
-                  <a href="/career">
-                    <p className="subtitle-primary-aluminor">Career</p>
-                  </a>
-                  <a href="/portfolio">
-                    <p className="subtitle-primary-aluminor">Portfolio</p>
-                  </a>
+                  <MobileMenuItem link="/" text="Home" delayAnimation={0} isSelected={currentPath === '/'}/>
+                  <MobileMenuItem link="/career" text="Career" delayAnimation={0} isSelected={currentPath === '/career'}/>
+                  <MobileMenuItem link="/portfolio" text="Portfolio" delayAnimation={0} isSelected={currentPath === '/portfolio'}/>
                 </div>
 
                 <div className="menu-mobile-social-icons-wrapper">
@@ -104,16 +101,14 @@ const MobileMenu: FC<MobileMenuProps> = ({ menuVisibilityChanged }) => {
   );
 };
 
-const duration = 0.7
-const easeEase = [.11,.94,.14,1.01]
 const variants = {
-  flip: {
+  visible: {
     y: 0,
     opacity: 1,
     transition: {
       y: {
-        ease: easeEase,
-        duration: duration
+        ease: AnimationConstants.cubic.easeEase,
+        duration: AnimationConstants.duration.standard
       }
     }
   },
@@ -122,8 +117,8 @@ const variants = {
     y: -200,
     transition: {
       y: {
-        ease: easeEase,
-        duration: duration
+        ease: AnimationConstants.cubic.easeEase,
+        duration: AnimationConstants.duration.standard
       }
     }
   }
