@@ -23,7 +23,7 @@ function ArchitecturesBlock() {
                 >
                   framework
                 </a>{" "}
-                designed and developed by our team.
+                which was developed by our team.
               </p>
             </div>
           </div>
