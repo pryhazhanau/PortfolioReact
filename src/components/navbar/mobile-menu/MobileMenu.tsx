@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import "./MobileMenu.css";
 import { ReactSVG } from "react-svg";
-import { AnimatePresence, motion, easeOut, cubicBezier } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 import Constants from "../../../common/ConstantsObj";
 import instImg from "../../../assets/icons/instagram.svg";
