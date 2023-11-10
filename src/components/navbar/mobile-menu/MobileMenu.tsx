@@ -1,5 +1,4 @@
 import { FC, useState } from "react";
-import { useLocation } from "react-router-dom";
 import "./MobileMenu.css";
 import { ReactSVG } from "react-svg";
 import { AnimatePresence, motion } from "framer-motion";
@@ -49,9 +48,9 @@ const MobileMenu: FC<MobileMenuProps> = ({ menuVisibilityChanged }) => {
               variants={variants}
             >
                 <div className="menu-mobile-items">
-                  <MobileMenuItem link="/" text="Home" delayAnimation={0} isSelected={currentPath === '/'}/>
-                  <MobileMenuItem link="/career" text="Career" delayAnimation={0} isSelected={currentPath === '/career'}/>
-                  <MobileMenuItem link="/portfolio" text="Portfolio" delayAnimation={0} isSelected={currentPath === '/portfolio'}/>
+                  <MobileMenuItem link="/" text="Home" delayAnimation={0.1} isSelected={currentPath === '/'}/>
+                  <MobileMenuItem link="/career" text="Career" delayAnimation={0.2} isSelected={currentPath === '/career'}/>
+                  <MobileMenuItem link="/portfolio" text="Portfolio" delayAnimation={0.3} isSelected={currentPath === '/portfolio'}/>
                 </div>
 
                 <div className="menu-mobile-social-icons-wrapper">

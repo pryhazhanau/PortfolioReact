@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import AnimationConstants from "../../common/animation/AnimationConstants";
 import "./MobileMenuItem.css";
@@ -23,19 +23,26 @@ const MobileMenuItem: FC<MobileMenuItemProps> = ({
       transition: {
         y: {
           ease: AnimationConstants.cubic.easeEase,
-          duration: 5,
-          delay: 5,
+          duration: 1,
+          delay: delayAnimation,
+        },
+        opacity: {
+          duration: 1,
+          delay: delayAnimation,
         },
       },
     },
     hidden: {
       opacity: 0,
-      y: -50,
+      y: -20,
       transition: {
         y: {
           ease: AnimationConstants.cubic.easeEase,
-          duration: 5,
-          delay: 5,
+          duration: 1,
+          delay: delayAnimation,
+        },
+        opacity: {
+          duration: 1,
         },
       },
     },
@@ -46,7 +53,7 @@ const MobileMenuItem: FC<MobileMenuItemProps> = ({
       <motion.div
         className="menu-mobile-item-container"
         key={`mobileItem-${text}`}
-        exit={{ opacity: 0, translateY: -200 }}
+        exit={variants.hidden}
         initial={variants.hidden}
         animate={variants.visible}
         variants={variants}
@@ -54,8 +61,8 @@ const MobileMenuItem: FC<MobileMenuItemProps> = ({
         <a href={link}>
           <p className="subtitle-primary-aluminor">{text}</p>
         </a>
-        { isSelected && (
-        <div className="menu-mobile-item-horizontal-separator"/>
+        {isSelected && (
+          <div className="menu-mobile-item-horizontal-separator" />
         )}
       </motion.div>
     </AnimatePresence>
