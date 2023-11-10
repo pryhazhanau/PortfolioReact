@@ -40,17 +40,6 @@ footer {
     gap: 24px;
 }
 
-@media (max-width: 600px) {
-    .info-list-wrapper {
-        align-items: center;
-    }
-
-    .title-wrapper {
-        justify-content: center;
-        align-items: center;
-    }
-}
-
 footer .copyright {
     margin-top: 50px;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;

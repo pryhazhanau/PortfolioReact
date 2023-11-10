@@ -1,5 +1,5 @@
 import "./Footer.css";
-import Constants from "../common/ConstantsObj";
+import Constants from "../../common/ConstantsObj";
 import ImageLinkElement from "./ImageLinkElement";
 import { ReactSVG } from "react-svg";
 
