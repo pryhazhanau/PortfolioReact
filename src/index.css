@@ -41,6 +41,7 @@ body {
   --velaro--ultra--light: #D8FFEA;
   --velaro--text: #30F6AF;
   --aluminor--gray: #F6F6F6;
+  --titanium--gray: #B1B1B1;
   --spacero--gray: #4F4F4F;
   --background--primary: #000000;
   --background--secondary: #222222;
@@ -139,12 +140,28 @@ body {
   line-height: calc(var(--body) * 1.5);
 }
 
+.body-text-titanium {
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--body);
+  font-weight: 400;
+  color: var(--titanium--gray);
+  line-height: calc(var(--body) * 1.5);
+}
+
 
 .body-bold-aluminor {
   font-family: 'Poppins', sans-serif;
   font-size: var(--body);
   font-weight: 600;
   color: var(--aluminor--gray);
+  line-height: calc(var(--body) * 1.5);
+}
+
+.body-bold-titanium {
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--body);
+  font-weight: 600;
+  color: var(--titanium--gray);
   line-height: calc(var(--body) * 1.5);
 }
 

@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
 import "./YearContainer.css";
 
 interface YearContainerProps {
@@ -11,16 +11,29 @@ interface YearContainerProps {
 }
 
 const YearContainer: FC<YearContainerProps> = ({ year, title, text, img, topOffset, rightToLeft }) => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const handleResize = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <>
       <div className="year-container" style={{ marginTop: `${topOffset}`}}>
-        <div className="career-item-container" style={{ flexDirection: `${rightToLeft ? "row-reverse" : "row"}` }}>
+        <div className="career-item-container" style={{ flexDirection: `${windowWidth > 800 ? (rightToLeft ? "row-reverse" : "row") : "column"}` }}>
           <div className="career-item-img">
             <img src={img}/>
           </div>
           <div className="career-item-content">
-            <p className="subtitle-primary-aluminor">{title}</p>
-            <p className="body-text-aluminor">{text}</p>
+            <p className={windowWidth > 800 ? "subtitle-primary-aluminor" : "body-bold-aluminor"}>{title}</p>
+            <p className="body-text-spacero">{text}</p>
           </div>
         </div>
         <div className="year-headline-container">
