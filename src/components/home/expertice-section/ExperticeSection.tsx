@@ -8,20 +8,24 @@ import FadeInOutBox from "../../common/animation/FadeInOutBox";
 import AnimatedTextCommon from "../../common/animation/AnimatedTextCommon";
 import ArchitecturesBlock from "./architectures-block/ArchitecturesBlock";
 import FrameworksBlock from "./frameworks-block/FrameworksBlock";
+import TechObject from "./tech-block/TechObject";
+import { v4 as uuidv4 } from "uuid";
 
 function ExperticeSection() {
-  var initialText: string = "Utilized key technoligies I use";
-  var [text, setText] = useState(initialText);
+  var initialJSX: JSX.Element = (
+    <p className="subtitle-primary">Utilized key technoligies I use</p>
+  );
+  var [titleJSX, setTitleJSX] = useState(initialJSX);
   var [sectionId, setSectionId] = useState(0);
   var [sectionName, setSectionName] = useState("architectures");
   var [titlePostfix, setTitlePostfix] = useState("I use");
 
-  const handleMouseEnter = (tech: string) => {
-    setText(tech);
+  const handleMouseEnter = (tech: TechObject) => {
+    setTitleJSX(tech.jsxElement);
   };
 
   const handleMouseLeave = () => {
-    setText(initialText);
+    setTitleJSX(initialJSX);
   };
 
   const openLink = (url: string) => {
@@ -45,18 +49,18 @@ function ExperticeSection() {
           <div className="grid-system">
             <div className="grid">
               <div className="grid-item-mw grid-cell-section">
-                <div className="title-tech-stack-block">
-                  <AnimatedTextCommon animKey={text}>
-                    <p className="subtitle-primary">{text}</p>
-                  </AnimatedTextCommon>
-                </div>
+                <AnimatedTextCommon
+                  className="title-tech-stack-block"
+                  animKey={`text-element-${uuidv4()}`}
+                >
+                  {titleJSX}
+                </AnimatedTextCommon>
               </div>
               <div className="grid-item-sw grid-cell-middle"></div>
               {topTechItems.map((item) => (
                 <div key={item.id} className="grid-item-sw grid-cell-middle">
                   <TechBlock
-                    name={item.name}
-                    imgSrc={item.img}
+                    techObject={item}
                     onMouseEnter={(tech) => handleMouseEnter(tech)}
                     onMouseLeave={() => handleMouseLeave()}
                     onClick={() => openLink(item.url)}
@@ -67,8 +71,7 @@ function ExperticeSection() {
               {bottomTechItems.map((item) => (
                 <div key={item.id} className="grid-item-sw grid-cell-last-row">
                   <TechBlock
-                    name={item.name}
-                    imgSrc={item.img}
+                    techObject={item}
                     onMouseEnter={(tech) => handleMouseEnter(tech)}
                     onMouseLeave={() => handleMouseLeave()}
                     onClick={() => openLink(item.url)}
@@ -76,17 +79,15 @@ function ExperticeSection() {
                 </div>
               ))}
               <div className="grid-item-sw grid-cell-last-row"></div>
-              <div className="grid-item-sw grid-cell-last-row"></div>
             </div>
             <div className="grid-item-devider-area"></div>
             <div className="grid-large">
               <div className="grid-section-title">
-                  <AnimatedTextCommon animKey={`${sectionId}`}>
-                <p className="subtitle-primary">
-                  More about{" "}
-                    <span>{sectionName}</span> {titlePostfix}
-                </p>
-                  </AnimatedTextCommon>
+                <AnimatedTextCommon animKey={`${sectionId}`}>
+                  <p className="subtitle-primary">
+                    More about <span>{sectionName}</span> {titlePostfix}
+                  </p>
+                </AnimatedTextCommon>
               </div>
               <div className="grid-item-large-left grid-cell-section-large">
                 <GridButtonsBlock
@@ -96,14 +97,30 @@ function ExperticeSection() {
                 />
               </div>
               <div className="grid-item-large-right">
-                  <FadeInOutBox visible={sectionId === 0} className="grid-item-animation-wrapper">
-                    <ArchitecturesBlock />
-                  </FadeInOutBox>
-                  <FadeInOutBox visible={sectionId === 1}>
-                    <FrameworksBlock />
-                  </FadeInOutBox>
-                {sectionId === 3 && null}
-                {sectionId === 4 && null}
+                <FadeInOutBox
+                  visible={sectionId === 0}
+                  className="grid-item-animation-wrapper"
+                >
+                  <ArchitecturesBlock />
+                </FadeInOutBox>
+                <FadeInOutBox
+                  visible={sectionId === 1}
+                  className="grid-item-animation-wrapper"
+                >
+                  <FrameworksBlock />
+                </FadeInOutBox>
+                <FadeInOutBox
+                  visible={sectionId === 2}
+                  className="grid-item-animation-wrapper"
+                >
+                  <ProjectsBlock />
+                </FadeInOutBox>
+                <FadeInOutBox
+                  visible={sectionId === 3}
+                  className="grid-item-animation-wrapper"
+                >
+                  <ExperienceBlock />
+                </FadeInOutBox>
               </div>
             </div>
           </div>
@@ -121,16 +138,116 @@ import Bitrise from "../../../assets/technology/Bitrise.svg";
 import Fastlane from "../../../assets/technology/Fastlane.svg";
 import Swift from "../../../assets/technology/Swift.svg";
 import Firebase from "../../../assets/technology/Firebase.svg";
+import Jira from "../../../assets/technology/Jira.svg";
+import ProjectsBlock from "./projects-block/ProjectsBlock";
+import ExperienceBlock from "./experience-block/ExperienceBlock";
 
-const techList = [
-  { id: 0, name: "Swift", url: "https://developer.apple.com/swift", img: Swift },
-  { id: 1, name: "Test Flight", url: "https://developer.apple.com/testflight", img: TestFlight },
-  { id: 2, name: "Xcode", url: "https://developer.apple.com/xcode", img: Xcode },
-  { id: 3, name: "Figma", url: "https://www.figma.com", img: Figma },
-  { id: 4, name: "Github", url: "https://github.com", img: Github },
-  { id: 5, name: "Bitrise", url: "https://bitrise.io", img: Bitrise },
-  { id: 6, name: "Fastlane", url: "https://fastlane.tools", img: Fastlane },
-  { id: 7, name: "Firebase", url: "https://firebase.google.com", img: Firebase },
+const techList: TechObject[] = [
+  {
+    id: 0,
+    name: "Swift",
+    url: "https://developer.apple.com/swift",
+    img: Swift,
+    jsxElement: (
+      <p className="subtitle-primary" style={{ color: `#eb633e` }}>
+        Swift
+      </p>
+    ),
+  },
+  {
+    id: 1,
+    name: "Test Flight",
+    url: "https://developer.apple.com/testflight",
+    img: TestFlight,
+    jsxElement: (
+      <p className="subtitle-primary" style={{ color: `#3977cf` }}>
+        Test Flight
+      </p>
+    ),
+  },
+  {
+    id: 2,
+    name: "Xcode",
+    url: "https://developer.apple.com/xcode",
+    img: Xcode,
+    jsxElement: (
+      <p className="subtitle-primary" style={{ color: `#3977cf` }}>
+        Xcode
+      </p>
+    ),
+  },
+  {
+    id: 3,
+    name: "Figma",
+    url: "https://www.figma.com",
+    img: Figma,
+    jsxElement: (
+      <>
+        <p className="subtitle-primary figma-red">F</p>
+        <p className="subtitle-primary figma-light-red">i</p>
+        <p className="subtitle-primary figma-purple">g</p>
+        <p className="subtitle-primary figma-blue">m</p>
+        <p className="subtitle-primary figma-green">a</p>
+      </>
+    ),
+  },
+  {
+    id: 4,
+    name: "Github",
+    url: "https://github.com",
+    img: Github,
+    jsxElement: (
+      <p className="subtitle-primary" style={{ color: `#5b686e` }}>
+        Github
+      </p>
+    ),
+  },
+  {
+    id: 5,
+    name: "Bitrise",
+    url: "https://bitrise.io",
+    img: Bitrise,
+    jsxElement: (
+      <p className="subtitle-primary" style={{ color: `#54227d` }}>
+        Bitrise
+      </p>
+    ),
+  },
+  {
+    id: 6,
+    name: "Fastlane",
+    url: "https://fastlane.tools",
+    img: Fastlane,
+    jsxElement: (
+      <p className="subtitle-primary" style={{ color: `#F6F6F6` }}>
+        Fastlane
+      </p>
+    ),
+  },
+  {
+    id: 7,
+    name: "Firebase",
+    url: "https://firebase.google.com",
+    img: Firebase,
+    jsxElement: (
+      <p className="subtitle-primary" style={{ color: `#f7cf56` }}>
+        Firebase
+      </p>
+    ),
+  },
+  {
+    id: 8,
+    name: "Jira Software",
+    url: "https://www.atlassian.com/software/jira",
+    img: Jira,
+    jsxElement: (
+      <>
+        <p className="subtitle-primary" style={{ color: `#417eef` }}>
+          Jira <span className="subtitle-primary-aluminor">Sowftware</span>
+        </p>
+      </>
+    ),
+  },
 ];
 
 export default ExperticeSection;

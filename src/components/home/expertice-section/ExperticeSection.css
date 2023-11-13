@@ -22,6 +22,26 @@
     }
 }
 
+.figma-red {
+    color: #ed7147;
+}
+
+.figma-light-red {
+    color: #ef8b7b;
+}
+
+.figma-purple {
+    color: #a16bf7;
+}
+
+.figma-blue {
+    color: #71c8fa;
+}
+
+.figma-green {
+    color: #64d796;
+}
+
 
 /* Grid System */
 
@@ -110,8 +130,7 @@
 }
 
 
-.grid-item-large-right {
-}
+.grid-item-large-right {}
 
 .grid-item-animation-wrapper {
     display: flex;
