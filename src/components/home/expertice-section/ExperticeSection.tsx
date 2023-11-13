@@ -12,13 +12,13 @@ import TechObject from "./tech-block/TechObject";
 import { v4 as uuidv4 } from "uuid";
 
 function ExperticeSection() {
-  var initialJSX: JSX.Element = (
+  const initialJSX: JSX.Element = (
     <p className="subtitle-primary">Utilized key technoligies I use</p>
   );
-  var [titleJSX, setTitleJSX] = useState(initialJSX);
-  var [sectionId, setSectionId] = useState(0);
-  var [sectionName, setSectionName] = useState("architectures");
-  var [titlePostfix, setTitlePostfix] = useState("I use");
+  const [titleJSX, setTitleJSX] = useState(initialJSX);
+  const [sectionId, setSectionId] = useState(0);
+  const [sectionName, setSectionName] = useState("architectures");
+  const [titlePostfix, setTitlePostfix] = useState("I use");
 
   const handleMouseEnter = (tech: TechObject) => {
     setTitleJSX(tech.jsxElement);
@@ -51,7 +51,7 @@ function ExperticeSection() {
               <div className="grid-item-mw grid-cell-section">
                 <AnimatedTextCommon
                   className="title-tech-stack-block"
-                  animKey={`text-element-${uuidv4()}`}
+                  animKey={`tech-text-${uuidv4()}`}
                 >
                   {titleJSX}
                 </AnimatedTextCommon>
@@ -83,7 +83,7 @@ function ExperticeSection() {
             <div className="grid-item-devider-area"></div>
             <div className="grid-large">
               <div className="grid-section-title">
-                <AnimatedTextCommon animKey={`${sectionId}`}>
+                <AnimatedTextCommon animKey={`anim-key-section-${sectionId}`}>
                   <p className="subtitle-primary">
                     More about <span>{sectionName}</span> {titlePostfix}
                   </p>

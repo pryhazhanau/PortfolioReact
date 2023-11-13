@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { FC, ReactNode } from "react";
+import AnimConstants from "../../common/animation/AnimationConstants"
 
 interface AnimatedTextCommonProps {
   className?: string;
@@ -20,8 +21,8 @@ export const AnimatedTextCommon: FC<AnimatedTextCommonProps> = ({
           animate={{ opacity: 1, scaleY: 1 }}
           transition={{
             type: "keyframe",
-            duration: 0.2,
-            ease: "easeIn"
+            duration: 0.7,
+            ease: AnimConstants.cubic.easeEase
           }}
         >
             {children}
