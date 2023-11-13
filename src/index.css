@@ -48,7 +48,7 @@ body {
   --stroke--black: #1A1A1A;
 
   /* Text-size styles */
-  --headline: 64px;
+  --headline: 32px;
   --subtitle--primary: 24px;
   --subtitle: 20px;
   --body: 14px;
@@ -59,19 +59,13 @@ body {
 
 }
 
-
-@media (max-width: 600px) {
-  :root {
-    --headline: 32px;
-  }
-}
-
 /* Fonts Styles*/
 
 .headline {
   font-family: 'Poppins', sans-serif;
   font-size: var(--headline);
   font-weight: 900;
+  line-height: calc(var(--headline) * 1.1);
 }
 
 .title {
@@ -201,13 +195,11 @@ body {
   text-decoration: none;
   color: var(--velaro--text);
   font-weight: 600;
-  margin-right: 24px;
 }
 
 
 .link-text-img::after {
-  position: absolute;
+  position: relative;
   content: url("./assets/link-external.svg");
   padding: 2px 5px 0 5px;
-  width: 100px;
 }
