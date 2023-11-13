@@ -37,7 +37,7 @@ const GridButtonsBlock: FC<BlockProps> = ( { onSelectSection } ) => {
 
 const sections = [
   { id: 0, name: "Architectures", postfixPhrase: "I use" },
-  { id: 1, name: "Frameworks", postfixPhrase: "I love" },
+  { id: 1, name: "Libs", postfixPhrase: "I love" },
   { id: 2, name: "Projects", postfixPhrase: "I developed" },
   { id: 3, name: "Experience", postfixPhrase: "I have" },
 ];

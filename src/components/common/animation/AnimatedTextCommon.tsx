@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { FC, ReactNode } from "react";
 
 interface AnimatedTextCommonProps {
+  className?: string;
   children?: ReactNode;
   animKey: string;
 }
@@ -9,10 +10,11 @@ interface AnimatedTextCommonProps {
 export const AnimatedTextCommon: FC<AnimatedTextCommonProps> = ({
   children,
   animKey,
+  className
 }) => {
   return (
       <AnimatePresence mode="wait">
-        <motion.div style={{originY: 0}}
+        <motion.div className={className} style={{originY: 0}}
           key={animKey}
           initial={{ opacity: 0, scaleY: 0.7 }}
           animate={{ opacity: 1, scaleY: 1 }}

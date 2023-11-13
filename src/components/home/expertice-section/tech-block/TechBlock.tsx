@@ -1,18 +1,18 @@
 import { ReactSVG } from "react-svg";
 import React from "react";
 import "./TechBlock.css";
+import TechObject from "./TechObject";
 
 interface TechBlockProps {
-  name: string,
-  imgSrc: any
-  onMouseEnter: (techName: string) => void;
+  techObject: TechObject
+  onMouseEnter: (tech: TechObject) => void;
   onMouseLeave: () => void;
   onClick: () => void;
 }
 
-const TechBlock: React.FC<TechBlockProps> = ({ name, imgSrc, onMouseEnter, onMouseLeave, onClick }) => {
+const TechBlock: React.FC<TechBlockProps> = ({ techObject, onMouseEnter, onMouseLeave, onClick }) => {
   const handleMouseEnter = () => {
-    onMouseEnter(name)
+    onMouseEnter(techObject)
   };
 
   const handleMouseLeave = () => {
@@ -27,8 +27,8 @@ const TechBlock: React.FC<TechBlockProps> = ({ name, imgSrc, onMouseEnter, onMou
         onClick={onClick}
         className="tech-block-wrapper"
       >
-        <ReactSVG className="tech-svg" src={imgSrc} />
-        <p className="caption">{name}</p>
+        <ReactSVG className="tech-svg" src={techObject.img} />
+        <p className="caption">{techObject.name}</p>
       </div>
     </>
   );

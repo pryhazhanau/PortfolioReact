@@ -1,4 +1,4 @@
-.action-button {
+.action-button-primary {
     padding: 10px 38px;
     color: black;
     text-decoration: none;
@@ -6,9 +6,33 @@
     transition: transform 0.1s;
     border: none;
     background: var(--velaro--accent);
+    text-decoration: none;
 }
 
+.action-button-primary {
+    text-decoration: none;
+    color: var(--background--primary);
+}
 
-.action-button:hover {
+.action-button-primary:hover {
+    transform: translate(-3px, -3px);
+}
+
+.action-button-outline {
+    padding: 10px 38px;
+    color: var(--aluminor--gray);
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.1s;
+    border: 1px solid var(--aluminor--gray);
+    background: transparent;
+}
+
+.action-button-outline a {
+    text-decoration: none;
+    color: var(--aluminor--gray);
+}
+
+.action-button-outline:hover {
     transform: translate(-3px, -3px);
 }

@@ -1,6 +1,10 @@
 .frameworks-block-wrapper {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    --framewroks-block-padding: 50px;
 }
 
 .frameworks-block-inner {
@@ -8,8 +12,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 64px;
-
+    padding: var(--framewroks-block-padding);
+    height: 100%;
 }
 
 .framework-flex-box {
