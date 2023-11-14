@@ -1,5 +1,44 @@
 .not-found-page {
-    background-color: red;
-    height: 200px;
-    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    gap: 10vh;
+}
+
+.not-found-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.not-found-title-wrapper {
+    color: var(--velaro--light);
+    font-size: 200px;
+    font-weight: 700;
+    text-shadow: 18px 18px 40px rgba(0, 0, 0, 1);
+}
+
+.not-found-title-wrapper p {
+    margin: 0;
+    padding: 0;
+}
+
+.not-found-subtitles-wrapper p:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -40px;
+
+    color: var(--aluminor--gray);
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.not-found-subtitles-wrapper p:nth-child(2) {
+    color: var(--titanium--gray);
+    font-size: var(--body-text);
+    font-weight: 300;
 }
