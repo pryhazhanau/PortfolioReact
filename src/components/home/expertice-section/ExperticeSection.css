@@ -2,7 +2,7 @@
     padding: 100px 0 0 0;
 }
 
-.title-tech-stack-block {
+.title-tech-stack-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,12 +12,12 @@
     padding: 0 24px 0 24px;
 }
 
-.title-tech-stack-block p {
+.title-tech-stack-wrapper p {
     max-width: 300px;
 }
 
 @media (max-width: 1000px) {
-    .title-tech-stack-block p {
+    .title-tech-stack-wrapper p {
         font-size: 18px;
     }
 }
@@ -129,8 +129,9 @@
     display: flex;
 }
 
-
-.grid-item-large-right {}
+.grid-item-large-right {
+    display: block
+}
 
 .grid-item-animation-wrapper {
     display: flex;

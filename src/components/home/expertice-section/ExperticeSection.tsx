@@ -9,7 +9,6 @@ import AnimatedTextCommon from "../../common/animation/AnimatedTextCommon";
 import ArchitecturesBlock from "./architectures-block/ArchitecturesBlock";
 import FrameworksBlock from "./frameworks-block/FrameworksBlock";
 import TechObject from "./tech-block/TechObject";
-import { v4 as uuidv4 } from "uuid";
 
 function ExperticeSection() {
   const initialJSX: JSX.Element = (
@@ -51,7 +50,7 @@ function ExperticeSection() {
             <div className="grid">
               <div className="grid-item-mw grid-cell-section">
                 <AnimatedTextCommon
-                  className="title-tech-stack-block"
+                  className="title-tech-stack-wrapper"
                   animKey={techObject ? techObject.name : ""}
                 >
                   {techObject ?  (techObject.jsxElement) : (initialJSX)}
