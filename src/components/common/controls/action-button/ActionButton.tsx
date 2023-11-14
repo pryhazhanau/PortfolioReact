@@ -22,8 +22,8 @@ const ActionButton: FC<ButtonProps> = ({
     <div className={className}>
       <button className={`action-button-${buttonStyle} body-text`} onClick={onClick}>
         { link ? (
-          <a href={link}>{label}</a>
-        ) : label}
+          <a href={link}>{label.toUpperCase()}</a>
+        ) : label.toUpperCase()}
       </button>
     </div>
   );
