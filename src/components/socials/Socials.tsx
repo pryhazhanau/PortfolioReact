@@ -1,11 +1,12 @@
 import "./Socials.css";
 
-import instImg from "../../assets/icons/instagram.svg";
+import MailImg from "../../assets/icons/mail.svg";
 import linkedInImg from "../../assets/icons/linkedin.svg";
 import telegramImg from "../../assets/icons/telegram.svg";
 import githubImg from "../../assets/icons/github.svg";
 import { ReactSVG } from "react-svg";
 import { useEffect, useState } from "react";
+import Constants from "../../common/ConstantsObj";
 
 function Socials() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -29,13 +30,6 @@ function Socials() {
           <div className="follow-me-vertical-line"></div>
           <div className="social-icons">
             <a
-              href="https://www.instagram.com/prigozhanov/"
-              target="_blank"
-              className="social-icon-link"
-            >
-              <ReactSVG className="social-icon" src={instImg} />
-            </a>
-            <a
               href="https://www.linkedin.com/in/prigozhanov/"
               target="_blank"
               className="social-icon-link"
@@ -55,6 +49,13 @@ function Socials() {
               className="social-icon-link"
             >
               <ReactSVG className="social-icon" src={githubImg} />
+            </a>
+            <a
+              href={Constants.contact.email.link}
+              target="_blank"
+              className="social-icon-link"
+            >
+              <ReactSVG className="social-icon" src={MailImg} />
             </a>
           </div>
         </div>
