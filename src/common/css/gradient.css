@@ -39,3 +39,7 @@
     --gradient-alpha: 0.15;
     background: linear-gradient(180deg, rgba(var(--geist-background-rgb), 255) 0, rgba(var(--geist-background-rgb), 0) 100%), linear-gradient(90deg, rgba(var(--gradient-start-color), var(--gradient-alpha)) 0, rgba(var(--gradient-end-color), var(--gradient-alpha)) 100%)
   }
+
+  .gradient-section-background-radial {
+    background: radial-gradient(40% 40% at 50% 48.55%, rgba(0, 188, 188, 0.28) 0%, rgba(0, 255, 68, 0.08) 67.71%, rgba(244, 244, 244, 0.00) 100%);
+  }
