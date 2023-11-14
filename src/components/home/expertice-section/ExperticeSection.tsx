@@ -15,17 +15,18 @@ function ExperticeSection() {
   const initialJSX: JSX.Element = (
     <p className="subtitle-primary">Utilized key technoligies I use</p>
   );
-  const [titleJSX, setTitleJSX] = useState(initialJSX);
+
+  const [techObject, setTechObject] = useState<TechObject | undefined>(undefined);
   const [sectionId, setSectionId] = useState(0);
   const [sectionName, setSectionName] = useState("architectures");
   const [titlePostfix, setTitlePostfix] = useState("I use");
 
   const handleMouseEnter = (tech: TechObject) => {
-    setTitleJSX(tech.jsxElement);
+    setTechObject(tech);
   };
 
   const handleMouseLeave = () => {
-    setTitleJSX(initialJSX);
+    setTechObject(undefined);
   };
 
   const openLink = (url: string) => {
@@ -51,9 +52,9 @@ function ExperticeSection() {
               <div className="grid-item-mw grid-cell-section">
                 <AnimatedTextCommon
                   className="title-tech-stack-block"
-                  animKey={`tech-text-${uuidv4()}`}
+                  animKey={techObject ? techObject.name : ""}
                 >
-                  {titleJSX}
+                  {techObject ?  (techObject.jsxElement) : (initialJSX)}
                 </AnimatedTextCommon>
               </div>
               <div className="grid-item-sw grid-cell-middle"></div>
