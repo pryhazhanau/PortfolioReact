@@ -243,7 +243,7 @@ const techList: TechObject[] = [
     jsxElement: (
       <>
         <p className="subtitle-primary" style={{ color: `#417eef` }}>
-          Jira <span className="subtitle-primary-aluminor">Sowftware</span>
+          Jira <span className="subtitle-primary-aluminor">Software</span>
         </p>
       </>
     ),
