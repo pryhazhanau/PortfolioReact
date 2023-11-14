@@ -1,4 +1,3 @@
-import { useRouteError } from "react-router-dom";
 import "./NotFoundPage.css";
 import ActionButton from "../common/controls/action-button/ActionButton";
 
