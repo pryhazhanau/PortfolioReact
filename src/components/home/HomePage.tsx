@@ -5,19 +5,19 @@ import AboutSection from "./about-section/AboutSection";
 import SkillsetSection from "./skillset-section/SkillsetSection";
 import ExperticeSection from "./expertice-section/ExperticeSection";
 import FeedbackSection from "./feedback-section/FeedbackSection";
-import MainContainer from "../maincontainer/MasterContainer";
+import MasterContainer from "../master-container/MasterContainer";
 import Footer from "../footer/Footer";
 
 function HomePage() {
   return (
     <>
     <HeadlineSection />
-    <MainContainer>
+    <MasterContainer>
       <AboutSection />
       <SkillsetSection />
       <ExperticeSection />
       <FeedbackSection />
-    </MainContainer>
+    </MasterContainer>
       <div className="thanks-section">
         <div className="thanks-section-wrapper gradient-section-background">
         <h1 className="subtitle-primary">Thank you for visiting!</h1>

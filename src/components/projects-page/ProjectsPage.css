@@ -1,0 +1,6 @@
+.applications-wrapper {
+    margin-top: calc(var(--navbar-height) + 100px);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;   
+}
