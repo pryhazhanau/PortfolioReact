@@ -9,7 +9,7 @@
     text-decoration: none;
 }
 
-.action-button-primary {
+.action-button-primary a {
     text-decoration: none;
     color: var(--background--primary);
 }
@@ -19,7 +19,7 @@
 }
 
 .action-button-outline {
-    padding: 10px 38px;
+    padding: 4px 38px;
     color: var(--aluminor--gray);
     text-decoration: none;
     cursor: pointer;
