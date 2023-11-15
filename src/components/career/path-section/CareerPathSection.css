@@ -1,8 +1,6 @@
 .career-path-section {
-    margin-top: var(--navbar-height);
     display: flex;
     position: relative;
-    margin-bottom: 200px;
 }
 
 .career-path-grid {

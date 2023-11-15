@@ -62,9 +62,9 @@ const Navbar: FC<NavbarProps> = ({ menuVisibilityChanged }) => {
             <div className="menu-item-container">
               <a
                 className="menu-item gradient-hover body-text"
-                href="/portfolio"
+                href="/projects"
               >
-                Portfolio
+                Projects
               </a>
             </div>
             <ActionButton className="cv-button" label="CV" onClick={onClick} />

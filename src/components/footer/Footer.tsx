@@ -27,7 +27,7 @@ function Footer() {
           <div className="info-list-wrapper">
             <ImageLinkElement text="Home" link=""/>
             <ImageLinkElement text="Career" link="/Career"/>
-            <ImageLinkElement text="Portfolio" link="/Portfolio"/>
+            <ImageLinkElement text="Projects" link="/Projects"/>
           </div>
         </div>
 

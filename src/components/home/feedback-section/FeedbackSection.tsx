@@ -11,7 +11,7 @@ function FeedbackSection() {
             <h1 className="headline section-title">Feedbacks</h1>
             <div className="feedback-body-container">
               <p className="body-text-spacero">
-                The feedback from people I worked with with pleasure.
+                A feedback from people I worked with with pleasure.
               </p>
             </div>
           </div>
