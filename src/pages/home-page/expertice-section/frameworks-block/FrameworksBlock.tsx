@@ -1,7 +1,11 @@
+import { useState } from "react";
 import BubbleButton from "../../../../components/common/controls/bubble-button/BubbleButton";
+import ModalPopup from "../modal-popup/ModalFrameworkPopup"
 import "./FrameworksBlock.css";
 
 function FrameworksBlock() {
+  const [currentModal, setCurrentModal] = useState(false)
+
   return (
     <>
       <div className="frameworks-block-wrapper">
@@ -11,12 +15,17 @@ function FrameworksBlock() {
             <div className="framework-flex-box">
             {frameworksList.map((item) => (
                 <div key={item.id}>
-                  <BubbleButton label={item.name} active={false}/>
+                  <BubbleButton label={item.name} active={false} onClick={() => {setCurrentModal(true)}}/>
                 </div>
               ))}
             </div>
         </div>
       </div>
+      {
+        currentModal && (
+          <ModalPopup/>
+        )
+      }
     </>
   );
 }

@@ -12,6 +12,7 @@ div.master-wrapper {
     flex-direction: column;
     --master-container-max-width: 1200px;
     max-width: var(--master-container-max-width);
+    z-index: 1;
 }
 
 @media (max-width: 1800px) {

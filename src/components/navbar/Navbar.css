@@ -1,25 +1,27 @@
 nav {
   position: fixed;
   width: 100%;
-  z-index: 1000;
+  z-index: 100;
 }
 
-.container {
-  background-color: var(--background--primary);
-  height: var(--navbar-height);
-  padding-left: 130px;
-  padding-right: 130px;
+.navbar-desktop {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  justify-content: space-between;
+  padding-left: 130px;
+  padding-right: 130px;
+  height: var(--navbar-height);
 }
 
-@media (max-width: 900px) {
-  .container {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-  
+.navbar-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  justify-content: space-between;
+  padding-left: 24px;
+  padding-right: 24px;
+  height: var(--navbar-height);
 }
 
 .shadow {
