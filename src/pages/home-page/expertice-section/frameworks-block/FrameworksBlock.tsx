@@ -1,4 +1,4 @@
-import BubbleButton from "../../../common/controls/bubble-button/BubbleButton";
+import BubbleButton from "../../../../components/common/controls/bubble-button/BubbleButton";
 import "./FrameworksBlock.css";
 
 function FrameworksBlock() {

@@ -1,5 +1,5 @@
 import "./AppCard.css";
-import ActionButton from "../../common/controls/action-button/ActionButton";
+import ActionButton from "../../../components/common/controls/action-button/ActionButton";
 import { FC } from "react";
 
 interface AppCardProps {

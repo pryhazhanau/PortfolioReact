@@ -1,7 +1,7 @@
 import "./SkillsetSection.css";
 import "../HomePage.css";
 import "../../../common/css/div-layout.css";
-import SkillProgress from "../../common/skill-progress/SkillProgress";
+import SkillProgress from "../../../components/common/skill-progress/SkillProgress";
 
 function SkillsetSection() {
   return (

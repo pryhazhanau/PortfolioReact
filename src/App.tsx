@@ -2,9 +2,9 @@ import "./App.css";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 import Navbar from "./components/navbar/Navbar.tsx";
-import ProjectsPage from "./components/projects-page/ProjectsPage.tsx";
-import HomePage from "./components/home/HomePage.tsx";
-import CareerPage from "./components/career/CareerPage.tsx";
+import ProjectsPage from "./pages/projects-page/ProjectsPage.tsx";
+import HomePage from "./pages/home-page/HomePage.tsx";
+import CareerPage from "./pages/career-page/CareerPage.tsx";
 import NotFoundPage from "./components/error/NotFoundPage.tsx";
 
 function App() {

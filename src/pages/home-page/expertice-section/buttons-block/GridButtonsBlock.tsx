@@ -1,4 +1,4 @@
-import RoundButton from "../../../common/controls/round-button/RoundButton";
+import RoundButton from "../../../../components/common/controls/round-button/RoundButton";
 import "./GridButtonsBlock.css";
 
 import { FC, useState } from "react";

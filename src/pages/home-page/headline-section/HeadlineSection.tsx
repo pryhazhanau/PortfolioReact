@@ -1,7 +1,7 @@
 import "./HeadlineSection.css";
 import "../../../common/css/div-layout.css";
-import ActionButton from "../../common/controls/action-button/ActionButton";
-import AnimatedLongFade from "../../common/animation/AnimatedTextLongFade";
+import ActionButton from "../../../components/common/controls/action-button/ActionButton";
+import AnimatedLongFade from "../../../components/common/animation/AnimatedTextLongFade";
 
 function HeadlineSection() {
     const emailAddress = "vprigozhanov@gmail.com";

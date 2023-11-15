@@ -1,8 +1,8 @@
 import "./ProjectsPage.css";
-import MasterContainer from "../master-container/MasterContainer";
+import MasterContainer from "../../components/master-container/MasterContainer";
 import AppCard from "./app-card/AppCard";
-import Footer from "../footer/Footer";
-import GradientSectionBackground from "../common/background/GradientSectionBackground";
+import Footer from "../../components/footer/Footer";
+import GradientSectionBackground from "../../components/common/background/GradientSectionBackground";
 
 function ProjectsPage() {
   return (

@@ -1,4 +1,4 @@
-import ActionButton from "../../../common/controls/action-button/ActionButton";
+import ActionButton from "../../../../components/common/controls/action-button/ActionButton";
 import "./ExperienceBlock.css";
 
 function ExperienceBlock() {
