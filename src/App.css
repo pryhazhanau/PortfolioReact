@@ -8,5 +8,6 @@
 
 .page-title {
     margin-top: calc(var(--navbar-height) + 100px);
+    margin-bottom: 100px;
     text-align: center;
 }
