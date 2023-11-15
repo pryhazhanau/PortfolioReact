@@ -11,6 +11,8 @@ interface NavbarProps {
 
 const Navbar: FC<NavbarProps> = ({ menuVisibilityChanged }) => {
   const [isOnTop, setOnTop] = useState(true);
+  const [navbarBlur, setNavbarBlur] = useState(10);
+  const [navbarBrightness, setNavbarBrightness] = useState(80);
 
   const handleScroll = () => {
     if (window.scrollY > 0) {
@@ -18,6 +20,12 @@ const Navbar: FC<NavbarProps> = ({ menuVisibilityChanged }) => {
     } else {
       setOnTop(true);
     }
+
+    const blurValue = window.scrollY < 0 ? 0 : window.scrollY / 10 + 4;
+    setNavbarBlur(blurValue);
+
+    const brightnessValue = (1 - window.scrollY / 200) * 100 - 20;
+    setNavbarBrightness(brightnessValue > 0 ? brightnessValue : 0);
   };
 
   const onClick = () => {
@@ -41,38 +49,64 @@ const Navbar: FC<NavbarProps> = ({ menuVisibilityChanged }) => {
 
   return (
     <nav>
-      <div className={`${isOnTop ? "container" : "container shadow"}`}>
-        <div className="child">
-          <a className="logo" href="/">
-            PRY.
-          </a>
-        </div>
+      <div>
         {windowWidth > 900 ? (
-          <div className="menu">
-            <div className="menu-item-container">
-              <a className="menu-item gradient-hover body-text" href="/">
-                Home
+          <div
+            className={`${
+              isOnTop ? "navbar-desktop" : "navbar-desktop shadow"
+            }`}
+            style={{
+              backdropFilter: `blur(${navbarBlur}px) brightness(${navbarBrightness}%)`
+            }}
+          >
+            <div>
+              <a className="logo" href="/">
+                PRY.
               </a>
             </div>
-            <div className="menu-item-container">
-              <a className="menu-item gradient-hover body-text" href="/career">
-                Career
-              </a>
+            <div className="menu">
+              <div className="menu-item-container">
+                <a className="menu-item gradient-hover body-text" href="/">
+                  Home
+                </a>
+              </div>
+              <div className="menu-item-container">
+                <a
+                  className="menu-item gradient-hover body-text"
+                  href="/career"
+                >
+                  Career
+                </a>
+              </div>
+              <div className="menu-item-container">
+                <a
+                  className="menu-item gradient-hover body-text"
+                  href="/projects"
+                >
+                  Projects
+                </a>
+              </div>
+              <ActionButton
+                className="cv-button"
+                label="CV"
+                onClick={onClick}
+              />
             </div>
-            <div className="menu-item-container">
-              <a
-                className="menu-item gradient-hover body-text"
-                href="/projects"
-              >
-                Projects
-              </a>
-            </div>
-            <ActionButton className="cv-button" label="CV" onClick={onClick} />
           </div>
         ) : (
-          <MenuButton
-            menuVisibilityChanged={(visible) => menuVisibilityChanged(visible)}
-          />
+          <div
+            className={`${isOnTop ? "navbar-mobile" : "navbar-mobile shadow"}`}
+            style={{ backgroundColor: "var(--background--primary)"}}
+          >
+            <a className="logo" href="/">
+              PRY.
+            </a>
+            <MenuButton
+              menuVisibilityChanged={(visible) =>
+                menuVisibilityChanged(visible)
+              }
+            />
+          </div>
         )}
       </div>
     </nav>

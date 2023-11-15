@@ -60,14 +60,14 @@ const Companies = {
   andersen: {
     name: "Andersen Lab",
     bodyText:
-      "As a well-established European software development company, Andersen has earned the trust of its many customers operating all over the EU. Our team will analyze and fully understand your needs to start delivering the best possible industry-focused IT solutions. Andersen`s history, customer referrals, and experienced employees are our guarantee of success.",
+      "Andersen is a software development company based in Europe, boasts a strong track record of building trust with a diverse clientele across the EU and US. Our dedicated team is committed to thoroughly comprehending your requirements, ensuring the provision of tailored IT solutions that align with industry standards. The assurance of success is rooted in Andersen's rich history, client endorsements, and the expertise of a professionals.",
     img: AndersenImg,
     year: "2022",
   },
   effectivesoft: {
     name: "EffectiveSoft",
     bodyText:
-      "EffectiveSoft is a software development company headquartered in San Diego, USA, with its development center based in Wroclaw, Poland.Since our company’s foundation in 2000, we have successfully completed more than 1500 projects for small, medium-sized, and large enterprises. We are honored to be recognized as a trusted partner in the global IT community.",
+      "EffectiveSoft is a software development company headquartered in San Diego, USA, with its development center based in Wroclaw, Poland. Since EffectiveSoft foundation in 2000, it successfully completed more than 1500 projects for small, medium-sized, and large enterprises.",
     img: EffectiveImg,
     year: "2022",
   },

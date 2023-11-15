@@ -22,3 +22,14 @@
 .thanks-section h1 {
     color: var(--aluminor--gray);
 }
+
+
+.headline-background {
+    position: fixed;
+    height: 100%;
+    width: 110%;
+    top: 0;
+    right: 0;
+    object-fit: cover;
+    z-index: 0;
+}
