@@ -18,6 +18,14 @@ footer {
     margin: 24px 10vh;
 }
 
+.socials-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+    margin-top: 50px;
+}
+
 @media (max-width: 600px) {
     .footer-top-container {
         flex-direction: column;

@@ -10,6 +10,7 @@ import TelegramSVG from "../../assets/icons/telegram.svg"
 import GitHubSVG from "../../assets/icons/github.svg"
 import InstagramSVG from "../../assets/icons/instagram.svg"
 import VercelSVG from "../../assets/vercel.svg"
+import SocialFooterIcon from "./SocialFooterIcon";
 
 function Footer() {
   function openVercelLink() {
@@ -40,10 +41,6 @@ function Footer() {
               `${Constants.contact.address.index} ${Constants.contact.address.street}\n${Constants.contact.address.city}, ${Constants.contact.address.country}`
               } link={Constants.contact.address.link} inNewWindow={false}/>
             <ImageLinkElement img={MailSVG} text={Constants.contact.email.display} inNewWindow={false} link={Constants.contact.email.link}/>
-            <ImageLinkElement img={LinkedinSVG} text={Constants.contact.linkedIn.display} link={Constants.contact.telegram.link} inNewWindow={true}/>
-            <ImageLinkElement img={TelegramSVG} text={Constants.contact.telegram.display} link={Constants.contact.telegram.link} inNewWindow={true}/>
-            <ImageLinkElement img={GitHubSVG} text={Constants.contact.github.display} link={Constants.contact.github.link} inNewWindow={true}/>
-            <ImageLinkElement img={InstagramSVG} text={Constants.contact.instagram.display} link={Constants.contact.instagram.link} inNewWindow={true}/>
           </div>
         </div>
         <div className="inspiration-wrapper" onClick={() => openVercelLink()}>
@@ -51,7 +48,12 @@ function Footer() {
           <ReactSVG src={VercelSVG}/>
         </div>
       </div>
-
+      <div className="socials-container">
+            <SocialFooterIcon img={LinkedinSVG} link={Constants.contact.linkedIn.link}/>
+            <SocialFooterIcon img={TelegramSVG} link={Constants.contact.telegram.link}/>
+            <SocialFooterIcon img={GitHubSVG} link={Constants.contact.github.link}/>
+            <SocialFooterIcon img={InstagramSVG} link={Constants.contact.instagram.link}/>
+      </div>
       <div className="footer-copyrights-container">
         <p className="copyright">
           Copyright © 2023 Uladzimir Pryhazhanau . All rights reserved.

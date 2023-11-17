@@ -7,20 +7,23 @@ interface ImageLinkElementProps {
   text: ReactNode;
   link?: string;
   inNewWindow?: boolean;
-  onClick?: () => void
+  onClick?: () => void;
 }
 
-const ImageLinkElement: FC<ImageLinkElementProps> = ({ img, text, link, inNewWindow, onClick }) => {
+const ImageLinkElement: FC<ImageLinkElementProps> = ({
+  img,
+  text,
+  link,
+  inNewWindow,
+  onClick,
+}) => {
   return (
-    <div className="image-link-element">{
-        img ?
-      <ReactSVG
-        src={img}
-        className="svg-container"
-      /> : null
-    }
-      <p className="footer-link-body" onClick={() => onClick? onClick() : null}>
-        <a href={link ? link : ""} target={inNewWindow ? "_blank" : ""}>{text}</a>
+    <div className="image-link-element" onClick={onClick}>
+      {img ? <ReactSVG src={img} className="svg-container" /> : null}
+      <p className="footer-link-body" onClick={onClick}>
+        <a href={link} target={inNewWindow ? "_blank" : ""}>
+          {text}
+        </a>
       </p>
     </div>
   );

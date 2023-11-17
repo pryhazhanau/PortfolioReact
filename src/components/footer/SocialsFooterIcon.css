@@ -1,0 +1,18 @@
+.footer-social-icon {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.footer-social-icon:hover svg * {
+    fill: var(--velaro--light);
+}
+
+.footer-social-icon svg {
+    height: 20px;
+    width: 20px;
+}
+
+.footer-social-icon svg * {
+    fill: var(--velaro--text);
+}
