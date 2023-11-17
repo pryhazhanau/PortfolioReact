@@ -1,53 +1,73 @@
-import { useState } from "react";
+import { useState, MouseEvent } from "react";
 import BubbleButton from "../../../../components/common/controls/bubble-button/BubbleButton";
-import ModalPopup from "../modal-popup/ModalFrameworkPopup"
+import ModalPopup from "../modal-popup/ModalFrameworkPopup";
+import FrameworksList from "./FrameworksList"
 import "./FrameworksBlock.css";
 
 function FrameworksBlock() {
-  const [currentModal, setCurrentModal] = useState(false)
+  const [selectedFramework, setSelectedFramework] = useState<FrameworkObj | undefined>(
+    undefined
+  );
+  const [activeButtonId, setButtonId] = useState<number | undefined>(undefined);
+  const [position, setPosition] = useState<{ top: number; left: number }>({ top: 0, left: 0 });
+  const [targetSize, setTargetSize] = useState<{ height: number; width: number }>({ height: 0, width: 0 });
+
+  const handleButtonClick = (e: MouseEvent<HTMLDivElement>) => {
+    const buttonRect = e.currentTarget.getBoundingClientRect();
+
+    const modalPosition = {
+      top: buttonRect.bottom,
+      left: buttonRect.left,
+    };
+
+    const buttonSize = {
+      height: buttonRect.height,
+      width: buttonRect.width
+    };
+
+    setPosition(modalPosition)
+    setTargetSize(buttonSize)
+  };
+
+  const closeModal = () => {
+    setSelectedFramework(undefined);
+    setButtonId(undefined)
+  };
 
   return (
     <>
       <div className="frameworks-block-wrapper">
         <div className="frameworks-block-inner">
-            <p className="subtitle-secondary frameworks-title">Frameworks and libraries I love</p>
-            <p className="body-text-spacero"></p>
-            <div className="framework-flex-box">
-            {frameworksList.map((item) => (
-                <div key={item.id}>
-                  <BubbleButton label={item.name} active={false} onClick={() => {setCurrentModal(true)}}/>
-                </div>
-              ))}
-            </div>
+          <p className="subtitle-secondary frameworks-title">
+            Frameworks and libraries I love
+          </p>
+          <p className="body-text-spacero"></p>
+          <div className="framework-flex-box">
+            {FrameworksList.map((item) => (
+              <div key={item.id}>
+                <BubbleButton
+                  label={item.name}
+                  active={item.id === activeButtonId}
+                  onClick={(e) => {
+                    setSelectedFramework(item);
+                    setButtonId(item.id)
+                    handleButtonClick(e)
+                  }}
+                />
+              </div>
+            ))}
+          </div>
         </div>
+          <ModalPopup
+            visible={selectedFramework != undefined}
+            framework={selectedFramework}
+            position={position}
+            targetSize={targetSize}
+            onClose={closeModal}
+          />
       </div>
-      {
-        currentModal && (
-          <ModalPopup/>
-        )
-      }
     </>
   );
 }
-
-const frameworksList = [
-    { id: 0, name: "Realm" },
-    { id: 1, name: "WebRTC" },
-    { id: 3, name: "Swinject" },
-    { id: 4, name: "PureLayout" },
-    { id: 5, name: "MapKit" },
-    { id: 6, name: "CoreText" },
-    { id: 7, name: "CryptoKit" },
-    { id: 8, name: "CoreLocation" },
-    { id: 9, name: "Moya" },
-    { id: 10, name: "Texture" },
-    { id: 11, name: "CoreAnimation" },
-    { id: 12, name: "Nuke" },
-    { id: 13, name: "Crashlytics" },
-    { id: 14, name: "CocoaAsyncSocket" },
-    { id: 15, name: "FBSnapShotTestCases" },
-    { id: 16, name: "Firebase" },
-    { id: 17, name: "Tuist" },
-]
 
 export default FrameworksBlock;
