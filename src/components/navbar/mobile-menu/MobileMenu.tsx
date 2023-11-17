@@ -50,7 +50,7 @@ const MobileMenu: FC<MobileMenuProps> = ({ menuVisibilityChanged }) => {
                 <div className="menu-mobile-items">
                   <MobileMenuItem link="/" text="Home" delayAnimation={0.1} isSelected={currentPath === '/'}/>
                   <MobileMenuItem link="/career" text="Career" delayAnimation={0.2} isSelected={currentPath === '/career'}/>
-                  <MobileMenuItem link="/portfolio" text="Portfolio" delayAnimation={0.3} isSelected={currentPath === '/portfolio'}/>
+                  <MobileMenuItem link="/projects" text="Projects" delayAnimation={0.3} isSelected={currentPath === '/projects'}/>
                 </div>
 
                 <div className="menu-mobile-social-icons-wrapper">
