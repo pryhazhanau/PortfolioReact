@@ -48,7 +48,7 @@ function Footer() {
         </div>
         <div className="inspiration-wrapper" onClick={() => openVercelLink()}>
           <p className="body-text-aluminor">Design inspiration</p>
-          <ReactSVG src={VercelSVG}></ReactSVG>
+          <ReactSVG src={VercelSVG}/>
         </div>
       </div>
 

@@ -8,6 +8,8 @@ const AnimationConstants = {
   },
   cubic: {
     easeEase: [0.11, 0.94, 0.14, 1.01],
+    easeInOut: [.77,.21,.19,.89],
+    easeIn: [1,0,.88,.33]
   },
 };
 

@@ -189,6 +189,13 @@ body {
   color: var(--aluminor--gray);
 }
 
+.description-black {
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--description);
+  font-weight: 500;
+  color: var(--background--primary);
+}
+
 /* Links */
 
 .link-text-img {
