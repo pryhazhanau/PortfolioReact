@@ -122,6 +122,7 @@ const ModalFrameworkPopup: FC<ModalFrameworkPopupProps> = ({
                   label="More"
                   style="outline"
                   link={framework?.link}
+                  linkTarget="blank"
                 />
               </div>
             </motion.div>
@@ -131,8 +132,6 @@ const ModalFrameworkPopup: FC<ModalFrameworkPopupProps> = ({
               className="animated-background"
               style={{
                 position: "absolute",
-                // top: `${position.top - targetSize.height / 2}px`,
-                // left: `${position.left + targetSize.width / 2}px`,
                 top: `calc(${modalOrigin.y}px + ${modalSize.height / 2}px)`,
                 left: `calc(${modalOrigin.x}px + ${modalSize.width / 2}px)`,
                 transform: "translate(-50%, -50%)",
