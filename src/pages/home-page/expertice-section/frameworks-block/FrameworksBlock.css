@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
 
-    --framewroks-block-padding: 50px;
+    --frameworks-block-padding: 50px;
 }
 
 .frameworks-block-inner {
@@ -12,7 +12,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: var(--framewroks-block-padding);
+    padding: var(--frameworks-block-padding);
     height: 100%;
 }
 

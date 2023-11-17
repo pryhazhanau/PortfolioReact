@@ -21,11 +21,15 @@ const Navbar: FC<NavbarProps> = ({ menuVisibilityChanged }) => {
       setOnTop(true);
     }
 
-    const blurValue = window.scrollY < 0 ? 0 : window.scrollY / 10 + 4;
-    setNavbarBlur(blurValue);
+    if (window.scrollY >= 0) {
+      const blurValue = window.scrollY < 0 ? 0 : window.scrollY / 10 + 12;
+      setNavbarBlur(blurValue);
 
-    const brightnessValue = (1 - window.scrollY / 200) * 100 - 20;
-    setNavbarBrightness(brightnessValue > 0 ? brightnessValue : 0);
+      const brightnessValue = (1 - window.scrollY / 200) * 100 - 20;
+      setNavbarBrightness(brightnessValue > 0 ? brightnessValue : 0);
+    } else {
+      setNavbarBlur(12);
+    }
   };
 
   const onClick = () => {
@@ -56,6 +60,7 @@ const Navbar: FC<NavbarProps> = ({ menuVisibilityChanged }) => {
               isOnTop ? "navbar-desktop" : "navbar-desktop shadow"
             }`}
             style={{
+              WebkitBackdropFilter: `blur(${navbarBlur}px) brightness(${navbarBrightness}%)`,
               backdropFilter: `blur(${navbarBlur}px) brightness(${navbarBrightness}%)`
             }}
           >
@@ -96,7 +101,7 @@ const Navbar: FC<NavbarProps> = ({ menuVisibilityChanged }) => {
         ) : (
           <div
             className={`${isOnTop ? "navbar-mobile" : "navbar-mobile shadow"}`}
-            style={{ backgroundColor: "var(--background--primary)"}}
+            style={{ backgroundColor: "var(--background--primary)" }}
           >
             <a className="logo" href="/">
               PRY.
