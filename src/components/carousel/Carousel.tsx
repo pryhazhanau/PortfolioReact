@@ -24,7 +24,7 @@ const Carousel: FC<CarouselProps> = ({ children }) => {
     setCardsInView(getCardsInView(window.screen.width));
     setCardWidth(
       window.screen.width < cardMaxWidth + arrowBlockWidth * 2
-        ? window.screen.width - arrowBlockWidth * 2
+        ? window.screen.width - 12
         : cardMaxWidth
     );
     setCurrentWidth(window.screen.width);
