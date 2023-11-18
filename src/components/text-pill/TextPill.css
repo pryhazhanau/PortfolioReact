@@ -1,0 +1,29 @@
+.text-pill {
+    padding: 0 8px 0 8px;
+    position: relative;
+}
+
+
+
+.text-pill::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50rem;
+    padding: 1px;
+    background: var(--moderna-gradient);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+  }
+
+.text-pill-text {
+    margin: 0;
+    background-image: var(--moderna-gradient);
+    background: var(--moderna-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

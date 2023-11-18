@@ -1,0 +1,57 @@
+.carousel-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-arrow-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+}
+
+.corousel-mobile-arrow-container {
+    display: flex;
+}
+
+.carousel-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    width: 42px;
+    height: 42px;
+    border-radius: 50rem;
+    border: 1px solid var(--stroke--black);
+    cursor: pointer;
+    transition: scale 0.2s ease;
+}
+
+.carousel-arrow div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-arrow svg * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    transition: all 0.3s;
+    stroke: var(--spacero--gray);
+}
+
+.carousel-arrow:hover svg * {
+    stroke: var(--aluminor--gray);
+}
+
+.carousel-arrow:active {
+    scale: 0.8;
+}
