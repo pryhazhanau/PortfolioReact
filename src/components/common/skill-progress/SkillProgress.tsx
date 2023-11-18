@@ -10,14 +10,17 @@ import "react-circular-progressbar/dist/styles.css";
 
 interface CircularProgressBarProps {
   percentage: number;
-  text: string;
-  grade: string;
+  text?: string;
+  strokeWidth: number;
+  size?: Size;
+  textClass?: string
 }
 
 const SkillProgress: React.FC<CircularProgressBarProps> = ({
   percentage,
   text,
-  grade
+  strokeWidth,
+  textClass
 }) => {
   const [value, setPercentage] = useState(0);
 
@@ -28,27 +31,22 @@ const SkillProgress: React.FC<CircularProgressBarProps> = ({
   };
 
   return (
-    <>
     <InView as="div" triggerOnce onChange={(inView) => handleInView(inView)}>
     <div className="skill-progress-wrapper">
     <CircularProgressbarWithChildren
       value={value}
-      strokeWidth={18}
+      strokeWidth={strokeWidth}
       styles={buildStyles({
-        strokeLinecap: "butt",
-        pathColor: `var(--velaro--accent)`,
+        strokeLinecap: "round",
+        pathColor: `var(--velaro--text)`,
         trailColor: "var(--background--secondary)",
         pathTransitionDuration: 2
       })}
     >
-      <p className="skill-name subtitle-primary">{text}</p>
+      <p className={`skill-name subtitle-primary ${textClass}`}>{text != null ? text : `${percentage}%`}</p>
     </CircularProgressbarWithChildren>
-    <div className="grade-container">
-      <p className="body-text">{grade}</p>
-    </div>
     </div>
   </InView>
-    </>
   );
 };
 

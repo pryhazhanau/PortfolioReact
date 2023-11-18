@@ -1,5 +1,7 @@
 :root {
   --card-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 1.16%, rgba(255, 255, 255, 0.03) 100%);
+  --card-diagonal-gradient: linear-gradient(120deg, rgba(255, 255, 255, 0.05) 2.3%, rgba(255, 255, 255, 0.02) 98.16%);
+  --moderna-gradient: linear-gradient(125deg, #4CA6CD 0%, #65FFAC 100%);
 }
 
 /* Hover text gradient */
@@ -46,4 +48,8 @@
 
   .gradient-section-background-radial {
     background: radial-gradient(40% 40% at 50% 48.55%, rgba(0, 188, 188, 0.28) 0%, rgba(0, 255, 68, 0.08) 67.71%, rgba(244, 244, 244, 0.00) 100%);
+  }
+
+  .gradient-moderna-background {
+    background: var(--moderna-gradient)
   }

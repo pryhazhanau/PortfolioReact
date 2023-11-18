@@ -1,0 +1,40 @@
+.skillset-wrapper {
+    height: 375px;
+    background: var(--card-diagonal-gradient);
+    border-radius: 28px;
+    border: 1px solid var(--stroke--black);
+    box-sizing: border-box;
+    cursor: default;
+}
+
+
+.skillset-card {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    margin: 32px;
+    gap: 24px
+}
+
+.skillset-progress-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.skillset-progress-container .skill-progress-wrapper {
+    width: 50px;
+}
+
+.skillset-body-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.skillset-body-container p {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
