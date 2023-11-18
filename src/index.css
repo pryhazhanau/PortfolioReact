@@ -56,7 +56,7 @@ body {
   --description: 12px;
   --quote: 14px;
   --title: 48px;
-  --caption: 10px;
+  --caption: 12px;
 
 }
 
@@ -115,6 +115,8 @@ body {
 .caption {
   font-family: 'Poppins', sans-serif;
   font-size: var(--caption);
+  font-weight: 400;
+  letter-spacing: -0.12px;
 }
 
 /* Styles with primary colors */
