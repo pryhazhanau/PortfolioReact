@@ -7,6 +7,20 @@
     cursor: default;
 }
 
+.skillset-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 28px;
+    padding: 1px;
+    background: linear-gradient(125deg, #131313 23.44%, #272727 53.12%, #141414 80.21%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+  }
+
 
 .skillset-card {
     display: grid;
@@ -37,4 +51,18 @@
     display: flex;
     flex-direction: column;
     margin: 0;
+}
+
+.skillset-title-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+}
+
+.skillset-title-line {
+    margin-top: 8px;
+    width: 36px;
+    height: 1px;
+    background-color: var(--velaro--text);
 }

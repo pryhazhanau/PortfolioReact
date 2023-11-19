@@ -5,10 +5,10 @@ import SkillProgress from "../common/skill-progress/SkillProgress";
 import TextPill from "../text-pill/TextPill";
 
 interface SkillsetCardProps {
-  skill: SkillCardObj
+  skill: SkillCardObj;
 }
 
-const SkillSetCard: FC<SkillsetCardProps> = ({skill}) => {
+const SkillSetCard: FC<SkillsetCardProps> = ({ skill }) => {
   return (
     <>
       <Tilt
@@ -31,10 +31,11 @@ const SkillSetCard: FC<SkillsetCardProps> = ({skill}) => {
               />
             </div>
             <div className="skillset-body-container">
-              <p className="subtitle-primary-aluminor">{skill.title}</p>
-              <p className="body-text-titanium">
-                {skill.body}
-              </p>
+              <div className="skillset-title-wrapper">
+                <p className="subtitle-primary-aluminor">{skill.title}</p>
+                <div className="skillset-title-line"/>
+              </div>
+              <p className="body-text-titanium">{skill.body}</p>
             </div>
           </div>
         </div>
