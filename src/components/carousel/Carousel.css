@@ -1,16 +1,24 @@
 .carousel-wrapper {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     width: 100%;
 }
 
-.carousel-arrow-container {
+.carousel-arrow-wrapper {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 50px;
+    align-items: end;
+    justify-content: end;
+    width: 100%;
+}
+
+.carousel-arrows-container {
+    display: flex;
+    margin-right: 30px;
+    margin-bottom: 20px;
+    gap: 10px;
 }
 
 .corousel-mobile-arrow-container {
@@ -21,13 +29,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
     width: 42px;
     height: 42px;
     border-radius: 50rem;
     border: 1px solid var(--stroke--black);
     cursor: pointer;
     transition: scale 0.2s ease;
+}
+
+.carousel-arrow-accent {
+    background-color: var(--background--secondary) !important;
+}
+
+.carousel-arrow-accent svg * {
+    stroke: var(--aluminor--gray) !important;
+}
+
+.carousel-arrow-accent:hover svg * {
+    stroke: var(--velaro--accent) !important;
 }
 
 .carousel-arrow div {
@@ -54,4 +73,11 @@
 
 .carousel-arrow:active {
     scale: 0.8;
+}
+
+.carousel-bottom-slider-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }

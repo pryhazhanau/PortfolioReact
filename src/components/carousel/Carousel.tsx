@@ -1,7 +1,7 @@
 import { FC, useState, useEffect, CSSProperties } from "react";
 import "./Carousel.css";
 import { ReactSVG } from "react-svg";
-
+import CarousePageSlider from "./page-slider/CarouselPageSlider";
 import ArrowLeft from "../../assets/icons/arrow-left.svg";
 import ArrowRight from "../../assets/icons/arrow-right.svg";
 
@@ -17,7 +17,6 @@ const Carousel: FC<CarouselProps> = ({ children }) => {
     getCardsInView(window.screen.width)
   );
   const [cardWidth, setCardWidth] = useState(cardMaxWidth);
-  const [currentWidth, setCurrentWidth] = useState(window.screen.width);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleResize = () => {
@@ -27,7 +26,6 @@ const Carousel: FC<CarouselProps> = ({ children }) => {
         ? window.screen.width - 12
         : cardMaxWidth
     );
-    setCurrentWidth(window.screen.width);
   };
 
   useEffect(() => {
@@ -71,11 +69,13 @@ const Carousel: FC<CarouselProps> = ({ children }) => {
   };
 
   return (
-    <div
-      className="carousel-wrapper"
-      style={{ flexDirection: currentWidth > 600 ? "row" : "column" }}
-    >
-      {currentWidth > 600 && <Arrow direction="left" onClick={prevSlide} />}
+    <div className="carousel-wrapper">
+      <div className="carousel-arrow-wrapper">
+        <div className="carousel-arrows-container">
+          <Arrow direction="left" isAccent={false} onClick={prevSlide} />
+          <Arrow direction="right" isAccent={true} onClick={nextSlide} />
+        </div>
+      </div>
       <div
         style={{
           width: `${
@@ -94,20 +94,15 @@ const Carousel: FC<CarouselProps> = ({ children }) => {
             transform: `translateX(-${
               currentIndex * (cardWidth + cardsGap)
             }px)`,
-            transition: "transform 0.2s ease-in",
+            transition: "transform 0.4s cubic-bezier(.75,.03,.24,.96)",
           }}
         >
           {cards()}
         </div>
-      </div>
-      {currentWidth > 600 ? (
-        <Arrow direction="right" onClick={nextSlide} />
-      ) : (
-        <div className="corousel-mobile-arrow-container ">
-          <Arrow direction="left" onClick={prevSlide} />
-          <Arrow direction="right" onClick={nextSlide} />
+        <div className="carousel-bottom-slider-wrapper">
+          <CarousePageSlider cardsInView={cardsInView} currentIndex={currentIndex} totalNumber={children.length}/>
         </div>
-      )}
+      </div>
     </div>
   );
 };
@@ -115,10 +110,11 @@ const Carousel: FC<CarouselProps> = ({ children }) => {
 // Carousel Arrows
 interface ArrowProps {
   direction: "left" | "right";
+  isAccent: boolean;
   onClick: () => void;
 }
 
-const Arrow: FC<ArrowProps> = ({ direction, onClick }) => {
+const Arrow: FC<ArrowProps> = ({ direction, isAccent, onClick }) => {
   var style: CSSProperties;
   if (direction === "right") {
     style = {
@@ -131,7 +127,10 @@ const Arrow: FC<ArrowProps> = ({ direction, onClick }) => {
   }
   return (
     <div className="carousel-arrow-container">
-      <div className="carousel-arrow" onClick={onClick}>
+      <div
+        className={`carousel-arrow ${isAccent ? "carousel-arrow-accent" : ""}`}
+        onClick={onClick}
+      >
         <ReactSVG
           style={style}
           src={direction == "right" ? ArrowRight : ArrowLeft}
