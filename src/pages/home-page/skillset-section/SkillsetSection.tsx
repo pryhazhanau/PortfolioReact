@@ -1,8 +1,8 @@
 import "./SkillsetSection.css";
 import "../HomePage.css";
 import "../../../common/css/div-layout.css";
-import SkillSetCard from "../../../components/skillset-card/SkillsetCard";
-import Carousel from "../../../components/carousel/Carousel";
+import SkillSetCard from "./skillset-card/SkillsetCard";
+import Carousel from "./carousel/Carousel";
 import FlexBox from "../../../components/common/box/FlexBox";
 import SectionTitle from "../../../components/common/section-title/SectionTitle";
 import Text from "../../../components/common/style/Text";

@@ -1,9 +1,10 @@
+import FlexBox from "../../../../components/common/box/FlexBox";
 import "./ArchitecturesBlock.css";
 
 function ArchitecturesBlock() {
   return (
     <>
-      <div className="architectures-block-wrapper">
+      <FlexBox className="architectures-block-wrapper">
         <div className="architecture-grid">
           <div className="architecture-col-wrapper">
             <div className="architecture-col">
@@ -54,7 +55,7 @@ function ArchitecturesBlock() {
             </div>
           </div>
         </div>
-      </div>
+      </FlexBox>
     </>
   );
 }

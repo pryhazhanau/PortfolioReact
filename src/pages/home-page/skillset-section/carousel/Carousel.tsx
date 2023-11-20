@@ -2,8 +2,8 @@ import { FC, useState, useEffect, CSSProperties } from "react";
 import "./Carousel.css";
 import { ReactSVG } from "react-svg";
 import CarousePageSlider from "./page-slider/CarouselPageSlider";
-import ArrowLeft from "../../assets/icons/arrow-left.svg";
-import ArrowRight from "../../assets/icons/arrow-right.svg";
+import ArrowLeft from "../../../../assets/icons/arrow-left.svg";
+import ArrowRight from "../../../../assets/icons/arrow-right.svg";
 
 const cardMaxWidth = 320;
 const arrowBlockWidth = 50;

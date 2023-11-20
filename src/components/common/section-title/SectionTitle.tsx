@@ -13,8 +13,8 @@ interface SectionTitleProps {
 const SectionTitle: FC<SectionTitleProps> = ({sectionName, sectionDesc}) => {
     return (
         <FlexBox direction="column" justifyContent="start" alignItems="start" margin={{bottom: 30, top: 30}}>
-            <div className="section-pill description">
-                <p className="section-pill-text">{sectionName}</p>
+            <div className="section-pill">
+                <p className="section-pill-text description">{sectionName}</p>
             </div>
             <Text text={sectionDesc} typography={Typography.SubtitlePrimary} color={Colors.AluminorGray} margin={{top: 20, bottom: 6}} maxWidth={500}/>
             <div className="section-title-devider "></div>

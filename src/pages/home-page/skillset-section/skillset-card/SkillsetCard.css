@@ -1,24 +1,27 @@
-.skillset-wrapper {
+.skillset-card-wrapper {
     height: 375px;
     background: var(--card-diagonal-gradient);
-    border-radius: 28px;
-    border: 1px solid var(--stroke--black);
+    border-radius: 24px;
+    border: 1px solid transparent;
     box-sizing: border-box;
     cursor: default;
+    position: relative;
 }
 
-.skillset-wrapper::before {
+.skillset-card-wrapper::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: 28px;
+    border-radius: 24px;
     padding: 1px;
     background: linear-gradient(125deg, #131313 23.44%, #272727 53.12%, #141414 80.21%);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
+    mask-composite: xor;
   }
 
 

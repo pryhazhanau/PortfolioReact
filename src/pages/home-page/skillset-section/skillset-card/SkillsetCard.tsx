@@ -1,8 +1,8 @@
 import { FC } from "react";
 import "./SkillsetCard.css";
 import Tilt from "react-parallax-tilt";
-import SkillProgress from "../common/skill-progress/SkillProgress";
-import TextPill from "../text-pill/TextPill";
+import SkillProgress from "../../../../components/common/skill-progress/SkillProgress";
+import TextPill from "../../../../components/text-pill/TextPill";
 
 interface SkillsetCardProps {
   skill: SkillCardObj;
@@ -15,12 +15,12 @@ const SkillSetCard: FC<SkillsetCardProps> = ({ skill }) => {
         tiltMaxAngleX={15}
         tiltMaxAngleY={15}
         glareEnable={true}
-        glareMaxOpacity={0.1}
+        glareMaxOpacity={0.08}
         glareColor="#30F6AF"
         glarePosition="bottom"
-        glareBorderRadius="20px"
+        glareBorderRadius="28px"
       >
-        <div className="skillset-wrapper">
+        <div className="skillset-card-wrapper">
           <div className="skillset-card">
             <div className="skillset-progress-container">
               <TextPill text={skill.grade} />

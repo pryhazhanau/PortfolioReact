@@ -25,7 +25,7 @@ function FeedbackSection() {
             sectionDesc="What they are saying"
           />
           <Text
-            text="A feedback from people I worked with with pleasure."
+            text="Comments from people I enjoyed working with, sharing positive feelings and mutual enjoyment in our collaboration."
             typography={Typography.BodyText}
             color={Colors.SpaceroGray}
           />

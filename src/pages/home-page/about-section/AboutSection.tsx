@@ -12,20 +12,20 @@ import { Colors } from "../../../components/common/style/interface/Colors";
 function AboutSection() {
   return (
     <>
-      <div className="about-container page-section">
-        <div className="about-content-container">
+      <FlexBox className="about-container page-section">
+        <FlexBox className="about-content-container">
           <FlexBox className="about-flex-container" gap={50} justifyContent="center" alignItems="center">
             <FlexBox direction="column">
               <SectionTitle
                 sectionName="About me"
-                sectionDesc="Who am I and what I’m doing"
+                sectionDesc="Who am I and what I am doing"
               />
               <Text text={AboutText} typography={Typography.BodyText} color={Colors.SpaceroGray}/>
             </FlexBox>
             <Image src={Photo} maxWidth="40%"/>
           </FlexBox>
-        </div>
-      </div>
+        </FlexBox>
+      </FlexBox>
     </>
   );
 }
