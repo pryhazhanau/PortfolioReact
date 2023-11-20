@@ -1,6 +1,7 @@
 import "./ExperticeSection.css";
 import "../HomePage.css";
 import "../../../common/css/div-layout.css";
+import SectionTitle from "../../../components/common/section-title/SectionTitle";
 import TechBlock from "./tech-block/TechBlock";
 import { useState } from "react";
 import GridButtonsBlock from "./buttons-block/GridButtonsBlock";
@@ -9,13 +10,21 @@ import AnimatedTextCommon from "../../../components/common/animation/AnimatedTex
 import ArchitecturesBlock from "./architectures-block/ArchitecturesBlock";
 import FrameworksBlock from "./frameworks-block/FrameworksBlock";
 import TechObject from "./tech-block/TechObject";
+import ProjectsBlock from "./projects-block/ProjectsBlock";
+import ExperienceBlock from "./experience-block/ExperienceBlock";
+import Text from "../../../components/common/style/Text";
+import { Typography } from "../../../components/common/style/interface/Typography";
+import { Colors } from "../../../components/common/style/interface/Colors";
+import { TechList } from "./TechList";
 
 function ExperticeSection() {
   const initialJSX: JSX.Element = (
     <p className="subtitle-primary">Utilized key technoligies I use</p>
   );
 
-  const [techObject, setTechObject] = useState<TechObject | undefined>(undefined);
+  const [techObject, setTechObject] = useState<TechObject | undefined>(
+    undefined
+  );
   const [sectionId, setSectionId] = useState(0);
   const [sectionName, setSectionName] = useState("architectures");
   const [titlePostfix, setTitlePostfix] = useState("I use");
@@ -38,13 +47,23 @@ function ExperticeSection() {
     setTitlePostfix(postfix);
   };
 
-  const topTechItems = techList.slice(0, 4);
-  const bottomTechItems = techList.slice(4, techList.length);
+  const topTechItems = TechList.slice(0, 4);
+  const bottomTechItems = TechList.slice(4, TechList.length);
 
   return (
     <>
-      <div className="expertice-container">
-        <h1 className="headline section-title">Expertise</h1>
+      <div className="expertice-container page-section">
+        <SectionTitle
+          sectionName="Expertise"
+          sectionDesc="Skilled in tech, adept at overcoming challenges"
+        />
+        <Text
+          text={BodyText}
+          typography={Typography.BodyText}
+          color={Colors.SpaceroGray}
+          margin={{bottom: 60}}
+          maxWidth={600}
+        />
         <div className="grid-container">
           <div className="grid-system">
             <div className="grid">
@@ -53,7 +72,7 @@ function ExperticeSection() {
                   className="title-tech-stack-wrapper"
                   animKey={techObject ? techObject.name : ""}
                 >
-                  {techObject ?  (techObject.jsxElement) : (initialJSX)}
+                  {techObject ? techObject.jsxElement : initialJSX}
                 </AnimatedTextCommon>
               </div>
               <div className="grid-item-sw grid-cell-middle"></div>
@@ -130,124 +149,6 @@ function ExperticeSection() {
   );
 }
 
-import Xcode from "../../../assets/technology/Xcode.svg";
-import TestFlight from "../../../assets/technology/TestFlight.svg";
-import Figma from "../../../assets/technology/Figma.svg";
-import Github from "../../../assets/technology/GitHub.svg";
-import Bitrise from "../../../assets/technology/Bitrise.svg";
-import Fastlane from "../../../assets/technology/Fastlane.svg";
-import Swift from "../../../assets/technology/Swift.svg";
-import Firebase from "../../../assets/technology/Firebase.svg";
-import Jira from "../../../assets/technology/Jira.svg";
-import ProjectsBlock from "./projects-block/ProjectsBlock";
-import ExperienceBlock from "./experience-block/ExperienceBlock";
-
-const techList: TechObject[] = [
-  {
-    id: 0,
-    name: "Swift",
-    url: "https://developer.apple.com/swift",
-    img: Swift,
-    jsxElement: (
-      <p className="subtitle-primary" style={{ color: `#eb633e` }}>
-        Swift
-      </p>
-    ),
-  },
-  {
-    id: 1,
-    name: "Test Flight",
-    url: "https://developer.apple.com/testflight",
-    img: TestFlight,
-    jsxElement: (
-      <p className="subtitle-primary" style={{ color: `#3977cf` }}>
-        Test Flight
-      </p>
-    ),
-  },
-  {
-    id: 2,
-    name: "Xcode",
-    url: "https://developer.apple.com/xcode",
-    img: Xcode,
-    jsxElement: (
-      <p className="subtitle-primary" style={{ color: `#3977cf` }}>
-        Xcode
-      </p>
-    ),
-  },
-  {
-    id: 3,
-    name: "Figma",
-    url: "https://www.figma.com",
-    img: Figma,
-    jsxElement: (
-      <>
-        <p className="subtitle-primary figma-red">F</p>
-        <p className="subtitle-primary figma-light-red">i</p>
-        <p className="subtitle-primary figma-purple">g</p>
-        <p className="subtitle-primary figma-blue">m</p>
-        <p className="subtitle-primary figma-green">a</p>
-      </>
-    ),
-  },
-  {
-    id: 4,
-    name: "Github",
-    url: "https://github.com",
-    img: Github,
-    jsxElement: (
-      <p className="subtitle-primary" style={{ color: `#5b686e` }}>
-        Github
-      </p>
-    ),
-  },
-  {
-    id: 5,
-    name: "Bitrise",
-    url: "https://bitrise.io",
-    img: Bitrise,
-    jsxElement: (
-      <p className="subtitle-primary" style={{ color: `#54227d` }}>
-        Bitrise
-      </p>
-    ),
-  },
-  {
-    id: 6,
-    name: "Fastlane",
-    url: "https://fastlane.tools",
-    img: Fastlane,
-    jsxElement: (
-      <p className="subtitle-primary" style={{ color: `#F6F6F6` }}>
-        Fastlane
-      </p>
-    ),
-  },
-  {
-    id: 7,
-    name: "Firebase",
-    url: "https://firebase.google.com",
-    img: Firebase,
-    jsxElement: (
-      <p className="subtitle-primary" style={{ color: `#f7cf56` }}>
-        Firebase
-      </p>
-    ),
-  },
-  {
-    id: 8,
-    name: "Jira Software",
-    url: "https://www.atlassian.com/software/jira",
-    img: Jira,
-    jsxElement: (
-      <>
-        <p className="subtitle-primary" style={{ color: `#417eef` }}>
-          Jira <span className="subtitle-primary-aluminor">Software</span>
-        </p>
-      </>
-    ),
-  },
-];
+const BodyText = `Experienced in iOS development and UI/UX design, I bring a collaborative spirit to every project. My expertise lies in creating seamless, user-centric experiences, and I thrive in teamwork environments, ensuring successful outcomes through effective communication and shared goals.`;
 
 export default ExperticeSection;

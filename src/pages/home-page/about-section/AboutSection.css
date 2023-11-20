@@ -1,45 +1,10 @@
-.about-container {
-    
-}
-
-div.about-content-container {
-}
-
-
-.about-flex-container h1 {
-    min-width: 400px;
-}
-
-.about-flex-container img {
-    width: 40%
-}
-
-
-div.about-flex-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
-}
-
 @media (max-width: 1200px) {
-    div.about-flex-container {
-      flex-direction: column;
+    .about-flex-container {
+      flex-direction: column !important;
     }
 
 
     .about-flex-container img {
         width: 60%;
     }
-}
-
-@media (max-width: 800px) {
-    div.about-content-container {
-      padding: 0;
-    }
-
-    .about-flex-container h1 {
-        min-width: 150px;
-    }
-    
 }

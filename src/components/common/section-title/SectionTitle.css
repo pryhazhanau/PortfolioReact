@@ -1,0 +1,34 @@
+.section-pill {
+    padding: 0 8px 0 8px;
+    position: relative;
+}
+
+
+.section-pill::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50rem;
+    padding: 1px;
+    background: var(--velaro-gradient);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+}
+
+.section-pill-text {
+    margin: 0;
+    background-image: var(--moderna-gradient);
+    background: var(--velaro-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-title-devider {
+    width: 150px;
+    height: 1px;
+    background: linear-gradient(125deg, #65FFAC 0%, rgba(0, 0, 0, 0) 100%);
+}

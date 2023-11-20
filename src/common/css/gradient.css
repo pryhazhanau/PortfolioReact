@@ -2,6 +2,7 @@
   --card-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 1.16%, rgba(255, 255, 255, 0.03) 100%);
   --card-diagonal-gradient: linear-gradient(120deg, rgba(255, 255, 255, 0.05) 2.3%, rgba(255, 255, 255, 0.02) 98.16%);
   --moderna-gradient: linear-gradient(125deg, #4CA6CD 0%, #65FFAC 100%);
+  --velaro-gradient: linear-gradient(125deg, #65FFAC 0%, #246747 99.66%);
 }
 
 /* Hover text gradient */

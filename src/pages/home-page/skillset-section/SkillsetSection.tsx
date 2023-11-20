@@ -3,33 +3,37 @@ import "../HomePage.css";
 import "../../../common/css/div-layout.css";
 import SkillSetCard from "../../../components/skillset-card/SkillsetCard";
 import Carousel from "../../../components/carousel/Carousel";
+import FlexBox from "../../../components/common/box/FlexBox";
+import SectionTitle from "../../../components/common/section-title/SectionTitle";
+import Text from "../../../components/common/style/Text";
+import { Typography } from "../../../components/common/style/interface/Typography";
+import { Colors } from "../../../components/common/style/interface/Colors";
 
 function SkillsetSection() {
   return (
-    <>
-      <div className="skillset-container">
-        <h1 className="headline section-title">Skillset</h1>
-        <p className="body-text-spacero skill-set-desc">
-          Throughout my IT career, I've cultivated a versatile skillset that
-          encompasses core competencies crucial to the field. These skills,
-          refined through years of experience, form the bedrock of my
-          professional journey.
-        </p>
-        <div className="skill-box">
-          <Carousel>
-            {skillCards.map((item) => (
-              <div key={item.id}>
-                <SkillSetCard skill={item} />
-              </div>
-            ))}
-          </Carousel>
-        </div>
-      </div>
+    <><SectionTitle sectionName="Skillset" sectionDesc="Key skills I refined through years"/>
+    <Text className="skillset-desc" text={bodtText} typography={Typography.BodyText} color={Colors.SpaceroGray}/>
+    <FlexBox direction="column" alignItems="center" justifyContent="center">
+      <FlexBox>
+        <Carousel>
+          {skillCards.map((item) => (
+            <div key={item.id}>
+              <SkillSetCard skill={item} />
+            </div>
+          ))}
+        </Carousel>
+      </FlexBox>
+    </FlexBox>
     </>
   );
 }
 
 export default SkillsetSection;
+
+const bodtText = ` Throughout my IT career, I've cultivated a versatile skillset that
+encompasses core competencies crucial to the field. These skills,
+refined through years of experience, form the bedrock of my professional
+journey.`
 
 const skillCards: SkillCardObj[] = [
   {

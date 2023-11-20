@@ -1,5 +1,6 @@
 .expertice-container {
-    padding: 100px 0 0 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .title-tech-stack-wrapper {

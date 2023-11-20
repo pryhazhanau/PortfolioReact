@@ -1,6 +1,8 @@
 import "./App.css";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
 
+import "./common/css/section.css"
+
 import Navbar from "./components/navbar/Navbar.tsx";
 import ProjectsPage from "./pages/projects-page/ProjectsPage.tsx";
 import HomePage from "./pages/home-page/HomePage.tsx";
