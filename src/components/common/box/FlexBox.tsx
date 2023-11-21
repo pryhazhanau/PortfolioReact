@@ -11,11 +11,12 @@ interface FlexBoxProps {
     | "space-around";
   alignItems?: "stretch" | "start" | "end" | "center" | "baseline";
   width?: string | number;
+  height?: string | number;
   maxWidth?: string | number
   gap?: string | number;
-  children: ReactNode;
   margin?: EdgeInset;
-  padding?: EdgeInset
+  padding?: EdgeInset;
+  children?: ReactNode;
 }
 
 const FlexBox: FC<FlexBoxProps> = ({
@@ -26,6 +27,7 @@ const FlexBox: FC<FlexBoxProps> = ({
   gap,
   children,
   width,
+  height,
   maxWidth,
   margin,
   padding
@@ -36,6 +38,7 @@ const FlexBox: FC<FlexBoxProps> = ({
     justifyContent,
     alignItems,
     width,
+    height,
     maxWidth,
     gap,
     marginTop: margin?.top,
