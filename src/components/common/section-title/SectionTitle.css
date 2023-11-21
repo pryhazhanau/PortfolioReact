@@ -1,6 +1,10 @@
 .section-pill {
-    padding: 0 8px 0 8px;
+    display: flex;
+    padding: 0 15px 0 15px;
     position: relative;
+    height: 24px;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -23,6 +27,7 @@
     background-image: var(--moderna-gradient);
     background: var(--velaro-gradient);
     background-clip: text;
+    text-align: center;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
