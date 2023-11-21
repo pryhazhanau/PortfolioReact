@@ -17,6 +17,7 @@ export const Typography: Record<string, TypographyStyle> = {
   Title: {
     fontFamily: 'Poppins, sans-serif',
     fontSize: 'var(--title)',
+    fontWeight: 500
   },
   SubtitlePrimary: {
     fontFamily: 'Poppins, sans-serif',

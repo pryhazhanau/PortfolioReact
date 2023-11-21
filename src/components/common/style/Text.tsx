@@ -14,7 +14,7 @@ interface TextProps {
 
 const Text: FC<TextProps> = ({ className = "", text = "", typography, color, margin, padding, maxWidth }) => {
   const textStyle = {
-    color: color.hex,
+    color: color.var,
     fontFamily: typography.fontFamily,
     fontSize: typography.fontSize,
     fontWeight: typography.fontWeight,

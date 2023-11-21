@@ -23,7 +23,7 @@ const AppCard: FC<AppCardProps> = ({app}) => {
       
       <div className="card-button-wrapper">
         { app.link != undefined && (
-        <ActionButton label="explore" link={app.link} style="outline" linkTarget="blank"/>
+        <ActionButton label="explore" link={app.link} style="outline" rightIcon="arrow-link" linkTarget="blank"/>
         )}
       </div>
     </div>
