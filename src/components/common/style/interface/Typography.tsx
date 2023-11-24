@@ -56,4 +56,33 @@ export const Typography: Record<string, TypographyStyle> = {
     fontWeight: 400,
     letterSpacing: '-0.12px',
   },
+  ArticleTitle: {
+    fontFamily: 'Poppins, sans-serif',
+    fontSize: 'var(--article--title)',
+    fontWeight: 500,
+    lineHeight: "176%",
+    letterSpacing: "1.44px"
+  },
+  ArticleBody: {
+    fontFamily: 'Poppins, sans-serif',
+    fontSize: 'var(--article--body)',
+    fontWeight: 300,
+    lineHeight: "176%",
+    letterSpacing: "0.66px"
+  },
+  ArticleBodyBold: {
+    fontFamily: 'Poppins, sans-serif',
+    fontSize: 'var(--article--body--bold)',
+    fontWeight: 600,
+    lineHeight: "176%",
+    letterSpacing: "0.66px"
+  },
+  ArticleBodyItalic: {
+    fontFamily: 'Poppins, sans-serif',
+    fontSize: 'var(--article--body)',
+    fontWeight: 300,
+    fontStyle: "italic",
+    lineHeight: "176%",
+    letterSpacing: "0.66px"
+  }
 };

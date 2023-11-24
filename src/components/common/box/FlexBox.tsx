@@ -12,7 +12,8 @@ interface FlexBoxProps {
   alignItems?: "stretch" | "start" | "end" | "center" | "baseline";
   width?: string | number;
   height?: string | number;
-  maxWidth?: string | number
+  maxWidth?: string | number;
+  minWidth?: string | number;
   gap?: string | number;
   margin?: EdgeInset;
   padding?: EdgeInset;
@@ -29,6 +30,7 @@ const FlexBox: FC<FlexBoxProps> = ({
   width,
   height,
   maxWidth,
+  minWidth,
   margin,
   padding
 }) => {
@@ -40,6 +42,7 @@ const FlexBox: FC<FlexBoxProps> = ({
     width,
     height,
     maxWidth,
+    minWidth,
     gap,
     marginTop: margin?.top,
     marginBottom: margin?.bottom,
