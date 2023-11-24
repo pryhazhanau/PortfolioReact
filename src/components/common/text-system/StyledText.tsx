@@ -2,7 +2,6 @@ import { Fragment, FC } from "react";
 import { Typography } from "../style/interface/Typography";
 import { Colors } from "../style/interface/Colors";
 import "./StyledText.css";
-import { ReactSVG } from "react-svg";
 
 interface StyledTextProps {
   text: string;
