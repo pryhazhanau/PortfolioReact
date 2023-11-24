@@ -1,6 +1,7 @@
 :root {
   --card-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 1.16%, rgba(255, 255, 255, 0.03) 100%);
   --card-diagonal-gradient: linear-gradient(120deg, rgba(255, 255, 255, 0.05) 2.3%, rgba(255, 255, 255, 0.02) 98.16%);
+  --card-horizontal-border-gradient: linear-gradient(90deg, rgba(0, 0, 0, 0.00) 0.08%, #494949 29.25%, #B1B1B1 49.04%, #494949 67.79%, rgba(0, 0, 0, 0.00) 100.08%);  
   --moderna-gradient: linear-gradient(125deg, #4CA6CD 0%, #65FFAC 100%);
   --velaro-gradient: linear-gradient(125deg, #65FFAC 0%, #246747 99.66%);
 }
@@ -39,13 +40,6 @@
   animation: textShine 2s linear infinite;
   }
 
-  .gradient-section-background {
-    --geist-background-rgb: 0, 0, 0;
-    --gradient-start-color: 125, 232, 240;
-    --gradient-end-color: 48, 246, 130;
-    --gradient-alpha: 0.15;
-    background: linear-gradient(180deg, rgba(var(--geist-background-rgb), 255) 0, rgba(var(--geist-background-rgb), 0) 100%), linear-gradient(90deg, rgba(var(--gradient-start-color), var(--gradient-alpha)) 0, rgba(var(--gradient-end-color), var(--gradient-alpha)) 100%)
-  }
 
   .gradient-section-background-radial {
     background: radial-gradient(40% 40% at 50% 48.55%, rgba(0, 188, 188, 0.28) 0%, rgba(0, 255, 68, 0.08) 67.71%, rgba(244, 244, 244, 0.00) 100%);

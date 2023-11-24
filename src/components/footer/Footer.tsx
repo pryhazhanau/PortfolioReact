@@ -11,6 +11,7 @@ import GitHubSVG from "../../assets/icons/github.svg"
 import InstagramSVG from "../../assets/icons/instagram.svg"
 import VercelSVG from "../../assets/vercel.svg"
 import SocialFooterIcon from "./SocialFooterIcon";
+import FlexBox from "../common/box/FlexBox";
 
 function Footer() {
   function openVercelLink() {
@@ -19,7 +20,8 @@ function Footer() {
 
   return (
     <footer>
-      <div className="footer-top-container-wrapper"></div>
+    <div className="footer-background"/>
+    <HorizontalSeparator/>
       <div className="footer-top-container">
         <div className="info-block">
           <div className="title-wrapper">
@@ -54,13 +56,20 @@ function Footer() {
             <SocialFooterIcon img={GitHubSVG} link={Constants.contact.github.link}/>
             <SocialFooterIcon img={InstagramSVG} link={Constants.contact.instagram.link}/>
       </div>
-      <div className="footer-copyrights-container">
+      <HorizontalSeparator/>
+      <FlexBox alignItems="center" justifyContent="center" height={50}>
         <p className="copyright">
           Copyright © 2023 Uladzimir Pryhazhanau . All rights reserved.
         </p>
-      </div>
+      </FlexBox>
     </footer>
   );
+}
+
+function HorizontalSeparator() {
+  return (
+    <div className="footer-horizontal-separator"/>
+  )
 }
 
 export default Footer;

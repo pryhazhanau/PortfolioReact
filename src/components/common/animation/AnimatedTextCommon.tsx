@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { FC, ReactNode } from "react";
-import AnimConstants from "../../common/animation/AnimationConstants"
+import AnimConstants from "./AnimationConstants"
 
 interface AnimatedTextCommonProps {
   className?: string;

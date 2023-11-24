@@ -9,10 +9,12 @@ interface TextProps {
   color: Color;
   margin?: EdgeInset;
   padding?: EdgeInset;
-  maxWidth?: number | string
+  width?: number | string;
+  maxWidth?: number | string;
+  textAlign?: "left" | "center" | "right" | "justify";
 }
 
-const Text: FC<TextProps> = ({ className = "", text = "", typography, color, margin, padding, maxWidth }) => {
+const Text: FC<TextProps> = ({ className = "", text = "", typography, color, margin, padding,width, maxWidth, textAlign = "left" }) => {
   const textStyle = {
     color: color.var,
     fontFamily: typography.fontFamily,
@@ -24,6 +26,8 @@ const Text: FC<TextProps> = ({ className = "", text = "", typography, color, mar
     marginLeft: margin?.leading,
     marginRight: margin?.trailing,
     padding: `${padding?.top} ${padding?.trailing} ${padding?.bottom} ${padding?.leading}`,
+    textAlign,
+    width,
     maxWidth
   };
 

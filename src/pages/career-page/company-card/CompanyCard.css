@@ -1,0 +1,82 @@
+.company-card {
+    border-radius: 28px;
+    border: 1px solid var(--stroke--black);
+    position: relative;
+    background-color: #0c0c0c;
+    background-image: url("../../../assets/noise-velaro.png");
+    background-repeat: no-repeat;
+    background-position: 190% center;
+    background-size: 75%;
+}
+
+
+.company-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 44px;
+    padding: 1px;
+    background: var(--card-horizontal-border-gradient);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+}
+
+
+.company-card-wrapper {
+    padding: 40px 16px 40px 40px;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.company-card-horizontal-divider {
+    min-width: 1px;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(180deg, rgba(224, 224, 224, 0.00) 0%, rgba(224, 224, 224, 0.2) 30%, rgba(224, 224, 224, 0.2) 70%, rgba(224, 224, 224, 0.00) 100%);
+}
+
+.company-card-image {
+    border-radius: 999rem;
+}
+
+.company-card-link a {
+    color: var(--velaro--text);
+    text-decoration: none;
+}
+
+.company-card-link-wrapper {}
+
+.company-card-link-img * {
+    display: flex;
+    height: 24px;
+    width: 24px;
+}
+
+.company-card-link-img * {
+    fill: var(--velaro--text)
+}
+
+
+@media (max-width: 1000px) {
+    .company-card-wrapper {
+        flex-direction: column !important;
+    }
+
+    .company-card-horizontal-divider {
+        min-width: 100%;
+        min-height: 1px;
+        background: linear-gradient(90deg, rgba(224, 224, 224, 0.00) 0%, rgba(224, 224, 224, 0.2) 30%, rgba(224, 224, 224, 0.2) 70%, rgba(224, 224, 224, 0.00) 100%);
+    }
+
+    .company-card {
+        background-position: 50% 150%;
+        background-size: 200% 75%;
+    }
+    
+}

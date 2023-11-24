@@ -4,13 +4,14 @@ import { ReactNode, FC } from "react";
 
 interface MasterContainerProps {
   children: ReactNode;
+  maxWidth?: number | string;
 }
 
-const MasterContainer: FC<MasterContainerProps> = ({ children }) => {
+const MasterContainer: FC<MasterContainerProps> = ({ children, maxWidth }) => {
   return (
     <>
       <div className="master-container">
-        <div className="master-wrapper">{children}</div>
+        <div className="master-wrapper" style={{maxWidth: maxWidth}}>{children}</div>
       </div>
 
       <Socials />

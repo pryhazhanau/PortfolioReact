@@ -53,10 +53,15 @@ body {
   --subtitle--primary: 24px;
   --subtitle: 20px;
   --body: 14px;
+  --body--secondary: 19px;
   --description: 12px;
   --quote: 14px;
   --title: 30px;
   --caption: 12px;
+  --link: 14px;
+  --article--title: 48px;
+  --article--body: 18px;
+  --article--body--bold: 18px;
 }
 
 /* Fonts Styles*/
@@ -116,6 +121,14 @@ body {
   font-size: var(--caption);
   font-weight: 400;
   letter-spacing: -0.12px;
+}
+
+.link {
+  font-family: 'Poppins', sans-serif;
+  font-size: var(--link);
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.42px;
 }
 
 /* Styles with primary colors */

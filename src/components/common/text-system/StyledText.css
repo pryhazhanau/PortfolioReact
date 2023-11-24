@@ -1,0 +1,11 @@
+.aritcle-link {
+    align-items: center;
+    text-decoration: none;
+}
+
+
+.article-link::after {
+    content: url("../../../assets/link-external.svg");
+    position: relative;
+    padding: 2px 2px 0 5px;
+}

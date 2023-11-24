@@ -1,6 +1,6 @@
 import "./SectionTitle.css";
 import { FC } from "react";
-import Text from "../../common/style/Text";
+import Text from "../style/Text";
 import { Typography } from "../style/interface/Typography";
 import { Colors } from "../style/interface/Colors";
 import FlexBox from "../box/FlexBox";
