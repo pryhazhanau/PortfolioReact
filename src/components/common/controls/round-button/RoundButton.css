@@ -18,7 +18,7 @@
     transition: transform 0.1s;
     border: none;
     background: transparent;
-    border: 1px solid var(--stroke--black);
+    border: 1px solid var(--palendro);
     border-radius: 999rem;
     transition: scale 0.1s;
     transition: border 0.5s;

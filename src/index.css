@@ -42,19 +42,19 @@ body {
   --velaro--ultra--light: #D8FFEA;
   --velaro--text: #30F6AF;
   --aluminor--gray: #F6F6F6;
-  --titanium--gray: #B1B1B1;
+  --titanium--gray: #9A9A9A;
   --spacero--gray: #4F4F4F;
   --background--primary: #000000;
   --background--secondary: #222222;
-  --stroke--black: #1A1A1A;
+  --palendro: #181B1C;
 
   /* Text-size styles */
   --headline: 32px;
   --subtitle--primary: 24px;
   --subtitle: 20px;
-  --body: 14px;
+  --body: 16px;
   --body--secondary: 19px;
-  --description: 12px;
+  --description: 14px;
   --quote: 14px;
   --title: 30px;
   --caption: 12px;
@@ -184,14 +184,14 @@ body {
 
 .subtitle-primary-aluminor {
   font-family: 'Poppins', sans-serif;
-  font-size: var(--subtitle);
+  font-size: var(--subtitle--primary);
   font-weight: 700;
   color: var(--aluminor--gray);
 }
 
 .subtitle-primary-spacer {
   font-family: 'Poppins', sans-serif;
-  font-size: var(--subtitle);
+  font-size: var(--subtitle--primary);
   font-weight: 700;
   color: var(--aluminor--gray);
 }
