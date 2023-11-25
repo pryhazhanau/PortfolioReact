@@ -25,7 +25,7 @@ const CarouselPageSlider: FC<CarouselPageSliderProps> = ({
       {elements.map((index) => (
         <div key={index}>
           <Dot
-            active={isDotActive(index, currentIndex, cardsInView, totalNumber)}
+            active={isDotActive(index, currentIndex)}
           />
         </div>
       ))}
@@ -35,9 +35,7 @@ const CarouselPageSlider: FC<CarouselPageSliderProps> = ({
 
 function isDotActive(
   dotIndex: number,
-  currentIndex: number,
-  cardsInView: number,
-  totalNumber: number
+  currentIndex: number
 ) {
   return dotIndex == currentIndex
 }
