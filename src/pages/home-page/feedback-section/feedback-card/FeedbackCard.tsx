@@ -3,6 +3,9 @@ import "./FeedbackCard.css";
 import { FC } from "react";
 
 import Quotes from "../../../../assets/quotes.svg"
+import Text from "../../../../components/common/style/Text";
+import { Typography } from "../../../../components/common/style/interface/Typography";
+import { Colors } from "../../../../components/common/style/interface/Colors";
 
 interface CardProps {
   img: any;
@@ -19,7 +22,7 @@ const FeedbackCard: FC<CardProps> = ({ img, body, description }) => {
             <img src={img} />
           </div>
           <div className="feedback-card-quote">
-            <p className="quote">{`“${body}”`}</p>
+            <Text text={body} typography={Typography.Quote} color={Colors.TitaniumGray}/>
           </div>
           <div className="feedback-card-name">
             <p className="body-text-bold">{description}</p>

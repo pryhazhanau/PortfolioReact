@@ -5,7 +5,7 @@ function ExperienceBlock() {
   return (
     <div className="experience-block">
       <div className="experience-text-block">
-        <p className="body-text-spacero">
+        <p className="body-text-titanium">
           I have started my IT career started at{" "}
           <a
             className="link-text-img"

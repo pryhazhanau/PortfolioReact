@@ -47,7 +47,7 @@ const ModalFrameworkPopup: FC<ModalFrameworkPopupProps> = ({
 
   window.addEventListener("scroll", handleScroll);
 
-  const documentWidth = window.screen.width;
+  const documentWidth = window.innerWidth;
   const mobilePaddings = 16;
 
   console.log(documentWidth);

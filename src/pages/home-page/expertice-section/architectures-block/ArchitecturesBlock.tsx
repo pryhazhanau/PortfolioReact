@@ -9,8 +9,8 @@ function ArchitecturesBlock() {
           <div className="architecture-col-wrapper">
             <div className="architecture-col">
               <p className="architecture-title subtitle-secondary">UDF</p>
-              <p className="body-text-spacero">
-                Gaining popularity,{" "}
+              <p className="body-text-titanium">
+                Gaining popularity{" "}
                 <span className="body-bold-aluminor">
                   Unidirectional Data Flow
                 </span>{" "}
@@ -32,7 +32,7 @@ function ArchitecturesBlock() {
           <div className="architecture-col-wrapper">
             <div className="architecture-col">
               <p className="architecture-title subtitle-secondary">MVVM</p>
-              <p className="body-text-spacero">
+              <p className="body-text-titanium">
                 Known by all iOS Developers archetecture. Used in projects with
                 different approaches.
               </p>
@@ -44,7 +44,7 @@ function ArchitecturesBlock() {
               <p className="architecture-title subtitle-secondary">
                 Clean Swift
               </p>
-              <p className="body-text-spacero">
+              <p className="body-text-titanium">
                 <span className="body-bold-aluminor">Clean Swift</span> is an
                 iOS architecture that organizes app code for easier management.{" "}
                 <span className="body-bold-aluminor">VIPER</span>, a variation,

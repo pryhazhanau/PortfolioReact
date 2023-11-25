@@ -20,8 +20,9 @@ function AboutSection() {
                 sectionName="About me"
                 sectionDesc="Who am I and what I am doing"
               />
-              <Text text={AboutText} typography={Typography.BodyText} color={Colors.SpaceroGray}/>
+              <Text text={AboutText} typography={Typography.BodyText} color={Colors.TitaniumGray}/>
             </FlexBox>
+            <FlexBox className="about-section-divider"/>
             <Image src={Photo} maxWidth="40%"/>
           </FlexBox>
         </FlexBox>

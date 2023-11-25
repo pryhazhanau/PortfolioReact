@@ -14,18 +14,23 @@ interface CarouselProps {
 
 const Carousel: FC<CarouselProps> = ({ children }) => {
   const [cardsInView, setCardsInView] = useState(
-    getCardsInView(window.screen.width)
+    getCardsInView(window.innerWidth)
   );
+
+
   const [cardWidth, setCardWidth] = useState(cardMaxWidth);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handleResize = () => {
-    setCardsInView(getCardsInView(window.screen.width));
-    setCardWidth(
-      window.screen.width < cardMaxWidth + arrowBlockWidth * 2
-        ? window.screen.width - 12
-        : cardMaxWidth
-    );
+    const innerWidth = window.innerWidth
+
+    setCardsInView(getCardsInView(innerWidth));
+
+    const cardWidth = innerWidth < cardMaxWidth + arrowBlockWidth * 2
+    ? innerWidth - 12
+    : cardMaxWidth
+    
+    setCardWidth(cardWidth);
   };
 
   useEffect(() => {

@@ -1,9 +1,10 @@
 .carousel-page-slider-wrapper {
-    background-color: var(--stroke--black);
+    background-color: var(--palendro);
     border-radius: 50rem;
 }
 
 .carousel-slider-dot {
+    transition: all 0.3s ease;
     height: 8px;
     width: 8px;
     border-radius: 50rem;

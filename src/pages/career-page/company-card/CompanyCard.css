@@ -1,6 +1,6 @@
 .company-card {
     border-radius: 28px;
-    border: 1px solid var(--stroke--black);
+    border: 1px solid var(--palendro);
     position: relative;
     background-color: #0c0c0c;
     background-image: url("../../../assets/noise-velaro.png");
@@ -19,7 +19,7 @@
     bottom: 0;
     border-radius: 44px;
     padding: 1px;
-    background: var(--card-horizontal-border-gradient);
+    background: var(--horizontal-glare-gradient);
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
