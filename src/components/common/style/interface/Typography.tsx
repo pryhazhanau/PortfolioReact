@@ -33,6 +33,7 @@ export const Typography: Record<string, TypographyStyle> = {
     fontFamily: 'Poppins, sans-serif',
     fontSize: 'var(--body)',
     fontWeight: 400,
+    lineHeight: "176%"
   },
   BodyTextBold: {
     fontFamily: 'Poppins, sans-serif',
@@ -73,7 +74,7 @@ export const Typography: Record<string, TypographyStyle> = {
   ArticleBodyBold: {
     fontFamily: 'Poppins, sans-serif',
     fontSize: 'var(--article--body--bold)',
-    fontWeight: 600,
+    fontWeight: 700,
     lineHeight: "176%",
     letterSpacing: "0.66px"
   },

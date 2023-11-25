@@ -12,7 +12,7 @@ import { Colors } from "../../../components/common/style/interface/Colors";
 function SkillsetSection() {
   return (
     <><SectionTitle sectionName="Skillset" sectionDesc="Key skills I refined through years"/>
-    <Text className="skillset-desc" text={bodtText} typography={Typography.BodyText} color={Colors.SpaceroGray}/>
+    <Text className="skillset-desc" text={bodtText} typography={Typography.BodyText} color={Colors.TitaniumGray}/>
     <FlexBox direction="column" alignItems="center" justifyContent="center">
       <FlexBox>
         <Carousel>
@@ -39,7 +39,7 @@ const skillCards: SkillCardObj[] = [
   {
     id: 0,
     title: "Swift",
-    body: "With nearly five years of experience in Swift development, I have cultivated a profound appreciation for this language. My expertise lies in crafting sophisticated solutions, leveraging advanced features, and designing unconventional user interfaces.",
+    body: "With nearly five years of experience in Swift development, I have cultivated a profound appreciation for this language.",
     grade: "expert",
     percent: 100,
   },
@@ -66,7 +66,7 @@ const skillCards: SkillCardObj[] = [
   },
   {
     id: 4,
-    title: "Team work",
+    title: "Team Work",
     body: "A highly effective team player, I thrive in collaborative environments, fostering open communication and synergy. My ability to listen, contribute, and adapt enhances team dynamics, resulting in cohesive and successful project outcomes.",
     grade: "expert",
     percent: 100,

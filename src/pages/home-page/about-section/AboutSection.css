@@ -1,10 +1,22 @@
+.about-section-divider {
+  min-width: 1px;
+  height: 70%;
+  background: var(--vertical-glare-gradient);
+}
+
 @media (max-width: 1200px) {
-    .about-flex-container {
-      flex-direction: column !important;
-    }
+  .about-flex-container {
+    flex-direction: column !important;
+  }
 
 
-    .about-flex-container img {
-        width: 60%;
-    }
+  .about-flex-container img {
+      width: 60%;
+  }
+
+  .about-section-divider {
+    min-width: 100%;
+    height: 1px;
+    background: var(--horizontal-glare-gradient);
+  }
 }

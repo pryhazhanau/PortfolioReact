@@ -69,9 +69,9 @@ const apps: AppProject[] = [
     link: "https://apps.apple.com/us/app/reveal-hardware-installer/id1497902836",
   },
   {
-    id: 3,
+    id: 6,
     img: HedwigImg,
-    title: "Hedwig",
+    title: "Hedwig Messenger",
     body: "Protect enterprise messenger with encrypted messages, calls, data-tranfer.",
     link: undefined,
   },

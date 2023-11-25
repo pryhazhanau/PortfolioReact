@@ -9,10 +9,10 @@ export const Colors: Record<string, Color> = {
   VelaroUltraLight: { hex: '#D8FFEA', var: 'var(--velaro--ultra--light)' },
   Voyaro: { hex: '#30F6AF', var: 'var(--velaro--text)' },
   AluminorGray: { hex: '#F6F6F6', var: 'var(--aluminor--gray)' },
-  TitaniumGray: { hex: '#B1B1B1', var: 'var(--titanium--gray)' },
+  TitaniumGray: { hex: '#9A9A9A', var: 'var(--titanium--gray)' },
   SpaceroGray: { hex: '#4F4F4F', var: 'var(--spacero--gray)' },
   BackgroundPrimary: { hex: '#000000', var: 'var(--background--primary)' },
   BackgroundSecondary: { hex: '#222222', var: 'var(--background--secondary)' },
-  StrokeBlack: { hex: '#1A1A1A', var: 'var(--stroke--black)' },
+  Palendro: { hex: '#181B1C', var: 'var(--palendro)' },
 }
   

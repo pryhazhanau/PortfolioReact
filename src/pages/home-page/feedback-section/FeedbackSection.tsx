@@ -27,7 +27,7 @@ function FeedbackSection() {
           <Text
             text="Comments from people I enjoyed working with, sharing positive feelings and mutual enjoyment in our collaboration."
             typography={Typography.BodyText}
-            color={Colors.SpaceroGray}
+            color={Colors.TitaniumGray}
           />
         </FlexBox>
         <FlexBox

@@ -64,20 +64,20 @@
 .grid {
     background-color: var(--background--primary);
     --min-width: 250px;
-    --height: calc(var(--column-width) * var(--grid-rows));
+    --grid-height: calc(var(--column-width) * var(--grid-rows));
     --grid-rows: 2;
     --grid-columns: 6;
 
     --grid-width: var(--max-width);
     width: var(--grid-width);
-    height: var(--height);
+    height: var(--grid-height);
     display: grid;
     position: relative;
     --column-width: calc(var(--grid-width) / var(--grid-columns));
-    --row-height: calc(var(--height) / var(--grid-rows));
+    --row-height: calc(var(--grid-height) / var(--grid-rows));
     grid-template-columns: repeat(auto-fit, var(--column-width));
     grid-template-rows: repeat(var(--grid-rows), var(--row-height));
-    border: 1px solid var(--stroke--black);
+    border: 1px solid var(--palendro);
 }
 
 .grid-item-sw {
@@ -99,8 +99,8 @@
 .grid-item-devider-area {
     height: 70px;
     width: var(--grid-width);
-    border-right: 1px solid var(--stroke--black);
-    border-left: 1px solid var(--stroke--black);
+    border-right: 1px solid var(--palendro);
+    border-left: 1px solid var(--palendro);
 }
 
 .grid-section-title {
@@ -112,16 +112,16 @@
 
 /* Bottom grid */
 .grid-large {
-    min-height: 400px;
+    min-height: 500px;
     width: var(--grid-width);
     display: grid;
     position: relative;
-    border: 1px solid var(--stroke--black);
+    border: 1px solid var(--palendro);
     grid-template-columns: 2fr 4fr;
 }
 
 .grid-cell-section-large {
-    border-right: 1px solid var(--stroke--black);
+    border-right: 1px solid var(--palendro);
     border-bottom: none;
 }
 
@@ -159,7 +159,7 @@
     }
 
     .grid-cell-section-large {
-        border-bottom: 1px solid var(--stroke--black);
+        border-bottom: 1px solid var(--palendro);
         border-right: none;
     }
 }
@@ -170,7 +170,7 @@
     }
 
     .grid-cell-section-large {
-        border-bottom: 1px solid var(--stroke--black);
+        border-bottom: 1px solid var(--palendro);
         border-right: none;
     }
 }
@@ -178,8 +178,8 @@
 /* Guides */
 
 .grid-cell-section {
-    border-bottom: 1px solid var(--stroke--black);
-    border-right: 1px solid var(--stroke--black);
+    border-bottom: 1px solid var(--palendro);
+    border-right: 1px solid var(--palendro);
 }
 
 
@@ -207,17 +207,17 @@
 }
 
 .grid-cell-middle {
-    border-bottom: 1px solid var(--stroke--black);
-    border-right: 1px solid var(--stroke--black);
+    border-bottom: 1px solid var(--palendro);
+    border-right: 1px solid var(--palendro);
 }
 
 .grid-cell-last-row {
-    border-right: 1px solid var(--stroke--black);
+    border-right: 1px solid var(--palendro);
 }
 
 
 .grid-cell-last {
-    border-bottom: 1px solid var(--stroke--black);
+    border-bottom: 1px solid var(--palendro);
 }
 
 

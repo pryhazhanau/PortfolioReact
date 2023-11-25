@@ -60,7 +60,7 @@ function ExperticeSection() {
         <Text
           text={BodyText}
           typography={Typography.BodyText}
-          color={Colors.SpaceroGray}
+          color={Colors.TitaniumGray}
           margin={{bottom: 60}}
           maxWidth={600}
         />

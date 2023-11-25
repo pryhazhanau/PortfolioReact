@@ -32,7 +32,7 @@
     width: 42px;
     height: 42px;
     border-radius: 50rem;
-    border: 1px solid var(--stroke--black);
+    border: 1px solid var(--palendro);
     cursor: pointer;
     transition: scale 0.2s ease;
 }

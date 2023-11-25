@@ -12,12 +12,13 @@
     background-position: 100% 100%;
     width: var(--card-width);
     height: var(--card-height);
-    transition: all var(--anim-time);
+    transition: background-position var(--anim-time), scale 0.2s ease;
     cursor: default;
 }
 
 .feedback-card-container:hover {
     background-position: 100% 50%;
+    scale: 1.05
 }
 
 .feedback-card-container:hover .quote {
