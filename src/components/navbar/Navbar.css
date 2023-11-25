@@ -2,12 +2,17 @@ nav {
   position: fixed;
   width: 100%;
   z-index: 100;
+  transition: all 0.3s;
+  transform: initial;
+}
+
+.navbar-hidden {
+  transform: translateY(calc(var(--navbar-height) * -1));
 }
 
 .navbar-desktop {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   justify-content: space-between;
   padding-left: 130px;
   padding-right: 130px;

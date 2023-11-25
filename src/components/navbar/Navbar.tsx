@@ -11,17 +11,20 @@ interface NavbarProps {
 
 const Navbar: FC<NavbarProps> = ({ menuVisibilityChanged }) => {
   const [isOnTop, setOnTop] = useState(true);
+  const [currentScrollY, setCurrentScrollY] = useState(0);
+  const [navBarVisible, setNavbarVisible] = useState(true);
   const [navbarBlur, setNavbarBlur] = useState(10);
   const [navbarBrightness, setNavbarBrightness] = useState(80);
 
   const handleScroll = () => {
-    if (window.scrollY > 0) {
+    const scrollY = window.scrollY;
+    if (scrollY > 0) {
       setOnTop(false);
     } else {
       setOnTop(true);
     }
 
-    if (window.scrollY >= 0) {
+    if (scrollY >= 0 && scrollY < 400) {
       const blurValue = window.scrollY < 0 ? 0 : window.scrollY / 10 + 12;
       setNavbarBlur(blurValue);
 
@@ -30,6 +33,19 @@ const Navbar: FC<NavbarProps> = ({ menuVisibilityChanged }) => {
     } else {
       setNavbarBlur(12);
     }
+
+    if (scrollY > 200) {
+      const prevScrollY = scrollY;
+
+      if (prevScrollY < currentScrollY) {
+        setNavbarVisible(true);
+      } else {
+        setNavbarVisible(false);
+      }
+    } else {
+      setNavbarVisible(true);
+    }
+    setCurrentScrollY(scrollY);
   };
 
   const onClick = () => {
@@ -52,7 +68,7 @@ const Navbar: FC<NavbarProps> = ({ menuVisibilityChanged }) => {
   window.addEventListener("scroll", handleScroll);
 
   return (
-    <nav>
+    <nav className={`${navBarVisible ? "" : "navbar-hidden"}`}>
       <div>
         {windowWidth > 900 ? (
           <div
@@ -61,12 +77,12 @@ const Navbar: FC<NavbarProps> = ({ menuVisibilityChanged }) => {
             }`}
             style={{
               WebkitBackdropFilter: `blur(${navbarBlur}px) brightness(${navbarBrightness}%)`,
-              backdropFilter: `blur(${navbarBlur}px) brightness(${navbarBrightness}%)`
+              backdropFilter: `blur(${navbarBlur}px) brightness(${navbarBrightness}%)`,
             }}
           >
             <div>
               <a className="logo" href="/">
-                PRY.
+                PRYHAZHANAU 
               </a>
             </div>
             <div className="menu">
@@ -104,7 +120,7 @@ const Navbar: FC<NavbarProps> = ({ menuVisibilityChanged }) => {
             style={{ backgroundColor: "var(--background--primary)" }}
           >
             <a className="logo" href="/">
-              PRY.
+              PRYHAZHANAU
             </a>
             <MenuButton
               menuVisibilityChanged={(visible) =>
