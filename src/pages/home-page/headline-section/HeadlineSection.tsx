@@ -1,50 +1,120 @@
 import "./HeadlineSection.css";
-import "../../../common/css/div-layout.css";
-import ActionButton from "../../../components/common/controls/action-button/ActionButton";
-import AnimatedLongFade from "../../../components/common/animation/AnimatedTextLongFade";
+import BackgroundImg from "../../../assets/illustrations/headline-background-noise.png";
+import GridBackground from "./grid-background/GridBackground";
+import GridContent from "./grid-content/GridContent";
+import FlexBox from "../../../components/common/box/FlexBox";
+import { MouseEvent, useEffect, useState } from "react";
+import Image from "../../../components/common/style/Image";
+import GridContentMobile from "./grid-content/GridContentMobile";
+import GridBackgroundMobile from "./grid-background/GridBackgroundMobile";
+
+const mobileWidth = 650;
 
 function HeadlineSection() {
-    const emailAddress = "vprigozhanov@gmail.com";
-    const mailtoLink = `mailto:${emailAddress}?subject=Hello, Uladzimir`;
-    const sendEmail = () => {
-        window.location.href = mailtoLink;
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const handleResize = () => {
+    setWindowWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
     };
-  
-    return (
-      <>
-          <div className="headline-container">
-            <div className="main-title-block">
-                <AnimatedLongFade animKey={"hello-title"}>
-              <h1 className="headline-title">
-                Hello<span className="colored-dot">.</span>
-              </h1>
-                </AnimatedLongFade>
-                <AnimatedLongFade animKey={"headline-subtitle"} delay={0.3}>
-              <div className="headline-subtitle-block">
-                <div className="horizontal-line-subtitle" />
+  });
 
-                <h1 className="headline-subtitle">I'm Uladzimir Pryhazhanau</h1>
-              </div>
-                </AnimatedLongFade>
-            </div>
-            <div className="position-description-block">
+  return (
+    <>
+      {windowWidth > mobileWidth ? (
+        <HeadlineComponent />
+      ) : (
+        <HeadlineMobileComponent />
+      )}
+    </>
+  );
+}
 
-            <AnimatedLongFade animKey={"hello-title"} delay={0.6}>
-              <h1 className="subtitle-description subtitle-primary">
-                Software Engineer
-              </h1>
-              </AnimatedLongFade>
-            </div>
-            <div className="action-button-wrapper">
+const HeadlineComponent = () => {
+  const [tranlationContent, setTranslationContent] = useState({ x: 0, y: 0 });
+  const [tranlationBackground, setTranslationBackground] = useState({
+    x: 0,
+    y: 0,
+  });
 
-            <AnimatedLongFade animKey={"hello-title"} delay={0.9}>
-              <ActionButton label="Stay in touch" onClick={sendEmail} />
-              </AnimatedLongFade>
-            </div>
-          </div>
-      </>
-    );
-  }
-  
-  export default HeadlineSection;
-  
+  const handleMouseMove = (event: MouseEvent<HTMLDivElement>) => {
+    const { clientX, clientY } = event;
+    const x = (clientX / window.innerWidth - 0.5) * 2;
+    const y = (clientY / window.innerHeight - 0.5) * 2;
+
+    setTranslationContent(getTranlationForContent({ x, y }));
+    setTranslationBackground(getTranlationForBackground({ x, y }));
+  };
+
+  const handleMouseLeave = () => {
+    setTranslationContent({ x: 0, y: 0 });
+    setTranslationBackground({ x: 0, y: 0 });
+  };
+
+  return (
+    <FlexBox
+      className="headline-container"
+      direction="column"
+      alignItems="center"
+      justifyContent="center"
+      padding={{ top: "var(--navbar-height)" }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      <FlexBox className="headline-background-wrapper">
+        <Image className="headline-background" src={BackgroundImg} />
+        <Image className="headline-background-grayscale" src={BackgroundImg} />
+      </FlexBox>
+      <FlexBox className="headline-wrapper">
+        <FlexBox width="100%" height={"100vh"}>
+          <GridContent
+            translateX={tranlationContent.x}
+            translateY={tranlationContent.y}
+          />
+          <GridBackground
+            translateX={tranlationBackground.x}
+            translateY={tranlationBackground.y}
+          />
+        </FlexBox>
+      </FlexBox>
+    </FlexBox>
+  );
+};
+
+const HeadlineMobileComponent = () => {
+  return (
+    <FlexBox
+      className="headline-container"
+      direction="column"
+      alignItems="center"
+      justifyContent="center"
+      padding={{ top: "var(--navbar-height)" }}
+    >
+      <FlexBox className="headline-background-wrapper">
+        <Image className="headline-background" src={BackgroundImg} />
+        <Image className="headline-background-grayscale" src={BackgroundImg} />
+      </FlexBox>
+      <FlexBox className="headline-wrapper">
+        <FlexBox width="100%" height={"100vh"}>
+          <GridContentMobile />
+          <GridBackgroundMobile />
+        </FlexBox>
+      </FlexBox>
+    </FlexBox>
+  );
+};
+
+function getTranlationForContent(mousePosition: Point) {
+  return { x: mousePosition.x * -8, y: mousePosition.y * -8 };
+}
+
+function getTranlationForBackground(mousePosition: Point) {
+  return { x: mousePosition.x * -4, y: mousePosition.y * -4 };
+}
+
+export default HeadlineSection;
