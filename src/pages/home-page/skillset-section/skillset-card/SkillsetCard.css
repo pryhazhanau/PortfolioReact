@@ -61,7 +61,8 @@
 
 .skillset-title-line {
     margin-top: 8px;
-    width: 100%;
+    width: 150px;
+    opacity: 0.7;
     height: 1px;
     background: var(--horizontal-voyaro-glare-gradient);
 }

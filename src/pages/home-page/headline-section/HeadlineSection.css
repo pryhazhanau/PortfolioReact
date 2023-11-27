@@ -1,85 +1,62 @@
 .headline-container {
-    --padding-top: 0px;
-    --margin-left: 10vw;
-    --title-font-size: 300px;
-    --subtitle-font-size: 60px;
-    --subtitle-margin-top: -50px;
-
-    
     padding: calc(var(--navbar-height) + var(--padding-top)) 0 0 0;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: center;
-    gap: 64px;
-    cursor: default;
     height: 100vh;
+    width: 100vw;
 }
 
-@media (max-width: 1900px) {
-    .headline-container {
-        --title-font-size: 130px;
-        --subtitle-margin-top: -25px;
-        --subtitle-font-size: 30px;
-    }
-}
-
-@media (max-width: 800px) {
-    .headline-container {
-        --title-font-size: 90px;
-        --subtitle-margin-top: -10px;
-        --subtitle-font-size: 20px;
-    }
-}
-
-@media (max-width: 400px) {
-    .headline-container {
-        --title-font-size: 50px;
-        --subtitle-font-size: 15px;
-    }
-}
-
-.headline-title {
-    color: var(--aluminor--gray);
-    line-height: 12px;
-    font-size: var(--title-font-size);
-}
-
-.colored-dot {
-    color: var(--velaro--text);
-}
-
-.headline-subtitle {
-    font-size: var(--subtitle-font-size);
-    color: var(--aluminor--gray);
-    font-weight: 500;
-}
-
-.headline-subtitle-block {
-    display: flex;
-    align-items: center;
-    gap: 34px;
-    margin-top: var(--subtitle-margin-top);
-}
-
-.horizontal-line-subtitle {
-    background-color: var(--velaro--accent);
-    height: 0.15vw;
-    width: 10vw;
-}
-
-.subtitle-description {
-    color: var(--velaro--text);
-    margin-left: var(--margin-left);
-}
-
-.main-title-block {
+.headline-wrapper {
+    position: relative;
     display: flex;
     flex-direction: column;
-    align-items: start;
-    margin-left: var(--margin-left);
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    max-height: 1000px;
+    max-width: 1600px;
+    overflow: hidden;
 }
 
-.action-button-wrapper {
-    margin-left: var(--margin-left);
+.headline-background-wrapper {
+    position: absolute;
+    display: flex;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+
+.headline-background {
+    position: absolute;
+    height: 110%;
+    top: -150px;
+    right: -600px;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.headline-background-grayscale {
+    position: absolute;
+    height: 120%;
+    width: 200%;
+    left: -50%;
+    top: -20%;
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 1;
+    filter: grayscale();
+}
+
+@media (max-width: 650px) {
+    .headline-background {
+        width: 300%;
+        top: 40%;
+        right: -140%;
+    }
+
+    .headline-background-grayscale {
+        height: 100%;
+        left: -50%;
+        top: -20%;
+    }
 }
