@@ -7,7 +7,6 @@ import { TypographyStyle } from "../../../../../components/common/style/interfac
 import Text from "../../../../../components/common/style/Text";
 import FlexBox from "../../../../../components/common/box/FlexBox";
 import { Colors } from "../../../../../components/common/style/interface/Colors";
-import UrlOpener from "../../../../../components/common/util/UrlOpener";
 
 const ArrowButton = ({ text, onClick }: { text: string, onClick: () => void }) => {
     const [isActive, setIsActive] = useState(false);
