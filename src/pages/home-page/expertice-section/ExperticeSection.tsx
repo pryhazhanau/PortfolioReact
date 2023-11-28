@@ -16,6 +16,7 @@ import Text from "../../../components/common/style/Text";
 import { Typography } from "../../../components/common/style/interface/Typography";
 import { Colors } from "../../../components/common/style/interface/Colors";
 import { TechList } from "./TechList";
+import { InViewSlide } from "../../../components/common/animation/in-view/InViewSlide";
 
 function ExperticeSection() {
   const initialJSX: JSX.Element = (
@@ -57,6 +58,7 @@ function ExperticeSection() {
           sectionName="Expertise"
           sectionDesc="Skilled in tech, adept at overcoming challenges"
         />
+        <InViewSlide direction="right">
         <Text
           text={BodyText}
           typography={Typography.BodyText}
@@ -64,6 +66,7 @@ function ExperticeSection() {
           margin={{bottom: 60}}
           maxWidth={600}
         />
+        </InViewSlide>
         <div className="grid-container">
           <div className="grid-system">
             <div className="grid">

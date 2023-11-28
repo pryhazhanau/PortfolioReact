@@ -27,36 +27,12 @@
 
 .headline-background {
     position: absolute;
-    height: 110%;
-    top: -150px;
-    right: -600px;
+    height: 100%;
+    width: 150%;
+    top: 0;
+    left: 0;
+    right: 0;
     opacity: 0.5;
     pointer-events: none;
     z-index: 1;
-}
-
-.headline-background-grayscale {
-    position: absolute;
-    height: 120%;
-    width: 200%;
-    left: -50%;
-    top: -20%;
-    opacity: 0.1;
-    pointer-events: none;
-    z-index: 1;
-    filter: grayscale();
-}
-
-@media (max-width: 650px) {
-    .headline-background {
-        width: 300%;
-        top: 40%;
-        right: -140%;
-    }
-
-    .headline-background-grayscale {
-        height: 100%;
-        left: -50%;
-        top: -20%;
-    }
 }

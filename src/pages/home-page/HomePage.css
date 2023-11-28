@@ -2,23 +2,3 @@
     color: var(--aluminor--gray);
     text-align: center;
 }
-
-.thanks-section {
-    display: flex;
-    align-items: end;
-    height: 70vh;
-    width: 100%;
-}
-
-.thanks-section-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 70%;
-}
-
-.thanks-section h1 {
-    color: var(--aluminor--gray);
-}

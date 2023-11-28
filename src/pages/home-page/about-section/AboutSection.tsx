@@ -2,31 +2,48 @@ import "./AboutSection.css";
 import "../HomePage.css";
 import "../../../common/css/div-layout.css";
 import FlexBox from "../../../components/common/box/FlexBox";
-import Text from "../../../components/common/style/Text"
+import Text from "../../../components/common/style/Text";
 import Photo from "../../../assets/about-photo.png";
 import SectionTitle from "../../../components/common/section-title/SectionTitle";
 import Image from "../../../components/common/style/Image";
 import { Typography } from "../../../components/common/style/interface/Typography";
 import { Colors } from "../../../components/common/style/interface/Colors";
+import { InView } from "react-intersection-observer";
+import { useState } from "react";
+import { InViewSlide } from "../../../components/common/animation/in-view/InViewSlide";
 
 function AboutSection() {
+
   return (
     <>
-      <FlexBox className="about-container page-section">
-        <FlexBox className="about-content-container">
-          <FlexBox className="about-flex-container" gap={50} justifyContent="center" alignItems="center">
-            <FlexBox direction="column">
-              <SectionTitle
-                sectionName="About me"
-                sectionDesc="Who am I and what I am doing"
-              />
-              <Text text={AboutText} typography={Typography.BodyText} color={Colors.TitaniumGray}/>
+        <FlexBox className="about-container page-section">
+          <FlexBox className="about-content-container">
+            <FlexBox
+              className="about-flex-container"
+              gap={50}
+              justifyContent="center"
+              alignItems="center"
+            >
+              <FlexBox direction="column">
+                <SectionTitle
+                  sectionName="About me"
+                  sectionDesc="Who am I and what I am doing"
+                />
+                <InViewSlide direction="right">
+                  <Text
+                    text={AboutText}
+                    typography={Typography.BodyText}
+                    color={Colors.TitaniumGray}
+                  />
+                </InViewSlide>
+              </FlexBox>
+              <FlexBox className="about-section-divider" />
+              <InViewSlide direction="left" style={{display:"flex", width: "100%", justifyContent: "center"}}>
+                <Image src={Photo} maxWidth="400px"/>
+              </InViewSlide>
             </FlexBox>
-            <FlexBox className="about-section-divider"/>
-            <Image src={Photo} maxWidth="40%"/>
           </FlexBox>
         </FlexBox>
-      </FlexBox>
     </>
   );
 }
@@ -43,6 +60,6 @@ technical prowess, I take pride in being a dedicated and
 detail-oriented professional who thrives in collaborative,
 fast-paced environments. My true passion lies in crafting
 elegant, user-centric solutions, and I'm committed to delivering
-products that not only meet but exceed customer expectations.`
+products that not only meet but exceed customer expectations.`;
 
 export default AboutSection;

@@ -12,6 +12,8 @@ import InstagramSVG from "../../assets/icons/instagram.svg"
 import VercelSVG from "../../assets/vercel.svg"
 import SocialFooterIcon from "./SocialFooterIcon";
 import FlexBox from "../common/box/FlexBox";
+import Image from "../common/style/Image";
+import BackgroundImg from "../../assets/illustrations/footer-gradient.png"
 
 function Footer() {
   function openVercelLink() {
@@ -20,7 +22,7 @@ function Footer() {
 
   return (
     <footer>
-    <div className="footer-background"/>
+    <Image src={BackgroundImg} className="footer-background"/>
     <HorizontalSeparator/>
       <div className="footer-top-container">
         <div className="info-block">

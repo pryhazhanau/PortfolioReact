@@ -8,22 +8,36 @@ import SectionTitle from "../../../components/common/section-title/SectionTitle"
 import Text from "../../../components/common/style/Text";
 import { Typography } from "../../../components/common/style/interface/Typography";
 import { Colors } from "../../../components/common/style/interface/Colors";
+import { InViewSlide } from "../../../components/common/animation/in-view/InViewSlide";
 
 function SkillsetSection() {
   return (
-    <><SectionTitle sectionName="Skillset" sectionDesc="Key skills I refined through years"/>
-    <Text className="skillset-desc" text={bodtText} typography={Typography.BodyText} color={Colors.TitaniumGray}/>
-    <FlexBox direction="column" alignItems="center" justifyContent="center">
-      <FlexBox>
-        <Carousel>
-          {skillCards.map((item) => (
-            <div key={item.id}>
-              <SkillSetCard skill={item} />
-            </div>
-          ))}
-        </Carousel>
+    <>
+      <SectionTitle
+        sectionName="Skillset"
+        sectionDesc="Key skills I refined through years"
+      />
+      <InViewSlide direction="right">
+        <Text
+          className="skillset-desc"
+          text={bodtText}
+          typography={Typography.BodyText}
+          color={Colors.TitaniumGray}
+        />
+      </InViewSlide>
+      <FlexBox direction="column" alignItems="center" justifyContent="center">
+        <InViewSlide direction="left" transition={50} duration={2}>
+          <FlexBox>
+            <Carousel>
+              {skillCards.map((item) => (
+                <div key={item.id}>
+                  <SkillSetCard skill={item} />
+                </div>
+              ))}
+            </Carousel>
+          </FlexBox>
+        </InViewSlide>
       </FlexBox>
-    </FlexBox>
     </>
   );
 }
@@ -33,7 +47,7 @@ export default SkillsetSection;
 const bodtText = ` Throughout my IT career, I've cultivated a versatile skillset that
 encompasses core competencies crucial to the field. These skills,
 refined through years of experience, form the bedrock of my professional
-journey.`
+journey.`;
 
 const skillCards: SkillCardObj[] = [
   {

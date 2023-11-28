@@ -4,6 +4,10 @@
   background: var(--vertical-glare-gradient);
 }
 
+.about-text-container {
+  transition: all 0.5s;
+}
+
 @media (max-width: 1200px) {
   .about-flex-container {
     flex-direction: column !important;

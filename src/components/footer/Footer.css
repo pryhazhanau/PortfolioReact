@@ -2,6 +2,7 @@ footer {
     display: flex;
     flex-direction: column;
     position: relative;
+    overflow: hidden;
 }
 
 .info-block {
@@ -106,10 +107,7 @@ footer .copyright {
     left: 0;
     top: 0;
     right: 0;
-    height: 50%;
-    --geist-background-rgb: 0, 0, 0;
-    --gradient-start-color: 125, 232, 240;
-    --gradient-end-color: 48, 200, 160;
-    --gradient-alpha: 0.1;
-    background: linear-gradient(0deg, rgba(var(--geist-background-rgb), 255) 0, rgba(var(--geist-background-rgb), 0) 100%), linear-gradient(90deg, rgba(var(--gradient-start-color), var(--gradient-alpha)) 0, rgba(var(--gradient-end-color), var(--gradient-alpha)) 100%);
-  }
+    opacity: 0.2;
+    z-index: 1;
+    pointer-events: none;
+}

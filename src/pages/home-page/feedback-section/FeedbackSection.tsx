@@ -9,6 +9,7 @@ import { Colors } from "../../../components/common/style/interface/Colors";
 
 import Arseny from "../../../assets/feedback/arseny.jpeg";
 import Roma from "../../../assets/feedback/roma.jpg";
+import { InViewSlide } from "../../../components/common/animation/in-view/InViewSlide";
 
 function FeedbackSection() {
   return (
@@ -24,11 +25,13 @@ function FeedbackSection() {
             sectionName="Feedback"
             sectionDesc="What they are saying"
           />
-          <Text
-            text="Comments from people I enjoyed working with, sharing positive feelings and mutual enjoyment in our collaboration."
-            typography={Typography.BodyText}
-            color={Colors.TitaniumGray}
-          />
+          <InViewSlide direction="right">
+            <Text
+              text="Comments from people I enjoyed working with, sharing positive feelings and mutual enjoyment in our collaboration."
+              typography={Typography.BodyText}
+              color={Colors.TitaniumGray}
+            />
+          </InViewSlide>
         </FlexBox>
         <FlexBox
           className="feedback-cards-container"
@@ -38,11 +41,13 @@ function FeedbackSection() {
         >
           {feedbacksList.map((item) => (
             <div key={`${item.id}`}>
-              <FeedbackCard
-                body={item.body}
-                description={item.description}
-                img={item.img}
-              />
+              <InViewSlide direction="top" delay={item.id / 4}>
+                <FeedbackCard
+                  body={item.body}
+                  description={item.description}
+                  img={item.img}
+                />
+              </InViewSlide>
             </div>
           ))}
         </FlexBox>

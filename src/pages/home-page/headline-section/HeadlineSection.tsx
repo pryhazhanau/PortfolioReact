@@ -68,7 +68,6 @@ const HeadlineComponent = () => {
     >
       <FlexBox className="headline-background-wrapper">
         <Image className="headline-background" src={BackgroundImg} />
-        <Image className="headline-background-grayscale" src={BackgroundImg} />
       </FlexBox>
       <FlexBox className="headline-wrapper">
         <FlexBox width="100%" height={"100vh"}>
@@ -95,9 +94,9 @@ const HeadlineMobileComponent = () => {
       justifyContent="center"
       padding={{ top: "var(--navbar-height)" }}
     >
+      {" "}
       <FlexBox className="headline-background-wrapper">
         <Image className="headline-background" src={BackgroundImg} />
-        <Image className="headline-background-grayscale" src={BackgroundImg} />
       </FlexBox>
       <FlexBox className="headline-wrapper">
         <FlexBox width="100%" height={"100vh"}>

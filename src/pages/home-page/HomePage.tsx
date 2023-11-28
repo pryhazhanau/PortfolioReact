@@ -7,6 +7,7 @@ import ExperticeSection from "./expertice-section/ExperticeSection";
 import FeedbackSection from "./feedback-section/FeedbackSection";
 import MasterContainer from "../../components/master-container/MasterContainer";
 import Footer from "../../components/footer/Footer";
+import ThanksSection from "./thanks-section/ThanksSection";
 
 function HomePage() {
   return (
@@ -17,12 +18,8 @@ function HomePage() {
         <SkillsetSection />
         <ExperticeSection />
         <FeedbackSection />
+        <ThanksSection />
       </MasterContainer>
-      <div className="thanks-section">
-        <div className="thanks-section-wrapper gradient-section-background">
-          <h1 className="subtitle-primary">Thank you for visiting!</h1>
-        </div>
-      </div>
       <Footer />
     </>
   );
