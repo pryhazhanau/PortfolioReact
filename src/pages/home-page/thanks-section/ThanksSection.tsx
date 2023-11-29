@@ -11,13 +11,15 @@ import { InViewSlide } from "../../../components/common/animation/in-view/InView
 
 const ThanksSection = () => {
   return (
-    <div className="thanks-section">
-      <div className="thanks-section-wrapper">
+    <FlexBox className="thanks-section">
+      <FlexBox className="thanks-section-background">
+      </FlexBox>
+      <FlexBox className="thanks-section-wrapper">
         <FlexBox justifyContent="space-between" alignItems="end">
           <InViewScale duration={0.3} initialScale={0}>
-            {/* <HeartBeatMotion> */}
+            <HeartBeatMotion>
               <PixelHeart />
-            {/* </HeartBeatMotion> */}
+            </HeartBeatMotion>
           </InViewScale>
         </FlexBox>
         <FlexBox direction="column" alignItems="center">
@@ -39,8 +41,8 @@ const ThanksSection = () => {
             />
           </InViewSlide>
         </FlexBox>
-      </div>
-    </div>
+      </FlexBox>
+    </FlexBox>
   );
 };
 
@@ -59,7 +61,7 @@ const HeartBeatMotion: FC<HeartBeatMotionProps> = (props) => {
       },
     },
     beat: {
-      scale: [1, 1.2, 1, 1.2, 1],
+      scale: [1, 1.1, 1, 1.1, 1],
       transition: {
         duration: 0.5,
         ease: easeOut,

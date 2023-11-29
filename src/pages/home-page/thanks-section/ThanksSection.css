@@ -1,9 +1,11 @@
 
 .thanks-section {
     display: flex;
+    position: relative;
     align-items: end;
     height: 70vh;
     width: 100%;
+    margin-bottom: 200px;
 }
 
 .thanks-section-wrapper {
@@ -17,12 +19,6 @@
 
 .thanks-section h1 {
     color: var(--aluminor--gray);
-}
-
-.heart-underscore {
-    width: 50px;
-    height: 10px;
-    background-color: var(--velaro--text);
 }
 
 .thanks-section-devider {
