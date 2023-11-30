@@ -53,14 +53,15 @@ interface HeartBeatMotionProps {
 
 const HeartBeatMotion: FC<HeartBeatMotionProps> = (props) => {
   const [isBeating, setIsBeating] = useState(false);
-
-  let beatDuration = 0.5;
+  const [isMouseHover, setIsMouseHover] = useState(false);
+  const beatDuration = 0.5;
+  const heartbeatScale = isMouseHover ? 1.1 : 1.05;
   const heartbeatVariants = {
     rest: {
       scale: 1,
     },
     beat: {
-      scale: [1, 1.1, 1, 1.1, 1],
+      scale: [1, heartbeatScale, 1, heartbeatScale, 1],
       transition: {
         duration: beatDuration,
         ease: easeOut,
@@ -70,7 +71,8 @@ const HeartBeatMotion: FC<HeartBeatMotionProps> = (props) => {
 
   let beatIntervalTimer = useRef<any | null>(null);
   const startBeat = (interval: number) => {
-    clearInterval(beatIntervalTimer.current)
+    setIsBeating(true);
+    clearInterval(beatIntervalTimer.current);
     const intervalId = setInterval(() => {
       setIsBeating((prev) => !prev);
     }, interval / 2 - beatDuration * 1000);
@@ -89,19 +91,23 @@ const HeartBeatMotion: FC<HeartBeatMotionProps> = (props) => {
 
   const handleMouseEnter = () => {
     const enterIntervalId = startBeat(2000);
+    setIsBeating(true);
+    setIsMouseHover(true);
     beatIntervalTimer.current = enterIntervalId;
   };
 
   const handleMouseLeave = () => {
     const leaveIntervalId = startBeat((BEAT_INTERVAL_S + 1) * 1000);
     beatIntervalTimer.current = leaveIntervalId;
+    setIsMouseHover(false);
+    setIsBeating(false);
   };
 
   return (
     <motion.div
       variants={heartbeatVariants}
       initial="rest"
-      animate={ isBeating ? "beat" : "rest" }
+      animate={isBeating ? "beat" : "rest"}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
