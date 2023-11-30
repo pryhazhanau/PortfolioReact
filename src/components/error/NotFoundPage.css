@@ -1,44 +1,69 @@
-.not-found-page {
+.error-404-page-wrapper {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    position: relative;
+    width: 100vw;
     height: 100vh;
-    width: 100%;
-    gap: 10vh;
 }
 
-.not-found-container {
+.error-404-background {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(to top left, var(--background--primary) 50%, var(--velaro--text) 50%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+  
+.text-container {
+    position: absolute;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-clip: text;
+    z-index: 1;
+    font-size: 368px;
+    font-weight: 700 !important;
+    line-height: 150%;
+    background: linear-gradient(to top left, var(--velaro--text) 50%, var(--background--primary) 50%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
 }
 
-.not-found-title-wrapper {
-    color: var(--velaro--light);
+@media (max-width: 800px) {
+    .text-container {
     font-size: 200px;
-    font-weight: 700;
-    text-shadow: 18px 18px 40px rgba(0, 0, 0, 1);
+    }
 }
 
-.not-found-title-wrapper p {
-    margin: 0;
-    padding: 0;
+@media (max-width: 500px) {
+    .text-container {
+    font-size: 100px;
+    }
 }
 
-.not-found-subtitles-wrapper p:nth-child(1) {
-    display: flex;
+@media (max-height: 800px) {
+    .text-container {
+    font-size: 100px;
+    }
+}
+
+@media (max-height: 600px) {
+    .error-content-container {
+        flex-direction: row !important;
+    }
+}
+
+.error-content-container {
     flex-direction: column;
-    align-items: center;
-    margin-top: -40px;
-
-    color: var(--aluminor--gray);
-    font-size: 32px;
-    font-weight: 600;
+    margin-top: var(--navbar-height);
+    padding: 36px 36px 36px 36px;
+    width: 100%;
+    height: calc(100% - var(--navbar-height) - 36);
+    z-index: 2;
 }
 
-.not-found-subtitles-wrapper p:nth-child(2) {
-    color: var(--titanium--gray);
-    font-size: var(--body-text);
-    font-weight: 300;
+.error-content-container p {
+    margin: 0;
 }

@@ -6,10 +6,11 @@ import ActionButton from "../common/controls/action-button/ActionButton";
 import MenuButton from "./mobile-menu/MobileMenu";
 
 interface NavbarProps {
-  menuVisibilityChanged: (visible: boolean) => void;
+  mobileMenuVisibilityChanged: (visible: boolean) => void;
+  visible: boolean;
 }
 
-const Navbar: FC<NavbarProps> = ({ menuVisibilityChanged }) => {
+const Navbar: FC<NavbarProps> = (props) => {
   const [isOnTop, setOnTop] = useState(true);
   const [currentScrollY, setCurrentScrollY] = useState(0);
   const [navBarVisible, setNavbarVisible] = useState(true);
@@ -59,11 +60,13 @@ const Navbar: FC<NavbarProps> = ({ menuVisibilityChanged }) => {
   };
 
   useEffect(() => {
+    setNavbarVisible(props.visible)
+
     window.addEventListener("resize", handleResize);
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [props.visible]);
 
   window.addEventListener("scroll", handleScroll);
 
@@ -124,7 +127,7 @@ const Navbar: FC<NavbarProps> = ({ menuVisibilityChanged }) => {
             </a>
             <MenuButton
               menuVisibilityChanged={(visible) =>
-                menuVisibilityChanged(visible)
+                props.mobileMenuVisibilityChanged(visible)
               }
             />
           </div>
