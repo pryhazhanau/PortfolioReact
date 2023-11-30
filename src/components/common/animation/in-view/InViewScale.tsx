@@ -1,5 +1,5 @@
 import { FC, ReactNode, useEffect, useRef } from "react";
-import { inView, useInView } from "framer-motion";
+import { useInView } from "framer-motion";
 import { CSSProperties } from "styled-components";
 
 interface InViewScaleProps {
