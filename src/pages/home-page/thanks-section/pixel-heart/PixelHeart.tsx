@@ -1,5 +1,9 @@
-import { useEffect, useRef, MouseEvent } from "react";
+import { useEffect, useRef, MouseEvent, FC } from "react";
 import "./PixelHeart.css";
+
+interface PixelHeartProps {
+    beatIntervalS: number;
+}
 
 interface RGB {
   r: number;
@@ -16,36 +20,41 @@ interface IPixel {
   alpha: number;
   expandDirection?:
     | "top"
+    | "right"
     | "bottom"
     | "left"
-    | "right"
-    | "top-left"
-    | "top-right"
-    | "bottom-left"
-    | "bottom-right"
     | "none";
   lastUpdatedDirection?: number;
+  isInitialPixel?: boolean;
+  currentRange: number;
 }
 
 const PIXEL_SIZE = 10;
 const CANVAS_WIDTH = PIXEL_SIZE * 17;
 const CANVAS_HEIGHT = PIXEL_SIZE * 15;
-const PIXEL_RANGE = 2;
-const CANVAS_FPS = 1 / 60;
+const CANVAS_FPS = 1 / 30;
+let MOUSE_HOVER_REPEAT_DURATION = 6 * 1000;
+
+const HEART_RGB: RGB = { r: 48, g: 255, b: 175 };
+const GLARE_RGB: RGB = { r: 255, g: 30, b: 155 };
+const GLARE_ALPHA = 0.7;
 
 const pixelsDict: { [key: string]: IPixel } = {};
 const glarePixelsDict: { [key: string]: IPixel | null } = {};
 
-const PixelHeart = () => {
+const PixelHeart: FC<PixelHeartProps> = (props) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const animationRef = useRef<number | null>(null);
   let currentMousePos: Point | null;
   let isMouseHover = false;
-
-  moveMouseOverHeart(() => {
-    currentMousePos = autoMouseCoordinates;
-    return isMouseHover;
-  });
+  MOUSE_HOVER_REPEAT_DURATION = props.beatIntervalS * 1000
+    moveMouseOverHeart(() => {
+        return isMouseHover
+    }, () => {
+        currentMousePos = {x: CANVAS_WIDTH / 2, y: CANVAS_HEIGHT / 2}
+    }, () => {
+        currentMousePos = null
+    });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -107,7 +116,7 @@ const PixelHeart = () => {
         const hash = calculateHash(x, y);
         const glarePixels: IPixel[] = [];
 
-        const rgb = { r: 100, g: 255, b: 255 };
+        const rgb = GLARE_RGB;
         const pixel = Pixel({
           position: { x: x, y: y },
           increasingAlpha: false,
@@ -122,78 +131,12 @@ const PixelHeart = () => {
           },
           hash: `${hash}`,
           rgb: rgb,
-          alpha: 1,
+          alpha: GLARE_ALPHA,
+          isInitialPixel: true,
+          currentRange: 0,
         });
 
         glarePixels.push(pixel);
-
-        for (let i = x - PIXEL_RANGE; i <= x + PIXEL_RANGE; i++) {
-          for (let j = y - PIXEL_RANGE; j <= y + PIXEL_RANGE; j++) {
-            if (i == x && y == j) {
-              continue;
-            }
-
-            let alpha = 0.9;
-            if (
-              Math.abs(Math.abs(i) - x) >= 2 ||
-              Math.abs(Math.abs(j) - y) >= 2
-            ) {
-              alpha = 0.7;
-            }
-
-            const hash = calculateHash(i, j);
-            const rgb = { r: 100, g: 255, b: 255 };
-            const prevPixel = glarePixelsDict[hash];
-            const prevPosition = glarePixelsDict[hash]?.position ?? {
-              x: i,
-              y: j,
-            };
-
-            const dx = i - x;
-            const dy = j - y;
-
-            let expandDirection: IPixel["expandDirection"] = "none";
-            if (dx === 0 && dy < 0) {
-              expandDirection = "top";
-            } else if (dx === 0 && dy > 0) {
-              expandDirection = "bottom";
-            } else if (dx < 0 && dy === 0) {
-              expandDirection = "left";
-            } else if (dx > 0 && dy === 0) {
-              expandDirection = "right";
-            } else if (dx < 0 && dy < 0) {
-              expandDirection = "top-left";
-            } else if (dx > 0 && dy < 0) {
-              expandDirection = "top-right";
-            } else if (dx < 0 && dy > 0) {
-              expandDirection = "bottom-left";
-            } else if (dx > 0 && dy > 0) {
-              expandDirection = "bottom-right";
-            }
-
-            const pixel = prevPixel
-              ? prevPixel
-              : Pixel({
-                  position: prevPosition,
-                  increasingAlpha: false,
-                  draw: (ctx) => {
-                    ctx.fillStyle = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${alpha})`;
-                    ctx.fillRect(
-                      i * PIXEL_SIZE,
-                      j * PIXEL_SIZE,
-                      PIXEL_SIZE,
-                      PIXEL_SIZE
-                    );
-                  },
-                  hash: `${hash}`,
-                  alpha: alpha,
-                  rgb: rgb,
-                  expandDirection: expandDirection,
-                });
-
-            glarePixels.push(pixel);
-          }
-        }
 
         glarePixels.forEach((pixel) => {
           glarePixelsDict[pixel.hash] = pixel;
@@ -207,86 +150,168 @@ const PixelHeart = () => {
           continue;
         }
 
-        const lastUpdate = pixel.lastUpdatedDirection;
-        if (pixel.expandDirection) {
-          if (!lastUpdate) {
-            pixel.lastUpdatedDirection = Date.now() - 100;
+        const pixelRangeStep = 1;
+
+        const createNextGlareWave = (pixel: IPixel) => {
+          const timeDiff = Date.now() - (pixel.lastUpdatedDirection ?? 0);
+          if (timeDiff < 50) {
+            return [];
           }
-          const pixelMovingStep = 1;
-          let pixelCopy = Pixel(pixel);
-          if (
-            pixel.lastUpdatedDirection &&
-            Date.now() - pixel.lastUpdatedDirection > 100
-          ) {
-            let position: Point;
-            switch (pixel.expandDirection) {
-              case "top":
-                position = {
-                  x: pixel.position.x,
-                  y: pixel.position.y - pixelMovingStep,
-                };
-                break;
-              case "bottom":
-                position = {
-                  x: pixel.position.x,
-                  y: pixel.position.y + pixelMovingStep,
-                };
-                break;
-              case "right":
-                position = {
-                  x: pixel.position.x + pixelMovingStep,
-                  y: pixel.position.y,
-                };
-                break;
-              case "left":
-                position = {
-                  x: pixel.position.x - pixelMovingStep,
-                  y: pixel.position.y,
-                };
-                break;
-              case "top-left":
-                position = {
-                  x: pixel.position.x - pixelMovingStep,
-                  y: pixel.position.y - pixelMovingStep,
-                };
-                break;
-              case "bottom-left":
-                position = {
-                  x: pixel.position.x - pixelMovingStep,
-                  y: pixel.position.y + pixelMovingStep,
-                };
-                break;
-              case "top-right":
-                position = {
-                  x: pixel.position.x + pixelMovingStep,
-                  y: pixel.position.y - pixelMovingStep,
-                };
-                break;
-              case "bottom-right":
-                position = {
-                  x: pixel.position.x + pixelMovingStep,
-                  y: pixel.position.y + pixelMovingStep,
-                };
-                break;
-              case "none":
-                position = pixel.position;
+
+          var newPixels: IPixel[] = [];
+          for (let i = pixel.currentRange ?? 0; i < 10; i++) {
+            let newPixel = Pixel(pixel);
+            if (pixel.expandDirection == "top") {
+              newPixel.position.y -= pixelRangeStep
+              newPixel.hash = calculateHash(
+                newPixel.position.x,
+                newPixel.position.y
+              );
+              newPixel.currentRange += 1;
+
+              if (glarePixelsDict[newPixel.hash] == null) {
+                for (let j = 0; j < 3; j++) {
+                    let neigborPixel1 = Pixel(newPixel)
+                    neigborPixel1.position.x += j
+                    neigborPixel1.hash = calculateHash(neigborPixel1.position.x, neigborPixel1.position.y);
+                    neigborPixel1.lastUpdatedDirection = Date.now()
+                    newPixels.push(neigborPixel1)
+
+                    let neigborPixel2 = Pixel(newPixel)
+                    neigborPixel2.position.x -= j
+                    neigborPixel2.hash = calculateHash(neigborPixel2.position.x, neigborPixel2.position.y);
+                    neigborPixel2.lastUpdatedDirection = Date.now()
+                    newPixels.push(neigborPixel2)
+                }
+                newPixel.lastUpdatedDirection = Date.now()
+                newPixels.push(newPixel);
+              }
             }
 
-            pixelCopy.position = position;
-            pixelCopy.hash = calculateHash(position.x, position.y);
-            pixelCopy.lastUpdatedDirection = Date.now();
-            const rgb = pixelCopy.rgb;
-            pixelCopy.draw = (ctx) => {
-              ctx.fillStyle = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${newAlpha})`;
-              ctx.fillRect(
-                position.x * PIXEL_SIZE,
-                position.y * PIXEL_SIZE,
-                PIXEL_SIZE,
-                PIXEL_SIZE
-              );
-            };
-            glarePixelsDict[pixelCopy.hash] = pixelCopy;
+            if (pixel.expandDirection == "right") {
+                newPixel.position.x += pixelRangeStep
+                newPixel.hash = calculateHash(
+                  newPixel.position.x,
+                  newPixel.position.y
+                );
+                newPixel.currentRange += 1;
+  
+                if (glarePixelsDict[newPixel.hash] == null) {
+                    for (let j = 0; j < 3; j++) {
+                        let neigborPixel1 = Pixel(newPixel)
+                        neigborPixel1.position.y += j
+                        neigborPixel1.hash = calculateHash(neigborPixel1.position.x, neigborPixel1.position.y);
+                        neigborPixel1.lastUpdatedDirection = Date.now()
+                        newPixels.push(neigborPixel1)
+
+                        let neigborPixel2 = Pixel(newPixel)
+                        neigborPixel2.position.y -= j
+                        neigborPixel2.hash = calculateHash(neigborPixel2.position.x, neigborPixel2.position.y);
+                        neigborPixel2.lastUpdatedDirection = Date.now()
+                        newPixels.push(neigborPixel2)
+                    }
+                  newPixel.lastUpdatedDirection = Date.now()
+                  newPixels.push(newPixel);
+                }
+              }
+
+              if (pixel.expandDirection == "bottom") {
+                newPixel.position.y += pixelRangeStep
+                newPixel.hash = calculateHash(
+                  newPixel.position.x,
+                  newPixel.position.y
+                );
+                newPixel.currentRange += 1;
+  
+                if (glarePixelsDict[newPixel.hash] == null) {
+                    for (let j = 0; j < 3; j++) {
+                        let neigborPixel1 = Pixel(newPixel)
+                        neigborPixel1.position.x += j
+                        neigborPixel1.lastUpdatedDirection = Date.now()
+                        neigborPixel1.hash = calculateHash(neigborPixel1.position.x, neigborPixel1.position.y);
+                        newPixels.push(neigborPixel1)
+
+                        let neigborPixel2 = Pixel(newPixel)
+                        neigborPixel2.position.x -= j
+                        neigborPixel2.lastUpdatedDirection = Date.now()
+                        neigborPixel2.hash = calculateHash(neigborPixel2.position.x, neigborPixel2.position.y);
+                        newPixels.push(neigborPixel2)
+                    }
+                  newPixel.lastUpdatedDirection = Date.now()
+                  newPixels.push(newPixel);
+                }
+              }
+
+              if (pixel.expandDirection == "left") {
+                newPixel.position.x -= pixelRangeStep
+                newPixel.hash = calculateHash(
+                  newPixel.position.x,
+                  newPixel.position.y
+                );
+                newPixel.currentRange += 1;
+  
+                if (glarePixelsDict[newPixel.hash] == null) {
+                    for (let j = 0; j < 3; j++) {
+                        let neigborPixel1 = Pixel(newPixel)
+                        neigborPixel1.lastUpdatedDirection = Date.now()
+                        neigborPixel1.position.y += j
+                        neigborPixel1.hash = calculateHash(neigborPixel1.position.x, neigborPixel1.position.y);
+                        newPixels.push(neigborPixel1)
+
+                        let neigborPixel2 = Pixel(newPixel)
+                        neigborPixel2.position.y -= j
+                        neigborPixel2.lastUpdatedDirection = Date.now()
+                        neigborPixel2.hash = calculateHash(neigborPixel2.position.x, neigborPixel2.position.y);
+                        newPixels.push(neigborPixel2)
+                    }
+                  newPixel.lastUpdatedDirection = Date.now()
+                  newPixels.push(newPixel);
+                }
+              }
           }
+
+          return newPixels;
+        };
+
+
+
+        if (pixel.isInitialPixel) {
+          let pixel1 = Pixel(pixel);
+          pixel1.position.y -= pixelRangeStep
+          pixel1.hash = calculateHash(pixel1.position.x, pixel1.position.y);
+          pixel1.expandDirection = "top";
+          pixel1.isInitialPixel = false;
+          pixel1.currentRange += 1;
+          glarePixelsDict[pixel1.hash] = pixel1;
+
+          let pixel2 = Pixel(pixel);
+          pixel2.position.x += pixelRangeStep
+          pixel2.hash = calculateHash(pixel2.position.x, pixel2.position.y);
+          pixel2.expandDirection = "right";
+          pixel2.isInitialPixel = false;
+          pixel2.currentRange += 1;
+          glarePixelsDict[pixel2.hash] = pixel2;
+
+          let pixel3 = Pixel(pixel);
+          pixel3.position.y += pixelRangeStep
+          pixel3.hash = calculateHash(pixel3.position.x, pixel3.position.y);
+          pixel3.expandDirection = "bottom";
+          pixel3.isInitialPixel = false;
+          pixel3.currentRange += 1;
+          glarePixelsDict[pixel3.hash] = pixel3;
+
+          let pixel4 = Pixel(pixel);
+          pixel4.position.x -= pixelRangeStep
+          pixel4.hash = calculateHash(pixel4.position.x, pixel4.position.y);
+          pixel4.expandDirection = "left";
+          pixel4.isInitialPixel = false;
+          pixel4.currentRange += 1;
+          glarePixelsDict[pixel4.hash] = pixel4;
+
+        } else {
+          createNextGlareWave(pixel).forEach((item) => {
+            glarePixelsDict[item.hash] = item;
+          });
         }
 
         const newAlpha = Math.max((pixel.alpha -= 0.01), 0.0001);
@@ -312,7 +337,13 @@ const PixelHeart = () => {
           pixel.draw(ctx);
         }
 
-        if (pixel.alpha <= 0.011) {
+        if (
+          pixel.alpha <= 0.001 ||
+          pixel.position.x > CANVAS_WIDTH ||
+          pixel.position.x < 0 ||
+          pixel.position.y < 0 ||
+          pixel.position.y > CANVAS_HEIGHT
+        ) {
           glarePixelsDict[key] = null;
         }
       }
@@ -362,6 +393,8 @@ function Pixel(pixel: IPixel) {
     alpha: pixel.alpha,
     expandDirection: pixel.expandDirection,
     lastUpdatedDirection: pixel.lastUpdatedDirection,
+    isInitialPixel: pixel.isInitialPixel,
+    currentRange: pixel.currentRange,
   };
 }
 
@@ -420,7 +453,7 @@ const getColumnPixels = (
 const createPixel = (x: number, y: number) => {
   const hash = calculateHash(x, y);
   const nextPixel = calculateNextPixel(hash);
-  const rgb = { r: 48, g: 255, b: 175 };
+  const rgb = HEART_RGB;
   const color = `rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, ${nextPixel?.alpha})`;
   const pixel = Pixel({
     position: { x: x, y: y },
@@ -432,6 +465,7 @@ const createPixel = (x: number, y: number) => {
     hash: `${hash}`,
     alpha: nextPixel?.alpha ?? 1,
     rgb: rgb,
+    currentRange: 0,
   });
 
   pixelsDict[hash] = pixel;
@@ -441,49 +475,29 @@ const createPixel = (x: number, y: number) => {
 const calculateHash = (x: number, y: number) => {
   const maxX = Math.max(0, x);
   const maxY = Math.max(0, y);
+  const str = `${maxX}-${maxY}`;
+  let hash = 0;
 
-  return `${(maxX * 25 - 10) * (maxY * 10 - 3)}`;
+  for (let i = 0; i < str.length; i++) {
+    const char = str.charCodeAt(i);
+    hash = (hash << 5) - hash + char;
+  }
+
+  return hash.toString();
 };
 
-let autoMouseCoordinates: Point | null;
-const moveMouseOverHeart = (f: () => boolean) => {
-    const calculateParabolicY = (x: number) => {
-        let y;
-        if (x <= 150) {
-            y = Math.floor(x) // Adjust the coefficient for desired shape
-        } else {
-            y = Math.pow(x, 2)  // Adjust the coefficient for desired shape
-        }
-    
-        return y;
-      };
-
-   let timer: any;
-  setInterval(() => {
-    autoMouseCoordinates = { x: 0, y: 0 };
-    clearInterval(timer)
-    timer = setInterval(() => {
-      if (!autoMouseCoordinates) {
-        return;
-      }
-
-      autoMouseCoordinates = {
-        x: autoMouseCoordinates.x + 1,
-        y: calculateParabolicY(autoMouseCoordinates.x + 1),
-      };
-      const isMouseHover = f();
-
-      if (
-        autoMouseCoordinates.x > 300 ||
-        autoMouseCoordinates.y > 300 ||
-        isMouseHover
-      ) {
-        autoMouseCoordinates = null;
-        f();
-        clearInterval(timer);
-      }
-    }, 10);
-  }, 10000);
+const moveMouseOverHeart = (isMouseHover: () => boolean, beat: () => void, remove: () => void) => {
+    setTimeout(() => {
+        setInterval(() => {
+            if (isMouseHover()) {
+                return;
+            }
+            beat();
+            setTimeout(() => {
+                remove();
+            }, 100)
+        }, MOUSE_HOVER_REPEAT_DURATION * 3)
+    })
 };
 
 export default PixelHeart;

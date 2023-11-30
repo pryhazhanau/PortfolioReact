@@ -8,8 +8,6 @@ import SectionTitle from "../../../components/common/section-title/SectionTitle"
 import Image from "../../../components/common/style/Image";
 import { Typography } from "../../../components/common/style/interface/Typography";
 import { Colors } from "../../../components/common/style/interface/Colors";
-import { InView } from "react-intersection-observer";
-import { useState } from "react";
 import { InViewSlide } from "../../../components/common/animation/in-view/InViewSlide";
 
 function AboutSection() {
