@@ -25,6 +25,7 @@
 }
 
 .section-pill-text {
+    letter-spacing: 5px !important;
     margin: 0;
     background-image: var(--moderna-gradient);
     background: var(--velaro-gradient);

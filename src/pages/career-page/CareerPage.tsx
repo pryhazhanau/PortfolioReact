@@ -63,14 +63,14 @@ const EffectiveSoftSection = () => {
     <FlexBox direction="column" gap={48} alignItems="center">
       <FlexBox direction="column" maxWidth={textMaxWidht}>
         <CareerTitle
-          fromDate="May. 2022"
+          fromDate="May 2022"
           toDate="Sep. 2022"
           companyName={companyName}
           location="Minsk, Belarus"
         />
-        <TextContainer text="I started working at *EffectiveSoft* in May '22, where I helped create the (YourFitnessCoach)[https://yourfitness.coach] iOS app with a team of 2 iOS developers and 3 back-end developers. Our main goal was to make the first version of the app, and we did it successfully." />
-        <TextContainer text="My job at the company involved not just building the app but also guiding and giving feedback to my teammates. I enjoyed being part of a collaborative effort where we learned from each other. After we finished the project, I moved from Minsk, Belarus, to Warsaw, Poland, for a new step in my life and career." />
-        <TextContainer text="This change allowed me to learn more and bring my skills to a different place. It was a bit challenging adapting to a new environment, but it turned out to be an exciting experience. Exploring a different city and working with new people brought fresh perspectives and opportunities for growth. The whole experience has been a great journey of learning and growing in the world of software development." />
+        <TextContainer text="I have started working at *EffectiveSoft* in May '22, where I was responsible for development of the (YourFitnessCoach)[https://yourfitness.coach] iOS app with a team of 2 iOS developers and 3 back-end developers. The main goal was to make the MVP version of the app, and we did it successfully." />
+        <TextContainer text="My job at the company involved not just building the app but also guiding and giving feedback to my teammates. I enjoyed being part of a collaborative effort where we learned from each other. After we finished the project, I have relocated from Minsk, Belarus, to Warsaw, Poland, for a new step in my life and career." />
+        <TextContainer text="This changes allowed me to learn more and bring my skills to a different place. It was a bit challenging adapting to a new environment, but it turned out to be an exciting experience. Exploring a different city and working with new people brought fresh perspectives and opportunities for growth." />
       </FlexBox>
       <CompanyCard
         companyName={companyName}
@@ -91,13 +91,13 @@ const ConstantaSection = () => {
     <FlexBox direction="column" gap={48} alignItems="center">
       <FlexBox direction="column" maxWidth={textMaxWidht}>
         <CareerTitle
-          fromDate="May. 2019"
+          fromDate="May 2019"
           toDate="Sep. 2022"
           companyName={companyName}
           location="Moscow, Russia"
         />
-        <TextContainer text="*Constanta* was established as a start-up focusing on sport tech and computer vision. My journey at Constanta began in May '19 as an iOS/MacOS Developer. I was involved in two projects during my time there. The first project was (Hedwig Messenger)[/projects], an application for secure messaging with end-to-end encryption. Initially distributed exclusively as an enterprise application for iOS/MacOS and Android, it was developed using the Objective-C programming language." />
-        <TextContainer text="Over time, we faced challenges with the project's structure and outdated core components, leading to a decision to rewrite all modules in Swift. The core functionality relied on the WebRTC native framework, enabling the implementation of end-to-end video calls with the added feature of group calls. Unfortunately, the development of Hedwig was halted due to financial constraints. Despite this, my experience on a product development was incredibly insightful, providing me with valuable knowledge in Sockets and WebRTC technology." />
+        <TextContainer text="*Constanta* was established as a start-up focusing on sport tech and computer vision. My journey at Constanta began in May '19 as an iOS/MacOS Developer. I was involved in two projects during my time there. The first project was a (Hedwig Messenger)[/projects], an application for secure messaging with end-to-end encryption. Initially distributed exclusively as an enterprise application for iOS/MacOS and Android, it was developed using the Objective-C programming language." />
+        <TextContainer text="Over time, we faced challenges with the project's structure and outdated core components, leading to a decision to rewrite most modules in Swift. The core functionality relied on the WebRTC native framework, enabling the implementation of end-to-end video calls with posibitly to create group calls. Unfortunately, the development of Hedwig was halted due to financial constraints. Despite this, my experience on a product development was incredibly insightful, providing me with valuable knowledge in Sockets and WebRTC technology." />
       </FlexBox>
       <CompanyCard
         companyName={companyName}
@@ -119,7 +119,7 @@ const EpamSection = () => {
       <FlexBox direction="column" maxWidth={textMaxWidht}>
         <CareerTitle
           fromDate="Aug. 2017"
-          toDate="May. 2019"
+          toDate="May 2019"
           companyName={companyName}
           location="Minsk, Belarus"
         />

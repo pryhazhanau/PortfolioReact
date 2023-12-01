@@ -43,7 +43,7 @@ const NotFoundPage: FC<NotFoundPageProps> = (props) => {
             />
           </FlexBox>
         <FlexBox margin={{ bottom: 100 }}>
-          <ActionButton label="back to home" link="/" />
+          <ActionButton label="Back to home" link="/" />
         </FlexBox>
       </FlexBox>
     </div>

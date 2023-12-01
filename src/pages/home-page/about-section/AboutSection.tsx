@@ -9,55 +9,68 @@ import Image from "../../../components/common/style/Image";
 import { Typography } from "../../../components/common/style/interface/Typography";
 import { Colors } from "../../../components/common/style/interface/Colors";
 import { InViewSlide } from "../../../components/common/animation/in-view/InViewSlide";
+import LoadButton from "../../../components/common/controls/load-button/LoadButton";
+import ArrowDown from "../../../assets/icons/arrow-down.svg";
+import CV from "../../../assets/cv.pdf";
 
 function AboutSection() {
+  const openCV = () => {
+    window.open(CV, "_blank");
+  };
 
   return (
     <>
-        <FlexBox className="about-container page-section">
-          <FlexBox className="about-content-container">
-            <FlexBox
-              className="about-flex-container"
-              gap={50}
-              justifyContent="center"
-              alignItems="center"
-            >
-              <FlexBox direction="column">
-                <SectionTitle
-                  sectionName="About me"
-                  sectionDesc="Who am I and what I am doing"
+      <FlexBox className="about-container page-section">
+        <FlexBox className="about-content-container">
+          <FlexBox
+            className="about-flex-container"
+            gap={50}
+            justifyContent="center"
+            alignItems="center"
+          >
+            <FlexBox direction="column">
+              <SectionTitle
+                sectionName="About"
+                sectionDesc="Who am I and what I am doing"
+              />
+              <InViewSlide direction="right">
+                <Text
+                  text={AboutText}
+                  typography={Typography.BodyText}
+                  color={Colors.TitaniumGray}
                 />
-                <InViewSlide direction="right">
-                  <Text
-                    text={AboutText}
-                    typography={Typography.BodyText}
-                    color={Colors.TitaniumGray}
-                  />
-                </InViewSlide>
-              </FlexBox>
-              <FlexBox className="about-section-divider" />
-              <InViewSlide direction="left" style={{display:"flex", width: "100%", justifyContent: "center"}}>
-                <Image src={Photo} maxWidth="400px"/>
               </InViewSlide>
+              <FlexBox margin={{ top: 50 }}>
+                <LoadButton
+                  label="Download CV"
+                  icon={ArrowDown}
+                  onClick={openCV}
+                />
+              </FlexBox>
             </FlexBox>
+            <FlexBox className="about-section-divider" />
+            <InViewSlide
+              direction="left"
+              style={{
+                display: "flex",
+                width: "100%",
+                justifyContent: "center",
+              }}
+            >
+              <Image src={Photo} maxWidth="400px" />
+            </InViewSlide>
           </FlexBox>
         </FlexBox>
+      </FlexBox>
     </>
   );
 }
 
-const AboutText = `My name is Uladzimir, and I am an iOS Developer from Warsaw,
-Poland. I was born in Minsk, Belarus. I've found my professional
-calling in the world of iOS and MacOS Development. With a solid
-and comprehensive foundation in this field, I've spent almost
-five years refining my iOS development skills through a
-combination of professional experiences and personal projects. I
-possess an in-depth understanding of Swift and Objective-C,
-along with a profound familiarity with the iOS SDK. Beyond my
-technical prowess, I take pride in being a dedicated and
-detail-oriented professional who thrives in collaborative,
-fast-paced environments. My true passion lies in crafting
-elegant, user-centric solutions, and I'm committed to delivering
-products that not only meet but exceed customer expectations.`;
+const AboutText = `My name is Uladzimir, I am an iOS Developer currently based in  Warsaw, Poland. 
+I was born and lived in a hospitable and cozy city of Minsk, Belarus. Over the past 6 years,
+I have honed my engineering skills through both professional experience and personal projects. I have a strong and pure base in iOS and MacOS Development. 
+I have a deep understanding of Swift and Objective-C programming languages, as well as the iOS SDK.
+In addition to my technical skills, I am a dedicated and detail-oriented developer who thrives in a collaborative and fast-paced environment.
+I am passionate about creating elegant, user-centric solutions and am committed to delivering products that exceed customer expectations.`;
 
 export default AboutSection;

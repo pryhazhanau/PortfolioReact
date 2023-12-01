@@ -23,7 +23,6 @@
 
 .text-pill-text {
     margin: 0;
-    background-image: var(--moderna-gradient);
     background: var(--moderna-gradient);
     background-clip: text;
     -webkit-background-clip: text;

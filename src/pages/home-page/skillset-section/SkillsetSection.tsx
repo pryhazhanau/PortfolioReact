@@ -44,10 +44,8 @@ function SkillsetSection() {
 
 export default SkillsetSection;
 
-const bodtText = ` Throughout my IT career, I've cultivated a versatile skillset that
-encompasses core competencies crucial to the field. These skills,
-refined through years of experience, form the bedrock of my professional
-journey.`;
+const bodtText = `Throughout my IT career, I've cultivated a versatile skillset that includes core competencies crucial to the field.
+These skills, refined through years of experience, form the bedrock of my professional expertise.`;
 
 const skillCards: SkillCardObj[] = [
   {

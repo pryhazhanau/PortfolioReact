@@ -26,13 +26,15 @@
 }
 
 .feedback-card-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 16px 16px 16px 16px;
 }
 
 .feedback-card-image {
     display: flex;
     justify-content: center;
-    margin-bottom: 40px;
     opacity: 0.5;
     transition: opacity var(--anim-time) ease;
 }
@@ -50,15 +52,8 @@
     border-radius: 999rem;
 }
 
-
-.feedback-card-quote {
-    margin-bottom: 16px;
-}
-
 .feedback-card-quote p {
-    color: var(--spacero--gray);
-    text-align: center;
-    transition: color var(--anim-time) ease;
+    margin: 0;
 }
 
 .feedback-card-name p {

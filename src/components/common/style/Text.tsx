@@ -22,6 +22,7 @@ const Text: FC<TextProps> = ({ className = "", text = "", typography, color, mar
     fontWeight: typography.fontWeight,
     fontStyle: typography.fontStyle,
     lineHeight: typography.lineHeight,
+    letterSpacing: typography.letterSpacing,
     marginTop: margin?.top,
     marginBottom: margin?.bottom,
     marginLeft: margin?.leading,
