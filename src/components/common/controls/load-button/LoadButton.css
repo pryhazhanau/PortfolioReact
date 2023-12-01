@@ -1,0 +1,33 @@
+.load-button {
+    display: flex;
+    align-items: center;
+    /* padding: 10px 20px; */
+    padding: 0;
+    background-color: var(--velaro--text);
+    text-decoration: none;
+    cursor: pointer;
+    transition: scale 0.1s;
+    border: none;
+    background: var(--velaro--accent);
+}
+
+.load-button:hover {
+    scale: 1.05;
+}
+
+.load-button p {
+    color: var(--background--secondary);
+    margin: 0;
+}
+
+.load-button-right-icon-container {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.load-button-right-image * {
+    display: flex;
+}
+
+.load-button-right-image svg path {
+    stroke: var(--background--secondary);
+}

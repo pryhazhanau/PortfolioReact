@@ -8,7 +8,6 @@
     transition: transform 0.1s;
     border: none;
     background: var(--velaro--accent);
-    text-decoration: none;
 }
 
 .action-button-primary a {
