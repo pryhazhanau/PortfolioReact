@@ -1,8 +1,6 @@
 import "./Navbar.css";
 import "../../common/css/gradient.css";
-import cvFile from "../../assets/cv.pdf";
 import { FC, useState, useEffect } from "react";
-import ActionButton from "../common/controls/action-button/ActionButton";
 import MenuButton from "./mobile-menu/MobileMenu";
 
 interface NavbarProps {
