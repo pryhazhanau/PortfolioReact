@@ -17,6 +17,7 @@ nav {
   padding-left: 130px;
   padding-right: 130px;
   height: var(--navbar-height);
+  background-color: var(--background--primary);
 }
 
 .navbar-mobile {
@@ -72,8 +73,4 @@ a.logo:hover {
   width: 150px;
   color: var(--spacero--gray);
   text-decoration: none;
-}
-
-.cv-button {
-  margin-left: 50px;
 }

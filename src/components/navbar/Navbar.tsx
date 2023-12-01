@@ -14,8 +14,6 @@ const Navbar: FC<NavbarProps> = (props) => {
   const [isOnTop, setOnTop] = useState(true);
   const [currentScrollY, setCurrentScrollY] = useState(0);
   const [navBarVisible, setNavbarVisible] = useState(true);
-  const [navbarBlur, setNavbarBlur] = useState(10);
-  const [navbarBrightness, setNavbarBrightness] = useState(80);
 
   const handleScroll = () => {
     const scrollY = window.scrollY;
@@ -23,16 +21,6 @@ const Navbar: FC<NavbarProps> = (props) => {
       setOnTop(false);
     } else {
       setOnTop(true);
-    }
-
-    if (scrollY >= 0 && scrollY < 400) {
-      const blurValue = window.scrollY < 0 ? 0 : window.scrollY / 10 + 12;
-      setNavbarBlur(blurValue);
-
-      const brightnessValue = (1 - window.scrollY / 200) * 100 - 20;
-      setNavbarBrightness(brightnessValue > 0 ? brightnessValue : 0);
-    } else {
-      setNavbarBlur(12);
     }
 
     if (scrollY > 200) {
@@ -49,9 +37,6 @@ const Navbar: FC<NavbarProps> = (props) => {
     setCurrentScrollY(scrollY);
   };
 
-  const onClick = () => {
-    window.open(cvFile, "_blank");
-  };
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -78,10 +63,6 @@ const Navbar: FC<NavbarProps> = (props) => {
             className={`${
               isOnTop ? "navbar-desktop" : "navbar-desktop shadow"
             }`}
-            style={{
-              WebkitBackdropFilter: `blur(${navbarBlur}px) brightness(${navbarBrightness}%)`,
-              backdropFilter: `blur(${navbarBlur}px) brightness(${navbarBrightness}%)`,
-            }}
           >
             <div>
               <a className="logo" href="/">
@@ -110,11 +91,6 @@ const Navbar: FC<NavbarProps> = (props) => {
                   Projects
                 </a>
               </div>
-              <ActionButton
-                className="cv-button"
-                label="CV"
-                onClick={onClick}
-              />
             </div>
           </div>
         ) : (
