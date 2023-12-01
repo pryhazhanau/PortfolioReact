@@ -33,8 +33,8 @@ function ArchitecturesBlock() {
             <div className="architecture-col">
               <p className="architecture-title subtitle-secondary">MVVM</p>
               <p className="body-text-titanium">
-                Known by all iOS Developers archetecture. Used in projects with
-                different approaches.
+                Well known by most iOS Developers archetecture. Frequiently used in projects with
+                different approaches. Differs from other approaches by its simplicity.
               </p>
             </div>
           </div>
