@@ -14,9 +14,9 @@ function ExperienceBlock() {
           >
             EPAM Systems
           </a>.{" "}
-          During 2 years I have been writing automation test for iOS and Android on Java and Javascript.
-            I was also interested in iOS Development. My journey as an iOS Developer has begun from my very first mobile application written in swift.
-              Besides the small frameworks and modules, I have succesfully completed 3 short-term iOS projects and was a part of 2 large cross-function product teams.
+          During 2 years I had been writing automation test for iOS and Android on Java and Javascript.
+            I was also interested in iOS Development. My journey as an iOS Developer had begun from my very first mobile application written on swift.
+              Besides the small frameworks and modules, I had succesfully completed 3 short-term iOS projects and was a part of 2 large cross-function product teams.
         </p>
       </div>
 

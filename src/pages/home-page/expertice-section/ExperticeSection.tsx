@@ -152,8 +152,6 @@ function ExperticeSection() {
   );
 }
 
-const BodyText = `Experienced in iOS development and UI/UX design, I bring a collaborative spirit to every project.
-My expertise lies in creating seamless, user-centric experiences, and I thrive in teamwork environments, ensuring successful outcomes
-through effective communication and shared goals.`;
+const BodyText = `More detailed information about my experience, tools and technolgies I worked with.`;
 
 export default ExperticeSection;
