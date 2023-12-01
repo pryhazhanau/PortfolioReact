@@ -1,9 +1,7 @@
 import { useEffect, useRef, MouseEvent, FC } from "react";
 import "./PixelHeart.css";
 
-interface PixelHeartProps {
-    beatIntervalS: number;
-}
+interface PixelHeartProps {}
 
 interface RGB {
   r: number;
@@ -18,12 +16,7 @@ interface IPixel {
   hash: string;
   rgb: RGB;
   alpha: number;
-  expandDirection?:
-    | "top"
-    | "right"
-    | "bottom"
-    | "left"
-    | "none";
+  expandDirection?: "top" | "right" | "bottom" | "left" | "none";
   lastUpdatedDirection?: number;
   isInitialPixel?: boolean;
   currentRange: number;
@@ -33,30 +26,27 @@ const PIXEL_SIZE = 10;
 const CANVAS_WIDTH = PIXEL_SIZE * 17;
 const CANVAS_HEIGHT = PIXEL_SIZE * 15;
 const CANVAS_FPS = 1 / 30;
-let MOUSE_HOVER_REPEAT_DURATION = 6 * 1000;
 
 const HEART_RGB: RGB = { r: 48, g: 255, b: 175 };
 const GLARE_RGB: RGB = { r: 255, g: 30, b: 155 };
 const GLARE_ALPHA = 0.7;
+const HEART_AUTO_MOVEMENT_INTERVAL = 7000
 
 const pixelsDict: { [key: string]: IPixel } = {};
 const glarePixelsDict: { [key: string]: IPixel | null } = {};
 
-const PixelHeart: FC<PixelHeartProps> = (props) => {
+const PixelHeart: FC<PixelHeartProps> = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const animationRef = useRef<number | null>(null);
   let currentMousePos: Point | null;
   let isMouseHover = false;
-  MOUSE_HOVER_REPEAT_DURATION = props.beatIntervalS * 1000
-    moveMouseOverHeart(() => {
-        return isMouseHover
-    }, () => {
-        currentMousePos = {x: CANVAS_WIDTH / 2, y: CANVAS_HEIGHT / 2}
-    }, () => {
-        currentMousePos = null
-    });
 
   useEffect(() => {
+    moveMouseOverHeart(() => {
+      currentMousePos = autoMouseCoordinates;
+      return isMouseHover;
+    });
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -162,7 +152,7 @@ const PixelHeart: FC<PixelHeartProps> = (props) => {
           for (let i = pixel.currentRange ?? 0; i < 10; i++) {
             let newPixel = Pixel(pixel);
             if (pixel.expandDirection == "top") {
-              newPixel.position.y -= pixelRangeStep
+              newPixel.position.y -= pixelRangeStep;
               newPixel.hash = calculateHash(
                 newPixel.position.x,
                 newPixel.position.y
@@ -171,113 +161,135 @@ const PixelHeart: FC<PixelHeartProps> = (props) => {
 
               if (glarePixelsDict[newPixel.hash] == null) {
                 for (let j = 0; j < 3; j++) {
-                    let neigborPixel1 = Pixel(newPixel)
-                    neigborPixel1.position.x += j
-                    neigborPixel1.hash = calculateHash(neigborPixel1.position.x, neigborPixel1.position.y);
-                    neigborPixel1.lastUpdatedDirection = Date.now()
-                    newPixels.push(neigborPixel1)
+                  let neigborPixel1 = Pixel(newPixel);
+                  neigborPixel1.position.x += j;
+                  neigborPixel1.hash = calculateHash(
+                    neigborPixel1.position.x,
+                    neigborPixel1.position.y
+                  );
+                  neigborPixel1.lastUpdatedDirection = Date.now();
+                  newPixels.push(neigborPixel1);
 
-                    let neigborPixel2 = Pixel(newPixel)
-                    neigborPixel2.position.x -= j
-                    neigborPixel2.hash = calculateHash(neigborPixel2.position.x, neigborPixel2.position.y);
-                    neigborPixel2.lastUpdatedDirection = Date.now()
-                    newPixels.push(neigborPixel2)
+                  let neigborPixel2 = Pixel(newPixel);
+                  neigborPixel2.position.x -= j;
+                  neigborPixel2.hash = calculateHash(
+                    neigborPixel2.position.x,
+                    neigborPixel2.position.y
+                  );
+                  neigborPixel2.lastUpdatedDirection = Date.now();
+                  newPixels.push(neigborPixel2);
                 }
-                newPixel.lastUpdatedDirection = Date.now()
+                newPixel.lastUpdatedDirection = Date.now();
                 newPixels.push(newPixel);
               }
             }
 
             if (pixel.expandDirection == "right") {
-                newPixel.position.x += pixelRangeStep
-                newPixel.hash = calculateHash(
-                  newPixel.position.x,
-                  newPixel.position.y
-                );
-                newPixel.currentRange += 1;
-  
-                if (glarePixelsDict[newPixel.hash] == null) {
-                    for (let j = 0; j < 3; j++) {
-                        let neigborPixel1 = Pixel(newPixel)
-                        neigborPixel1.position.y += j
-                        neigborPixel1.hash = calculateHash(neigborPixel1.position.x, neigborPixel1.position.y);
-                        neigborPixel1.lastUpdatedDirection = Date.now()
-                        newPixels.push(neigborPixel1)
+              newPixel.position.x += pixelRangeStep;
+              newPixel.hash = calculateHash(
+                newPixel.position.x,
+                newPixel.position.y
+              );
+              newPixel.currentRange += 1;
 
-                        let neigborPixel2 = Pixel(newPixel)
-                        neigborPixel2.position.y -= j
-                        neigborPixel2.hash = calculateHash(neigborPixel2.position.x, neigborPixel2.position.y);
-                        neigborPixel2.lastUpdatedDirection = Date.now()
-                        newPixels.push(neigborPixel2)
-                    }
-                  newPixel.lastUpdatedDirection = Date.now()
-                  newPixels.push(newPixel);
+              if (glarePixelsDict[newPixel.hash] == null) {
+                for (let j = 0; j < 3; j++) {
+                  let neigborPixel1 = Pixel(newPixel);
+                  neigborPixel1.position.y += j;
+                  neigborPixel1.hash = calculateHash(
+                    neigborPixel1.position.x,
+                    neigborPixel1.position.y
+                  );
+                  neigborPixel1.lastUpdatedDirection = Date.now();
+                  newPixels.push(neigborPixel1);
+
+                  let neigborPixel2 = Pixel(newPixel);
+                  neigborPixel2.position.y -= j;
+                  neigborPixel2.hash = calculateHash(
+                    neigborPixel2.position.x,
+                    neigborPixel2.position.y
+                  );
+                  neigborPixel2.lastUpdatedDirection = Date.now();
+                  newPixels.push(neigborPixel2);
                 }
+                newPixel.lastUpdatedDirection = Date.now();
+                newPixels.push(newPixel);
               }
+            }
 
-              if (pixel.expandDirection == "bottom") {
-                newPixel.position.y += pixelRangeStep
-                newPixel.hash = calculateHash(
-                  newPixel.position.x,
-                  newPixel.position.y
-                );
-                newPixel.currentRange += 1;
-  
-                if (glarePixelsDict[newPixel.hash] == null) {
-                    for (let j = 0; j < 3; j++) {
-                        let neigborPixel1 = Pixel(newPixel)
-                        neigborPixel1.position.x += j
-                        neigborPixel1.lastUpdatedDirection = Date.now()
-                        neigborPixel1.hash = calculateHash(neigborPixel1.position.x, neigborPixel1.position.y);
-                        newPixels.push(neigborPixel1)
+            if (pixel.expandDirection == "bottom") {
+              newPixel.position.y += pixelRangeStep;
+              newPixel.hash = calculateHash(
+                newPixel.position.x,
+                newPixel.position.y
+              );
+              newPixel.currentRange += 1;
 
-                        let neigborPixel2 = Pixel(newPixel)
-                        neigborPixel2.position.x -= j
-                        neigborPixel2.lastUpdatedDirection = Date.now()
-                        neigborPixel2.hash = calculateHash(neigborPixel2.position.x, neigborPixel2.position.y);
-                        newPixels.push(neigborPixel2)
-                    }
-                  newPixel.lastUpdatedDirection = Date.now()
-                  newPixels.push(newPixel);
+              if (glarePixelsDict[newPixel.hash] == null) {
+                for (let j = 0; j < 3; j++) {
+                  let neigborPixel1 = Pixel(newPixel);
+                  neigborPixel1.position.x += j;
+                  neigborPixel1.lastUpdatedDirection = Date.now();
+                  neigborPixel1.hash = calculateHash(
+                    neigborPixel1.position.x,
+                    neigborPixel1.position.y
+                  );
+                  newPixels.push(neigborPixel1);
+
+                  let neigborPixel2 = Pixel(newPixel);
+                  neigborPixel2.position.x -= j;
+                  neigborPixel2.lastUpdatedDirection = Date.now();
+                  neigborPixel2.hash = calculateHash(
+                    neigborPixel2.position.x,
+                    neigborPixel2.position.y
+                  );
+                  newPixels.push(neigborPixel2);
                 }
+                newPixel.lastUpdatedDirection = Date.now();
+                newPixels.push(newPixel);
               }
+            }
 
-              if (pixel.expandDirection == "left") {
-                newPixel.position.x -= pixelRangeStep
-                newPixel.hash = calculateHash(
-                  newPixel.position.x,
-                  newPixel.position.y
-                );
-                newPixel.currentRange += 1;
-  
-                if (glarePixelsDict[newPixel.hash] == null) {
-                    for (let j = 0; j < 3; j++) {
-                        let neigborPixel1 = Pixel(newPixel)
-                        neigborPixel1.lastUpdatedDirection = Date.now()
-                        neigborPixel1.position.y += j
-                        neigborPixel1.hash = calculateHash(neigborPixel1.position.x, neigborPixel1.position.y);
-                        newPixels.push(neigborPixel1)
+            if (pixel.expandDirection == "left") {
+              newPixel.position.x -= pixelRangeStep;
+              newPixel.hash = calculateHash(
+                newPixel.position.x,
+                newPixel.position.y
+              );
+              newPixel.currentRange += 1;
 
-                        let neigborPixel2 = Pixel(newPixel)
-                        neigborPixel2.position.y -= j
-                        neigborPixel2.lastUpdatedDirection = Date.now()
-                        neigborPixel2.hash = calculateHash(neigborPixel2.position.x, neigborPixel2.position.y);
-                        newPixels.push(neigborPixel2)
-                    }
-                  newPixel.lastUpdatedDirection = Date.now()
-                  newPixels.push(newPixel);
+              if (glarePixelsDict[newPixel.hash] == null) {
+                for (let j = 0; j < 3; j++) {
+                  let neigborPixel1 = Pixel(newPixel);
+                  neigborPixel1.lastUpdatedDirection = Date.now();
+                  neigborPixel1.position.y += j;
+                  neigborPixel1.hash = calculateHash(
+                    neigborPixel1.position.x,
+                    neigborPixel1.position.y
+                  );
+                  newPixels.push(neigborPixel1);
+
+                  let neigborPixel2 = Pixel(newPixel);
+                  neigborPixel2.position.y -= j;
+                  neigborPixel2.lastUpdatedDirection = Date.now();
+                  neigborPixel2.hash = calculateHash(
+                    neigborPixel2.position.x,
+                    neigborPixel2.position.y
+                  );
+                  newPixels.push(neigborPixel2);
                 }
+                newPixel.lastUpdatedDirection = Date.now();
+                newPixels.push(newPixel);
               }
+            }
           }
 
           return newPixels;
         };
 
-
-
         if (pixel.isInitialPixel) {
           let pixel1 = Pixel(pixel);
-          pixel1.position.y -= pixelRangeStep
+          pixel1.position.y -= pixelRangeStep;
           pixel1.hash = calculateHash(pixel1.position.x, pixel1.position.y);
           pixel1.expandDirection = "top";
           pixel1.isInitialPixel = false;
@@ -285,7 +297,7 @@ const PixelHeart: FC<PixelHeartProps> = (props) => {
           glarePixelsDict[pixel1.hash] = pixel1;
 
           let pixel2 = Pixel(pixel);
-          pixel2.position.x += pixelRangeStep
+          pixel2.position.x += pixelRangeStep;
           pixel2.hash = calculateHash(pixel2.position.x, pixel2.position.y);
           pixel2.expandDirection = "right";
           pixel2.isInitialPixel = false;
@@ -293,7 +305,7 @@ const PixelHeart: FC<PixelHeartProps> = (props) => {
           glarePixelsDict[pixel2.hash] = pixel2;
 
           let pixel3 = Pixel(pixel);
-          pixel3.position.y += pixelRangeStep
+          pixel3.position.y += pixelRangeStep;
           pixel3.hash = calculateHash(pixel3.position.x, pixel3.position.y);
           pixel3.expandDirection = "bottom";
           pixel3.isInitialPixel = false;
@@ -301,13 +313,12 @@ const PixelHeart: FC<PixelHeartProps> = (props) => {
           glarePixelsDict[pixel3.hash] = pixel3;
 
           let pixel4 = Pixel(pixel);
-          pixel4.position.x -= pixelRangeStep
+          pixel4.position.x -= pixelRangeStep;
           pixel4.hash = calculateHash(pixel4.position.x, pixel4.position.y);
           pixel4.expandDirection = "left";
           pixel4.isInitialPixel = false;
           pixel4.currentRange += 1;
           glarePixelsDict[pixel4.hash] = pixel4;
-
         } else {
           createNextGlareWave(pixel).forEach((item) => {
             glarePixelsDict[item.hash] = item;
@@ -377,7 +388,7 @@ const PixelHeart: FC<PixelHeartProps> = (props) => {
   };
 
   return (
-    <div onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+    <div className="pixel-heart" onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
       <canvas ref={canvasRef} />
     </div>
   );
@@ -486,18 +497,37 @@ const calculateHash = (x: number, y: number) => {
   return hash.toString();
 };
 
-const moveMouseOverHeart = (isMouseHover: () => boolean, beat: () => void, remove: () => void) => {
-    setTimeout(() => {
-        setInterval(() => {
-            if (isMouseHover()) {
-                return;
-            }
-            beat();
-            setTimeout(() => {
-                remove();
-            }, 100)
-        }, MOUSE_HOVER_REPEAT_DURATION * 3)
-    })
+let autoMouseCoordinates: Point | null;
+let autoMouseTimer: any
+const moveMouseOverHeart = (f: () => boolean) => {
+  let timer: any;
+  clearInterval(autoMouseTimer)
+  setInterval(() => {
+    startMove()
+  }, HEART_AUTO_MOVEMENT_INTERVAL);
+
+  const startMove = () => {
+    autoMouseCoordinates = { x: CANVAS_WIDTH / 2, y: CANVAS_HEIGHT };
+    clearInterval(timer);
+    timer = setInterval(() => {
+      if (!autoMouseCoordinates) {
+        return;
+      }
+
+      autoMouseCoordinates.y -= 1;
+      const isMouseHover = f();
+
+      if (autoMouseCoordinates.y < 0 || isMouseHover) {
+        removeMove()
+      }
+    }, 10);
+  }
+
+  const removeMove = () => {
+    autoMouseCoordinates = null
+    f();
+    clearInterval(timer)
+  }
 };
 
 export default PixelHeart;

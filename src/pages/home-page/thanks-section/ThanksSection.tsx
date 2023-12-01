@@ -19,7 +19,7 @@ const ThanksSection = () => {
         <FlexBox justifyContent="space-between" alignItems="end">
           <InViewScale duration={0.3} initialScale={0}>
             <HeartBeatMotion>
-              <PixelHeart beatIntervalS={BEAT_INTERVAL_S} />
+              <PixelHeart/>
             </HeartBeatMotion>
           </InViewScale>
         </FlexBox>
@@ -35,10 +35,11 @@ const ThanksSection = () => {
           <FlexBox className="thanks-section-devider" />
           <InViewSlide direction="left">
             <Text
-              text="Thank you very much and see you on the next project."
+              text={ThanksText}
               typography={Typography.BodyText}
               color={Colors.TitaniumGray}
               textAlign="center"
+              maxWidth={800}
             />
           </InViewSlide>
         </FlexBox>
@@ -117,3 +118,9 @@ const HeartBeatMotion: FC<HeartBeatMotionProps> = (props) => {
 };
 
 export default ThanksSection;
+
+const ThanksText = `Thank you very much for visiting my personal website.
+Your time and attention are greatly appreciated.
+It's been a pleasure sharing my work with you.
+I look forward to crossing our paths on the next exciting project.
+Until then, thank you once again, and we'll meet soon on the next adventure`
