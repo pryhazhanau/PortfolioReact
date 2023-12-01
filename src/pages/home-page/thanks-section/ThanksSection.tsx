@@ -26,7 +26,7 @@ const ThanksSection = () => {
         <FlexBox direction="column" alignItems="center">
           <InViewSlide direction="right">
             <Text
-              text="Thank you for visiting"
+              text="Thank you for your help Nastassia :)"
               typography={Typography.Title}
               color={Colors.AluminorGray}
               textAlign="center"
