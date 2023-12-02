@@ -55,7 +55,6 @@ interface HeartBeatMotionProps {
 const HeartBeatMotion: FC<HeartBeatMotionProps> = (props) => {
   const [isBeating, setIsBeating] = useState(false);
   const [isMouseHover, setIsMouseHover] = useState(false);
-  const [isClicked, setIsClicked] = useState(false);
 
   const beatDuration = 0.5;
   const heartbeatScale = isMouseHover ? 1.1 : 1.05;
@@ -106,9 +105,6 @@ const HeartBeatMotion: FC<HeartBeatMotionProps> = (props) => {
     setIsBeating(false);
   };
 
-  const handleClick = () => {
-    setIsClicked(true)
-  };
   return (
     <motion.div
       variants={heartbeatVariants}
@@ -116,8 +112,6 @@ const HeartBeatMotion: FC<HeartBeatMotionProps> = (props) => {
       animate={isBeating ? "beat" : "rest"}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      onClick={handleClick}
-      onClickCapture={handleClick}
     >
       {props.children}
     </motion.div>
