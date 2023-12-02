@@ -30,21 +30,21 @@ function Socials() {
           <div className="follow-me-vertical-line"></div>
           <div className="social-icons">
             <a
-              href="https://www.linkedin.com/in/prigozhanov/"
+              href={Constants.contact.linkedIn.link}
               target="_blank"
               className="social-icon-link"
             >
               <ReactSVG className="social-icon" src={linkedInImg} />
             </a>
             <a
-              href="https://t.me/prigozhanov"
+              href={Constants.contact.telegram.link}
               target="_blank"
               className="social-icon-link"
             >
               <ReactSVG className="social-icon" src={telegramImg} />
             </a>
             <a
-              href="https://github.com/Prigozhanov"
+              href={Constants.contact.github.link}
               target="_blank"
               className="social-icon-link"
             >

@@ -3,27 +3,10 @@ import MasterContainer from "../../components/master-container/MasterContainer";
 import AppCard from "./app-card/AppCard";
 import Footer from "../../components/footer/Footer";
 import GradientSectionBackground from "../../components/common/background/GradientSectionBackground";
-
-function ProjectsPage() {
-  return (
-    <>
-      <MasterContainer>
-        <div className="projects-page">
-          <p className="headline-aluminor page-title">Projects and Apps</p>
-          <div className="applications-wrapper">
-            {apps.map((item) => (
-              <div key={item.id}>
-                <AppCard app={item} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </MasterContainer>
-      <GradientSectionBackground/>
-      <Footer />
-    </>
-  );
-}
+import Text from "../../components/common/style/Text";
+import { Typography } from "../../components/common/style/interface/Typography";
+import { Colors } from "../../components/common/style/interface/Colors";
+import FlexBox from "../../components/common/box/FlexBox";
 
 import InDriveImg from "../../assets/apps/InDrive.png";
 import FleetImg from "../../assets/apps/FleetInstall.png";
@@ -31,6 +14,29 @@ import RevealImg from "../../assets/apps/RevealInstall.png";
 import FonbetImg from "../../assets/apps/Fonbet.png";
 import HedwigImg from "../../assets/apps/Hedwig.png";
 import YFCImg from "../../assets/apps/YFC.png";
+
+function ProjectsPage() {
+  return (
+    <>
+      <MasterContainer>
+        <FlexBox direction="column" margin={{top: "var(--navbar-height)"}}>
+          <FlexBox width="100%" height={200} alignItems="center" justifyContent="center">
+          <Text text="Projects and Applications" typography={Typography.Title} color={Colors.AluminorGray}/>
+          </FlexBox>
+          <div className="applications-wrapper">
+            {apps.map((item) => (
+              <div key={item.id}>
+                <AppCard app={item} />
+              </div>
+            ))}
+          </div>
+        </FlexBox>
+      </MasterContainer>
+      <GradientSectionBackground/>
+      <Footer />
+    </>
+  );
+}
 
 const apps: AppProject[] = [
   {

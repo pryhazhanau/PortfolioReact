@@ -8,7 +8,6 @@ import FlexBox from "../../components/common/box/FlexBox";
 import TextContainer from "../../components/common/text-system/TextContainer";
 
 import AndersenImg from "../../assets/companies/andersen.png";
-import EffectiveSoftImg from "../../assets/companies/effective-soft.png";
 import ConstantaImg from "../../assets/companies/constanta.png";
 import EpamImg from "../../assets/companies/epam.png";
 
@@ -19,7 +18,6 @@ function CareerPage() {
     <>
       <MasterContainer>
           <AndersenSection />
-          <EffectiveSoftSection />
           <ConstantaSection />
           <EpamSection />
         <FlexBox height={250} />
@@ -56,35 +54,6 @@ const AndersenSection = () => {
     </FlexBox>
   );
 };
-
-const EffectiveSoftSection = () => {
-  const companyName = "EffectiveSoft";
-  return (
-    <FlexBox direction="column" gap={48} alignItems="center">
-      <FlexBox direction="column" maxWidth={textMaxWidht}>
-        <CareerTitle
-          fromDate="May 2022"
-          toDate="Sep. 2022"
-          companyName={companyName}
-          location="Minsk, Belarus"
-        />
-        <TextContainer text="I have started working at *EffectiveSoft* in May '22, where I was responsible for development of the (YourFitnessCoach)[https://yourfitness.coach] iOS app with a team of 2 iOS developers and 3 back-end developers. The main goal was to make the MVP version of the app, and we did it successfully." />
-        <TextContainer text="My job at the company involved not just building the app but also guiding and giving feedback to my teammates. I enjoyed being part of a collaborative effort where we learned from each other. After we finished the project, I have relocated from Minsk, Belarus, to Warsaw, Poland, for a new step in my life and career." />
-        <TextContainer text="This changes allowed me to learn more and bring my skills to a different place. It was a bit challenging adapting to a new environment, but it turned out to be an exciting experience. Exploring a different city and working with new people brought fresh perspectives and opportunities for growth." />
-      </FlexBox>
-      <CompanyCard
-        companyName={companyName}
-        companyImage={EffectiveSoftImg}
-        companyLink="https://www.effectivesoft.com"
-        companyDesc="EffectiveSoft is a software development company headquartered in San Diego, USA, with its development center based in Wroclaw, Poland."
-        role="iOS Developer"
-        team="10"
-        office="Minsk/Remote"
-      />
-    </FlexBox>
-  );
-};
-
 const ConstantaSection = () => {
   const companyName = "Constanta";
   return (
@@ -138,5 +107,36 @@ const EpamSection = () => {
     </FlexBox>
   );
 };
+
+
+
+// const EffectiveSoftSection = () => {
+//   const companyName = "EffectiveSoft";
+//   return (
+//     <FlexBox direction="column" gap={48} alignItems="center">
+//       <FlexBox direction="column" maxWidth={textMaxWidht}>
+//         <CareerTitle
+//           fromDate="May 2022"
+//           toDate="Sep. 2022"
+//           companyName={companyName}
+//           location="Minsk, Belarus"
+//         />
+//         <TextContainer text="I have started working at *EffectiveSoft* in May '22, where I was responsible for development of the (YourFitnessCoach)[https://yourfitness.coach] iOS app with a team of 2 iOS developers and 3 back-end developers. The main goal was to make the MVP version of the app, and we did it successfully." />
+//         <TextContainer text="My job at the company involved not just building the app but also guiding and giving feedback to my teammates. I enjoyed being part of a collaborative effort where we learned from each other. After we finished the project, I have relocated from Minsk, Belarus, to Warsaw, Poland, for a new step in my life and career." />
+//         <TextContainer text="This changes allowed me to learn more and bring my skills to a different place. It was a bit challenging adapting to a new environment, but it turned out to be an exciting experience. Exploring a different city and working with new people brought fresh perspectives and opportunities for growth." />
+//       </FlexBox>
+//       <CompanyCard
+//         companyName={companyName}
+//         companyImage={EffectiveSoftImg}
+//         companyLink="https://www.effectivesoft.com"
+//         companyDesc="EffectiveSoft is a software development company headquartered in San Diego, USA, with its development center based in Wroclaw, Poland."
+//         role="iOS Developer"
+//         team="10"
+//         office="Minsk/Remote"
+//       />
+//     </FlexBox>
+//   );
+// };
+
 
 export default CareerPage;

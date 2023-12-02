@@ -514,13 +514,13 @@ const moveMouseOverHeart = (f: () => boolean) => {
         return;
       }
 
-      autoMouseCoordinates.y -= 1;
+      autoMouseCoordinates.y -= 2;
       const isMouseHover = f();
 
       if (autoMouseCoordinates.y < 0 || isMouseHover) {
         removeMove()
       }
-    }, 10);
+    }, 5);
   }
 
   const removeMove = () => {

@@ -1,12 +1,12 @@
 import "./HeadlineSection.css";
-import BackgroundImg from "../../../assets/illustrations/headline-background-noise.png";
+import BackgroundImg from "../../../assets/noise-velaro.png";
 import GridBackground from "./grid-background/GridBackground";
 import GridContent from "./grid-content/GridContent";
+import GridContentMobile from "./grid-content/GridContentMobile";
+import GridBackgroundMobile from "./grid-background/GridBackgroundMobile";
 import FlexBox from "../../../components/common/box/FlexBox";
 import { MouseEvent, useEffect, useState } from "react";
 import Image from "../../../components/common/style/Image";
-import GridContentMobile from "./grid-content/GridContentMobile";
-import GridBackgroundMobile from "./grid-background/GridBackgroundMobile";
 
 const mobileWidth = 650;
 
@@ -68,6 +68,7 @@ const HeadlineComponent = () => {
     >
       <FlexBox className="headline-background-wrapper">
         <Image className="headline-background" src={BackgroundImg} />
+        <FlexBox className="headline-background-gray"/>
       </FlexBox>
       <FlexBox className="headline-wrapper">
         <FlexBox width="100%" height={"100vh"}>

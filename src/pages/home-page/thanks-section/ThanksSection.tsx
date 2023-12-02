@@ -17,7 +17,7 @@ const ThanksSection = () => {
       <FlexBox className="thanks-section-background"></FlexBox>
       <FlexBox className="thanks-section-wrapper">
         <FlexBox justifyContent="space-between" alignItems="end">
-          <InViewScale duration={0.3} initialScale={0}>
+          <InViewScale duration={1} initialScale={0}>
             <HeartBeatMotion>
               <PixelHeart/>
             </HeartBeatMotion>
@@ -26,7 +26,7 @@ const ThanksSection = () => {
         <FlexBox direction="column" alignItems="center">
           <InViewSlide direction="right">
             <Text
-              text="Thank you for your help Nastassia :)"
+              text="Thank you for visiting"
               typography={Typography.Title}
               color={Colors.AluminorGray}
               textAlign="center"
@@ -55,6 +55,8 @@ interface HeartBeatMotionProps {
 const HeartBeatMotion: FC<HeartBeatMotionProps> = (props) => {
   const [isBeating, setIsBeating] = useState(false);
   const [isMouseHover, setIsMouseHover] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
+
   const beatDuration = 0.5;
   const heartbeatScale = isMouseHover ? 1.1 : 1.05;
   const heartbeatVariants = {
@@ -64,7 +66,7 @@ const HeartBeatMotion: FC<HeartBeatMotionProps> = (props) => {
     beat: {
       scale: [1, heartbeatScale, 1, heartbeatScale, 1],
       transition: {
-        duration: beatDuration,
+        duration: isMouseHover ? 0.5 : 1,
         ease: easeOut,
       },
     },
@@ -104,6 +106,9 @@ const HeartBeatMotion: FC<HeartBeatMotionProps> = (props) => {
     setIsBeating(false);
   };
 
+  const handleClick = () => {
+    setIsClicked(true)
+  };
   return (
     <motion.div
       variants={heartbeatVariants}
@@ -111,6 +116,8 @@ const HeartBeatMotion: FC<HeartBeatMotionProps> = (props) => {
       animate={isBeating ? "beat" : "rest"}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onClick={handleClick}
+      onClickCapture={handleClick}
     >
       {props.children}
     </motion.div>
