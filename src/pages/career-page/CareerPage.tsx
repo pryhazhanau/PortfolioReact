@@ -60,7 +60,7 @@ const ConstantaSection = () => {
     <FlexBox direction="column" gap={48} alignItems="center">
       <FlexBox direction="column" maxWidth={textMaxWidht}>
         <CareerTitle
-          fromDate="May 2019"
+          fromDate="May 2020"
           toDate="Sep. 2022"
           companyName={companyName}
           location="Moscow, Russia"
@@ -88,7 +88,7 @@ const EpamSection = () => {
       <FlexBox direction="column" maxWidth={textMaxWidht}>
         <CareerTitle
           fromDate="Aug. 2017"
-          toDate="May 2019"
+          toDate="May 2020"
           companyName={companyName}
           location="Minsk, Belarus"
         />
