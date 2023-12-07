@@ -1,4 +1,4 @@
-interface EdgeInset {
+export type EdgeInset = {
   top?: number | string;
   bottom?: number | string;
   leading?: number | string;

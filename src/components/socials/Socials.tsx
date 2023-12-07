@@ -1,26 +1,27 @@
-import "./Socials.css";
+import "./Socials.css"
 
-import MailImg from "../../assets/icons/mail.svg";
-import linkedInImg from "../../assets/icons/linkedin.svg";
-import telegramImg from "../../assets/icons/telegram.svg";
-import githubImg from "../../assets/icons/github.svg";
-import { ReactSVG } from "react-svg";
-import { useEffect, useState } from "react";
-import Constants from "../../common/ConstantsObj";
+import MailImg from "../../assets/icons/mail.svg"
+import linkedInImg from "../../assets/icons/linkedin.svg"
+import telegramImg from "../../assets/icons/telegram.svg"
+import instagramImg from "../../assets/icons/instagram.svg"
+import XSVG from "../../assets/icons/twitter.svg"
+import { ReactSVG } from "react-svg"
+import { useEffect, useState } from "react"
+import Constants from "../../common/ConstantsObj"
 
 function Socials() {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
   const handleResize = () => {
-    setWindowWidth(window.innerWidth);
-  };
+    setWindowWidth(window.innerWidth)
+  }
 
   useEffect(() => {
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize)
     return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [])
 
   return (
     <>
@@ -48,7 +49,7 @@ function Socials() {
               target="_blank"
               className="social-icon-link"
             >
-              <ReactSVG className="social-icon" src={githubImg} />
+              <ReactSVG className="social-icon" src={instagramImg} />
             </a>
             <a
               href={Constants.contact.email.link}
@@ -56,12 +57,19 @@ function Socials() {
               className="social-icon-link"
             >
               <ReactSVG className="social-icon" src={MailImg} />
+            </a>{" "}
+            <a
+              href={Constants.contact.twitter.link}
+              target="_blank"
+              className="social-icon-link"
+            >
+              <ReactSVG className="social-icon" src={XSVG} />
             </a>
           </div>
         </div>
       )}
     </>
-  );
+  )
 }
 
-export default Socials;
+export default Socials

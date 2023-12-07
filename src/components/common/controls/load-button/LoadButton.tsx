@@ -1,19 +1,19 @@
-import "./LoadButton.css";
-import { FC } from "react";
-import { ReactSVG } from "react-svg";
-import FlexBox from "../../box/FlexBox";
+import "./LoadButton.css"
+import { FC } from "react"
+import { ReactSVG } from "react-svg"
+import FlexBox from "../../box/FlexBox"
 
 interface LoadButtonProps {
   label: string;
   className?: string;
   link?: string;
-  icon: any;
+  icon: string;
   linkTarget?: "blank" | "self" | undefined;
   onClick?: () => void | undefined;
 }
 
 const LoadButton: FC<LoadButtonProps> = (props) => {
-  const target = props.linkTarget === "blank" ? "_blank" : "_self";
+  const target = props.linkTarget === "blank" ? "_blank" : "_self"
   return (
     <div className={props.className}>
       <button className={`load-button body-text`} onClick={props.onClick}>
@@ -33,7 +33,7 @@ const LoadButton: FC<LoadButtonProps> = (props) => {
         </FlexBox>
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default LoadButton;
+export default LoadButton

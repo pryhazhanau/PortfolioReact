@@ -1,5 +1,5 @@
-import { AnimatePresence, motion } from "framer-motion";
-import { FC, ReactNode } from "react";
+import { AnimatePresence, motion } from "framer-motion"
+import { FC, ReactNode } from "react"
 
 interface AnimatedTextLongFadeProps {
     children?: ReactNode;
@@ -28,8 +28,8 @@ interface AnimatedTextLongFadeProps {
               {children}
           </motion.div>
         </AnimatePresence>
-    );
-  };
+    )
+  }
   
-  export default AnimatedTextLongFade;
+  export default AnimatedTextLongFade
   

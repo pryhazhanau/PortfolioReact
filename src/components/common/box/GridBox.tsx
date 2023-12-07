@@ -1,4 +1,5 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode } from "react"
+import { EdgeInset } from "../style/interface/EdgeInset"
 
 interface GridBoxProps {
   className?: string;
@@ -44,13 +45,13 @@ const GridBox: FC<GridBoxProps> = ({
     paddingBottom: padding?.bottom,
     paddingLeft: padding?.leading,
     paddingRight: padding?.trailing,
-  };
+  }
 
   return (
     <div className={`grid-box ${className}`} style={gridBoxStyle}>
       {children}
     </div>
-  );
-};
+  )
+}
 
-export default GridBox;
+export default GridBox

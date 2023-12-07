@@ -1,10 +1,10 @@
-import ActionButton from "../../../../components/common/controls/action-button/ActionButton";
-import "./ProjectsBlock.css";
+import ActionButton from "../../../../components/common/controls/action-button/ActionButton"
+import "./ProjectsBlock.css"
 
-import AppsImg from "../../../../assets/illustrations/apps_fade.png";
-import Text from "../../../../components/common/style/Text";
-import { Typography } from "../../../../components/common/style/interface/Typography";
-import { Colors } from "../../../../components/common/style/interface/Colors";
+import AppsImg from "../../../../assets/illustrations/apps_fade.png"
+import Text from "../../../../components/common/style/Text"
+import { Typography } from "../../../../components/common/style/interface/Typography"
+import { Colors } from "../../../../components/common/style/interface/Colors"
 
 function ProjectsBlock() {
   return (
@@ -26,7 +26,7 @@ function ProjectsBlock() {
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default ProjectsBlock;
+export default ProjectsBlock

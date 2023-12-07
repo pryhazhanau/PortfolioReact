@@ -1,12 +1,12 @@
-import "./FeedbackCard.css";
-import { FC } from "react";
+import "./FeedbackCard.css"
+import { FC } from "react"
 import Quotes from "../../../../assets/quotes.svg"
-import Text from "../../../../components/common/style/Text";
-import { Typography } from "../../../../components/common/style/interface/Typography";
-import { Colors } from "../../../../components/common/style/interface/Colors";
+import Text from "../../../../components/common/style/Text"
+import { Typography } from "../../../../components/common/style/interface/Typography"
+import { Colors } from "../../../../components/common/style/interface/Colors"
 
 interface CardProps {
-  img: any;
+  img: string;
   body: string;
   description: string;
 }
@@ -31,7 +31,7 @@ const FeedbackCard: FC<CardProps> = ({ img, body, description }) => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default FeedbackCard;
+export default FeedbackCard

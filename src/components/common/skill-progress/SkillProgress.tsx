@@ -1,12 +1,13 @@
-import "./SkillProgress.css";
+import "./SkillProgress.css"
 import {
   CircularProgressbarWithChildren,
   buildStyles,
-} from "react-circular-progressbar";
-import React, { useState } from 'react';
-import { InView } from 'react-intersection-observer';
+} from "react-circular-progressbar"
+import React, { useState } from 'react'
+import { InView } from 'react-intersection-observer'
 
-import "react-circular-progressbar/dist/styles.css";
+import "react-circular-progressbar/dist/styles.css"
+import { Size } from "../../../common/interface/Geometry"
 
 interface CircularProgressBarProps {
   percentage: number;
@@ -22,13 +23,13 @@ const SkillProgress: React.FC<CircularProgressBarProps> = ({
   strokeWidth,
   textClass
 }) => {
-  const [value, setPercentage] = useState(0);
+  const [value, setPercentage] = useState(0)
 
   const handleInView = (valueInView: boolean) => {
     if (valueInView) {
       setPercentage(percentage)
     }
-  };
+  }
 
   return (
     <InView as="div" triggerOnce onChange={(inView) => handleInView(inView)}>
@@ -47,7 +48,7 @@ const SkillProgress: React.FC<CircularProgressBarProps> = ({
     </CircularProgressbarWithChildren>
     </div>
   </InView>
-  );
-};
+  )
+}
 
-export default SkillProgress;
+export default SkillProgress

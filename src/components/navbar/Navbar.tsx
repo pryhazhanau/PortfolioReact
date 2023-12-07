@@ -1,7 +1,7 @@
-import "./Navbar.css";
-import "../../common/css/gradient.css";
-import { FC, useState, useEffect } from "react";
-import MenuButton from "./mobile-menu/MobileMenu";
+import "./Navbar.css"
+import "../../common/css/gradient.css"
+import { FC, useState, useEffect } from "react"
+import MenuButton from "./mobile-menu/MobileMenu"
 
 interface NavbarProps {
   mobileMenuVisibilityChanged: (visible: boolean) => void;
@@ -9,49 +9,49 @@ interface NavbarProps {
 }
 
 const Navbar: FC<NavbarProps> = (props) => {
-  const [isOnTop, setOnTop] = useState(true);
-  const [currentScrollY, setCurrentScrollY] = useState(0);
-  const [navBarVisible, setNavbarVisible] = useState(true);
+  const [isOnTop, setOnTop] = useState(true)
+  const [currentScrollY, setCurrentScrollY] = useState(0)
+  const [navBarVisible, setNavbarVisible] = useState(true)
 
   const handleScroll = () => {
-    const scrollY = window.scrollY;
+    const scrollY = window.scrollY
     if (scrollY > 0) {
-      setOnTop(false);
+      setOnTop(false)
     } else {
-      setOnTop(true);
+      setOnTop(true)
     }
 
     if (scrollY > 200) {
-      const prevScrollY = scrollY;
+      const prevScrollY = scrollY
 
       if (prevScrollY < currentScrollY) {
-        setNavbarVisible(true);
+        setNavbarVisible(true)
       } else {
-        setNavbarVisible(false);
+        setNavbarVisible(false)
       }
     } else {
-      setNavbarVisible(true);
+      setNavbarVisible(true)
     }
-    setCurrentScrollY(scrollY);
-  };
+    setCurrentScrollY(scrollY)
+  }
 
 
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
   const handleResize = () => {
-    setWindowWidth(window.innerWidth);
-  };
+    setWindowWidth(window.innerWidth)
+  }
 
   useEffect(() => {
     setNavbarVisible(props.visible)
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize)
     return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [props.visible]);
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [props.visible])
 
-  window.addEventListener("scroll", handleScroll);
+  window.addEventListener("scroll", handleScroll)
 
   return (
     <nav className={`${navBarVisible ? "" : "navbar-hidden"}`}>
@@ -108,7 +108,7 @@ const Navbar: FC<NavbarProps> = (props) => {
         )}
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

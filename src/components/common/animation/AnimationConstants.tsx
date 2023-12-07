@@ -11,6 +11,6 @@ const AnimationConstants = {
     easeInOut: [.77,.21,.19,.89],
     easeIn: [1,0,.88,.33]
   },
-};
+}
 
-export default AnimationConstants;
+export default AnimationConstants

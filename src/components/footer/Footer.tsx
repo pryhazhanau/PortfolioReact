@@ -1,7 +1,7 @@
-import "./Footer.css";
-import Constants from "../../common/ConstantsObj";
-import ImageLinkElement from "./ImageLinkElement";
-import { ReactSVG } from "react-svg";
+import "./Footer.css"
+import Constants from "../../common/ConstantsObj"
+import ImageLinkElement from "./ImageLinkElement"
+import { ReactSVG } from "react-svg"
 
 import LinkedinSVG from "../../assets/icons/linkedin.svg"
 import LocationSVG from "../../assets/icons/location.svg"
@@ -9,15 +9,16 @@ import MailSVG from "../../assets/icons/mail.svg"
 import TelegramSVG from "../../assets/icons/telegram.svg"
 import GitHubSVG from "../../assets/icons/github.svg"
 import InstagramSVG from "../../assets/icons/instagram.svg"
+import XSVG from "../../assets/icons/twitter.svg"
 import VercelSVG from "../../assets/vercel.svg"
-import SocialFooterIcon from "./SocialFooterIcon";
-import FlexBox from "../common/box/FlexBox";
-import Image from "../common/style/Image";
+import SocialFooterIcon from "./SocialFooterIcon"
+import FlexBox from "../common/box/FlexBox"
+import Image from "../common/style/Image"
 import BackgroundImg from "../../assets/illustrations/footer-gradient.png"
 
 function Footer() {
   function openVercelLink() {
-    window.open("https://vercel.com", "_blank");
+    window.open("https://vercel.com", "_blank")
   }
 
   return (
@@ -57,6 +58,7 @@ function Footer() {
             <SocialFooterIcon img={TelegramSVG} link={Constants.contact.telegram.link}/>
             <SocialFooterIcon img={GitHubSVG} link={Constants.contact.github.link}/>
             <SocialFooterIcon img={InstagramSVG} link={Constants.contact.instagram.link}/>
+            <SocialFooterIcon img={XSVG} link={Constants.contact.twitter.link}/>
       </div>
       <HorizontalSeparator/>
       <FlexBox alignItems="center" justifyContent="center" height={50}>
@@ -65,7 +67,7 @@ function Footer() {
         </p>
       </FlexBox>
     </footer>
-  );
+  )
 }
 
 function HorizontalSeparator() {
@@ -74,4 +76,4 @@ function HorizontalSeparator() {
   )
 }
 
-export default Footer;
+export default Footer

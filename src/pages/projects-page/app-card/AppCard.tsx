@@ -1,13 +1,14 @@
-import "./AppCard.css";
-import { FC, useState } from "react";
-import FlexBox from "../../../components/common/box/FlexBox";
-import Text from "../../../components/common/style/Text";
-import { Typography } from "../../../components/common/style/interface/Typography";
-import { Colors } from "../../../components/common/style/interface/Colors";
-import { ReactSVG } from "react-svg";
+import "./AppCard.css"
+import { FC, useState } from "react"
+import FlexBox from "../../../components/common/box/FlexBox"
+import Text from "../../../components/common/style/Text"
+import { Typography } from "../../../components/common/style/interface/Typography"
+import { Colors } from "../../../components/common/style/interface/Colors"
+import { ReactSVG } from "react-svg"
 
 import ArrowRight from "../../../assets/icons/long-arrow-right.svg"
-import UrlOpener from "../../../components/common/util/UrlOpener";
+import UrlOpener from "../../../components/common/util/UrlOpener"
+import { AppProject } from "../support/AppProject"
 
 interface AppCardProps {
   app: AppProject
@@ -47,7 +48,7 @@ const AppCard: FC<AppCardProps> = ({app}) => {
         </FlexBox>
       </FlexBox>
     </div>
-  );
+  )
 }
 
 const ExploreArrow = ({ isActive }: { isActive: boolean }) => {
@@ -59,4 +60,4 @@ const ExploreArrow = ({ isActive }: { isActive: boolean }) => {
     )
 }
 
-export default AppCard;
+export default AppCard

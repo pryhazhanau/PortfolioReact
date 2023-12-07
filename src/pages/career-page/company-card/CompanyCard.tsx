@@ -1,12 +1,12 @@
-import "./CompanyCard.css";
-import { FC } from "react";
-import FlexBox from "../../../components/common/box/FlexBox";
-import Text from "../../../components/common/style/Text";
-import { TypographyStyle } from "../../../components/common/style/interface/Typography";
-import { Colors } from "../../../components/common/style/interface/Colors";
-import Image from "../../../components/common/style/Image";
-import Globe from "../../../assets/icons/globe.svg";
-import { ReactSVG } from "react-svg";
+import "./CompanyCard.css"
+import { FC } from "react"
+import FlexBox from "../../../components/common/box/FlexBox"
+import Text from "../../../components/common/style/Text"
+import { TypographyStyle } from "../../../components/common/style/interface/Typography"
+import { Colors } from "../../../components/common/style/interface/Colors"
+import Image from "../../../components/common/style/Image"
+import Globe from "../../../assets/icons/globe.svg"
+import { ReactSVG } from "react-svg"
 
 const CardTypography: Record<string, TypographyStyle> = {
   CardCaption: {
@@ -24,11 +24,11 @@ const CardTypography: Record<string, TypographyStyle> = {
     fontSize: "18px",
     fontWeight: 400,
   },
-};
+}
 
 interface CompanyCardProps {
   companyName: string;
-  companyImage: any;
+  companyImage: string;
   companyLink: string;
   companyDesc: string;
   role: string;
@@ -127,17 +127,17 @@ const CompanyCard: FC<CompanyCardProps> = (props) => {
         </FlexBox>
       </FlexBox>
     </FlexBox>
-  );
-};
+  )
+}
 
 function VerticalDivider() {
-  return <div className="company-card-horizontal-divider" />;
+  return <div className="company-card-horizontal-divider" />
 }
 
 interface LinkWithImageProps {
   url: string;
   text: string;
-  img: any;
+  img: string;
 }
 
 const LinkWithImage: FC<LinkWithImageProps> = (props) => {
@@ -154,7 +154,7 @@ const LinkWithImage: FC<LinkWithImageProps> = (props) => {
         style={{ height: 24, width: 24, display: "flex" }}
       />
     </FlexBox>
-  );
-};
+  )
+}
 
-export default CompanyCard;
+export default CompanyCard

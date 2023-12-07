@@ -1,6 +1,7 @@
-import { FC } from "react";
-import { Color } from "./interface/Colors";
-import { TypographyStyle } from "./interface/Typography";
+import { FC } from "react"
+import { Color } from "./interface/Colors"
+import { TypographyStyle } from "./interface/Typography"
+import { EdgeInset } from "./interface/EdgeInset"
 
 interface TextProps {
   className?: string;
@@ -31,13 +32,13 @@ const Text: FC<TextProps> = ({ className = "", text = "", typography, color, mar
     textAlign,
     width,
     maxWidth
-  };
+  }
 
   return (
     <p className={className} style={textStyle}>
       {text}
     </p>
-  );
-};
+  )
+}
 
-export default Text;
+export default Text

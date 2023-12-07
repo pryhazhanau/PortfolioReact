@@ -1,5 +1,5 @@
-import ActionButton from "../../../../components/common/controls/action-button/ActionButton";
-import "./ExperienceBlock.css";
+import ActionButton from "../../../../components/common/controls/action-button/ActionButton"
+import "./ExperienceBlock.css"
 
 function ExperienceBlock() {
   return (
@@ -24,7 +24,7 @@ function ExperienceBlock() {
         <ActionButton label="More" style="outline" link="/career" />
       </div>
     </div>
-  );
+  )
 }
 
-export default ExperienceBlock;
+export default ExperienceBlock

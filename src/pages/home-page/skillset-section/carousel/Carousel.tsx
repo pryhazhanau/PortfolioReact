@@ -1,12 +1,12 @@
-import { FC, useState, useEffect, CSSProperties } from "react";
-import "./Carousel.css";
-import { ReactSVG } from "react-svg";
-import CarousePageSlider from "./page-slider/CarouselPageSlider";
-import ArrowLeft from "../../../../assets/icons/arrow-left.svg";
-import ArrowRight from "../../../../assets/icons/arrow-right.svg";
+import { FC, useState, useEffect, CSSProperties } from "react"
+import "./Carousel.css"
+import { ReactSVG } from "react-svg"
+import CarousePageSlider from "./page-slider/CarouselPageSlider"
+import ArrowLeft from "../../../../assets/icons/arrow-left.svg"
+import ArrowRight from "../../../../assets/icons/arrow-right.svg"
 
-const cardMaxWidth = 320;
-const arrowBlockWidth = 50;
+const cardMaxWidth = 320
+const arrowBlockWidth = 50
 
 interface CarouselProps {
   children: JSX.Element[];
@@ -15,49 +15,49 @@ interface CarouselProps {
 const Carousel: FC<CarouselProps> = ({ children }) => {
   const [cardsInView, setCardsInView] = useState(
     getCardsInView(window.innerWidth)
-  );
+  )
 
 
-  const [cardWidth, setCardWidth] = useState(cardMaxWidth);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [cardWidth, setCardWidth] = useState(cardMaxWidth)
+  const [currentIndex, setCurrentIndex] = useState(0)
 
   const handleResize = () => {
     const innerWidth = window.innerWidth
 
-    setCardsInView(getCardsInView(innerWidth));
+    setCardsInView(getCardsInView(innerWidth))
 
     const cardWidth = innerWidth < cardMaxWidth + arrowBlockWidth * 2
     ? innerWidth - 12
     : cardMaxWidth
     
-    setCardWidth(cardWidth);
-  };
+    setCardWidth(cardWidth)
+  }
 
   useEffect(() => {
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize)
     return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [])
 
-  const cardsGap = 24;
-  const containerPaddings = 16;
+  const cardsGap = 24
+  const containerPaddings = 16
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => {
-      const nextIndex = (prevIndex + 1) % children.length;
-      return nextIndex + cardsInView > children.length ? 0 : nextIndex;
-    });
-  };
+      const nextIndex = (prevIndex + 1) % children.length
+      return nextIndex + cardsInView > children.length ? 0 : nextIndex
+    })
+  }
 
   const prevSlide = () => {
     setCurrentIndex((prevIndex) => {
-      const lastIndex = children.length - 1;
+      const lastIndex = children.length - 1
       return prevIndex === 0
         ? lastIndex - cardsInView + 1
-        : (prevIndex - 1 + children.length) % children.length;
-    });
-  };
+        : (prevIndex - 1 + children.length) % children.length
+    })
+  }
 
   const cards = () => {
     return children.map((child, index) => (
@@ -70,8 +70,8 @@ const Carousel: FC<CarouselProps> = ({ children }) => {
       >
         {child}
       </div>
-    ));
-  };
+    ))
+  }
 
   return (
     <div className="carousel-wrapper">
@@ -109,8 +109,8 @@ const Carousel: FC<CarouselProps> = ({ children }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 // Carousel Arrows
 interface ArrowProps {
@@ -120,15 +120,15 @@ interface ArrowProps {
 }
 
 const Arrow: FC<ArrowProps> = ({ direction, isAccent, onClick }) => {
-  var style: CSSProperties;
+  let style: CSSProperties
   if (direction === "right") {
     style = {
       paddingLeft: 2,
-    };
+    }
   } else {
     style = {
       paddingRight: 2,
-    };
+    }
   }
   return (
     <div className="carousel-arrow-container">
@@ -142,20 +142,20 @@ const Arrow: FC<ArrowProps> = ({ direction, isAccent, onClick }) => {
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
 const getCardsInView = (width: number) => {
   if (width > 1200) {
-    return 3;
+    return 3
   }
   if (width < 900) {
-    return 1;
+    return 1
   }
   if (width < 1200) {
-    return 2;
+    return 2
   }
-  return 3;
-};
+  return 3
+}
 
-export default Carousel;
+export default Carousel

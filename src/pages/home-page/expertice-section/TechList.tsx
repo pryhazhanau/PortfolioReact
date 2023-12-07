@@ -1,13 +1,13 @@
-import TechObject from "./tech-block/TechObject";
-import Xcode from "../../../assets/technology/Xcode.svg";
-import TestFlight from "../../../assets/technology/TestFlight.svg";
-import Figma from "../../../assets/technology/Figma.svg";
-import Github from "../../../assets/technology/GitHub.svg";
-import Bitrise from "../../../assets/technology/Bitrise.svg";
-import Fastlane from "../../../assets/technology/Fastlane.svg";
-import Swift from "../../../assets/technology/Swift.svg";
-import Firebase from "../../../assets/technology/Firebase.svg";
-import Jira from "../../../assets/technology/Jira.svg";
+import TechObject from "./tech-block/TechObject"
+import Xcode from "../../../assets/technology/Xcode.svg"
+import TestFlight from "../../../assets/technology/TestFlight.svg"
+import Figma from "../../../assets/technology/Figma.svg"
+import Github from "../../../assets/technology/GitHub.svg"
+import Bitrise from "../../../assets/technology/Bitrise.svg"
+import Fastlane from "../../../assets/technology/Fastlane.svg"
+import Swift from "../../../assets/technology/Swift.svg"
+import Firebase from "../../../assets/technology/Firebase.svg"
+import Jira from "../../../assets/technology/Jira.svg"
 
 export const TechList: TechObject[] = [
   {
@@ -115,4 +115,4 @@ export const TechList: TechObject[] = [
       </>
     ),
   },
-];
+]

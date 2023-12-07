@@ -1,15 +1,15 @@
-import "./FeedbackSection.css";
-import "../HomePage.css";
-import FeedbackCard from "./feedback-card/FeedbackCard";
-import SectionTitle from "../../../components/common/section-title/SectionTitle";
-import FlexBox from "../../../components/common/box/FlexBox";
-import Text from "../../../components/common/style/Text";
-import { Typography } from "../../../components/common/style/interface/Typography";
-import { Colors } from "../../../components/common/style/interface/Colors";
+import "./FeedbackSection.css"
+import "../HomePage.css"
+import FeedbackCard from "./feedback-card/FeedbackCard"
+import SectionTitle from "../../../components/common/section-title/SectionTitle"
+import FlexBox from "../../../components/common/box/FlexBox"
+import Text from "../../../components/common/style/Text"
+import { Typography } from "../../../components/common/style/interface/Typography"
+import { Colors } from "../../../components/common/style/interface/Colors"
 
-import Arseny from "../../../assets/feedback/arseny.jpeg";
-import Roma from "../../../assets/feedback/roma.jpg";
-import { InViewSlide } from "../../../components/common/animation/in-view/InViewSlide";
+import Arseny from "../../../assets/feedback/arseny.jpeg"
+import Roma from "../../../assets/feedback/roma.jpg"
+import { InViewSlide } from "../../../components/common/animation/in-view/InViewSlide"
 
 function FeedbackSection() {
   return (
@@ -53,7 +53,7 @@ function FeedbackSection() {
         </FlexBox>
       </FlexBox>
     </div>
-  );
+  )
 }
 
 const feedbacksList = [
@@ -69,6 +69,6 @@ const feedbacksList = [
     body: "Outstanding iOS developer - As great in problem-solver as a team play, and a dedicated project leader.",
     img: Roma,
   },
-];
+]
 
-export default FeedbackSection;
+export default FeedbackSection

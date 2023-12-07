@@ -1,5 +1,5 @@
-import { AnimatePresence, motion } from "framer-motion";
-import { FC, ReactNode } from "react";
+import { AnimatePresence, motion } from "framer-motion"
+import { FC, ReactNode } from "react"
 import AnimConstants from "./AnimationConstants"
 
 interface AnimatedTextCommonProps {
@@ -28,7 +28,7 @@ export const AnimatedTextCommon: FC<AnimatedTextCommonProps> = ({
             {children}
         </motion.div>
       </AnimatePresence>
-  );
-};
+  )
+}
 
-export default AnimatedTextCommon;
+export default AnimatedTextCommon

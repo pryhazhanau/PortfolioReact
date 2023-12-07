@@ -1,10 +1,10 @@
-import "./SectionTitle.css";
-import { FC } from "react";
-import Text from "../style/Text";
-import { Typography } from "../style/interface/Typography";
-import { Colors } from "../style/interface/Colors";
-import FlexBox from "../box/FlexBox";
-import { InViewSlide } from "../animation/in-view/InViewSlide";
+import "./SectionTitle.css"
+import { FC } from "react"
+import Text from "../style/Text"
+import { Typography } from "../style/interface/Typography"
+import { Colors } from "../style/interface/Colors"
+import FlexBox from "../box/FlexBox"
+import { InViewSlide } from "../animation/in-view/InViewSlide"
 
 interface SectionTitleProps {
   sectionName: string;
@@ -39,7 +39,7 @@ const SectionTitle: FC<SectionTitleProps> = ({ sectionName, sectionDesc }) => {
         <div className="section-title-devider "></div>
       </InViewSlide>
     </FlexBox>
-  );
-};
+  )
+}
 
-export default SectionTitle;
+export default SectionTitle

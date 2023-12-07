@@ -1,12 +1,13 @@
-import { FC } from "react";
-import "./SkillsetCard.css";
-import Tilt from "react-parallax-tilt";
-import SkillProgress from "../../../../components/common/skill-progress/SkillProgress";
-import TextPill from "../../../../components/text-pill/TextPill";
-import FlexBox from "../../../../components/common/box/FlexBox";
-import Text from "../../../../components/common/style/Text";
-import { Typography } from "../../../../components/common/style/interface/Typography";
-import { Colors } from "../../../../components/common/style/interface/Colors";
+import { FC } from "react"
+import "./SkillsetCard.css"
+import Tilt from "react-parallax-tilt"
+import SkillProgress from "../../../../components/common/skill-progress/SkillProgress"
+import TextPill from "../../../../components/text-pill/TextPill"
+import FlexBox from "../../../../components/common/box/FlexBox"
+import Text from "../../../../components/common/style/Text"
+import { Typography } from "../../../../components/common/style/interface/Typography"
+import { Colors } from "../../../../components/common/style/interface/Colors"
+import { SkillCardObj } from "../SkillCardObj"
 
 interface SkillsetCardProps {
   skill: SkillCardObj;
@@ -48,7 +49,7 @@ const SkillSetCard: FC<SkillsetCardProps> = ({ skill }) => {
         </div>
       </Tilt>
     </>
-  );
-};
+  )
+}
 
-export default SkillSetCard;
+export default SkillSetCard

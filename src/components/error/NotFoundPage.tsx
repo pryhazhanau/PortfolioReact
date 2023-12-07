@@ -1,10 +1,10 @@
-import "./NotFoundPage.css";
-import ActionButton from "../common/controls/action-button/ActionButton";
-import FlexBox from "../common/box/FlexBox";
-import Text from "../common/style/Text";
-import { Typography } from "../common/style/interface/Typography";
-import { Colors } from "../common/style/interface/Colors";
-import { FC, useEffect } from "react";
+import "./NotFoundPage.css"
+import ActionButton from "../common/controls/action-button/ActionButton"
+import FlexBox from "../common/box/FlexBox"
+import Text from "../common/style/Text"
+import { Typography } from "../common/style/interface/Typography"
+import { Colors } from "../common/style/interface/Colors"
+import { FC, useEffect } from "react"
 
 interface NotFoundPageProps {
   onMount: () => void;
@@ -47,7 +47,7 @@ const NotFoundPage: FC<NotFoundPageProps> = (props) => {
         </FlexBox>
       </FlexBox>
     </div>
-  );
+  )
 }
 
 export default NotFoundPage

@@ -1,8 +1,8 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode } from "react"
 
 interface ImageProps {
   className?: string;
-  src: string | any;
+  src: string;
   width?: string | number;
   height?: string | number;
   maxWidth?: string | number;
@@ -27,13 +27,13 @@ const Image: FC<ImageProps> = ({
     width,
     height,
     fit: fit
-  };
+  }
 
   return (
     <img className={`${className}`} src={src} style={imageStyle}>
       {children}
     </img>
-  );
-};
+  )
+}
 
-export default Image;
+export default Image

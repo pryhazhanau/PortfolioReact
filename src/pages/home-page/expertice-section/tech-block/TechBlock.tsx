@@ -1,7 +1,7 @@
-import { ReactSVG } from "react-svg";
-import React from "react";
-import "./TechBlock.css";
-import TechObject from "./TechObject";
+import { ReactSVG } from "react-svg"
+import React from "react"
+import "./TechBlock.css"
+import TechObject from "./TechObject"
 
 interface TechBlockProps {
   techObject: TechObject
@@ -13,11 +13,11 @@ interface TechBlockProps {
 const TechBlock: React.FC<TechBlockProps> = ({ techObject, onMouseEnter, onMouseLeave, onClick }) => {
   const handleMouseEnter = () => {
     onMouseEnter(techObject)
-  };
+  }
 
   const handleMouseLeave = () => {
     onMouseLeave()
-  };
+  }
 
   return (
     <>
@@ -31,7 +31,7 @@ const TechBlock: React.FC<TechBlockProps> = ({ techObject, onMouseEnter, onMouse
         <p className="caption">{techObject.name}</p>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default TechBlock;
+export default TechBlock

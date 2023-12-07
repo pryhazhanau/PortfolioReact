@@ -1,7 +1,7 @@
 import "./BubbleButton.css"
-import { MouseEvent } from "react";
+import { MouseEvent } from "react"
 
-import { FC } from 'react';
+import { FC } from 'react'
 
 interface ButtonProps {
   active: boolean;
@@ -16,7 +16,7 @@ const BubbleButton: FC<ButtonProps> = ({ active, label, onClick }) => {
       {label}
         </div>
     </div>
-  );
-};
+  )
+}
 
-export default BubbleButton;
+export default BubbleButton

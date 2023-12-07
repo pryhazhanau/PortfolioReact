@@ -87,4 +87,4 @@ export const Typography: Record<string, TypographyStyle> = {
     lineHeight: "176%",
     letterSpacing: "0.66px"
   }
-};
+}

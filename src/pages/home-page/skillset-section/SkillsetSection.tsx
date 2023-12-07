@@ -1,14 +1,15 @@
-import "./SkillsetSection.css";
-import "../HomePage.css";
-import "../../../common/css/div-layout.css";
-import SkillSetCard from "./skillset-card/SkillsetCard";
-import Carousel from "./carousel/Carousel";
-import FlexBox from "../../../components/common/box/FlexBox";
-import SectionTitle from "../../../components/common/section-title/SectionTitle";
-import Text from "../../../components/common/style/Text";
-import { Typography } from "../../../components/common/style/interface/Typography";
-import { Colors } from "../../../components/common/style/interface/Colors";
-import { InViewSlide } from "../../../components/common/animation/in-view/InViewSlide";
+import "./SkillsetSection.css"
+import "../HomePage.css"
+import "../../../common/css/div-layout.css"
+import SkillSetCard from "./skillset-card/SkillsetCard"
+import Carousel from "./carousel/Carousel"
+import FlexBox from "../../../components/common/box/FlexBox"
+import SectionTitle from "../../../components/common/section-title/SectionTitle"
+import Text from "../../../components/common/style/Text"
+import { Typography } from "../../../components/common/style/interface/Typography"
+import { Colors } from "../../../components/common/style/interface/Colors"
+import { InViewSlide } from "../../../components/common/animation/in-view/InViewSlide"
+import { SkillCardObj } from "./SkillCardObj"
 
 function SkillsetSection() {
   return (
@@ -39,13 +40,13 @@ function SkillsetSection() {
         </InViewSlide>
       </FlexBox>
     </>
-  );
+  )
 }
 
-export default SkillsetSection;
+export default SkillsetSection
 
 const bodtText = `Throughout my IT career, I've cultivated a versatile skillset that includes core competencies crucial to the field.
-These skills, refined through years of experience, form the bedrock of my professional expertise.`;
+These skills, refined through years of experience, form the bedrock of my professional expertise.`
 
 const skillCards: SkillCardObj[] = [
   {
@@ -83,4 +84,4 @@ const skillCards: SkillCardObj[] = [
     grade: "expert",
     percent: 100,
   },
-];
+]

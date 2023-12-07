@@ -1,5 +1,5 @@
 import "./Link.css"
-import { FC } from "react";
+import { FC } from "react"
 
 interface LinkProps {
     text: string;
