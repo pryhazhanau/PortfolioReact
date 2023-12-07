@@ -1,6 +1,6 @@
 import "./RoundButton.css"
 
-import { FC } from 'react';
+import { FC } from 'react'
 
 interface ButtonProps {
   active: boolean;
@@ -16,7 +16,7 @@ const RoundButton: FC<ButtonProps> = ({ active, label, className, onClick }) => 
       {label}
     </button>
     </div>
-  );
-};
+  )
+}
 
-export default RoundButton;
+export default RoundButton

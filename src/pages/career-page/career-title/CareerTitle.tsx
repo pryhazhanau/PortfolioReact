@@ -1,8 +1,8 @@
-import { FC } from "react";
-import FlexBox from "../../../components/common/box/FlexBox";
-import Text from "../../../components/common/style/Text";
-import { Typography, TypographyStyle } from "../../../components/common/style/interface/Typography";
-import { Colors } from "../../../components/common/style/interface/Colors";
+import { FC } from "react"
+import FlexBox from "../../../components/common/box/FlexBox"
+import Text from "../../../components/common/style/Text"
+import { Typography, TypographyStyle } from "../../../components/common/style/interface/Typography"
+import { Colors } from "../../../components/common/style/interface/Colors"
 
 interface CareerTitleProps {
     fromDate: string
@@ -40,8 +40,8 @@ const CareerTitle: FC<CareerTitleProps> = (props) => {
         />
       </FlexBox>
     </FlexBox>
-  );
-};
+  )
+}
 
 const LocationTypograpy: TypographyStyle = {
     fontFamily: "Poppins, san-serif",
@@ -49,4 +49,4 @@ const LocationTypograpy: TypographyStyle = {
     fontWeight: 400,
 }
 
-export default CareerTitle;
+export default CareerTitle

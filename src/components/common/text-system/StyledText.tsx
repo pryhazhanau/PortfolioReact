@@ -1,36 +1,36 @@
-import { Fragment, FC } from "react";
-import { Typography } from "../style/interface/Typography";
-import { Colors } from "../style/interface/Colors";
-import "./StyledText.css";
+import { Fragment, FC } from "react"
+import { Typography } from "../style/interface/Typography"
+import { Colors } from "../style/interface/Colors"
+import "./StyledText.css"
 
 interface StyledTextProps {
   text: string;
 }
 
 const TextProcessor: React.FC<StyledTextProps> = ({ text }) => {
-  const regex = /\(([^)]+)\)\[([^)]+)\]|\*([^*]+)\*|#([^#]+)#/g;
+  const regex = /\(([^)]+)\)\[([^)]+)\]|\*([^*]+)\*|#([^#]+)#/g
 
-  let lastIndex = 0;
-  let match;
-  const processedText: JSX.Element[] = [];
+  let lastIndex = 0
+  let match
+  const processedText: JSX.Element[] = []
 
   const pushText = (substring: string) => {
     if (substring) {
       processedText.push(
         <Fragment key={lastIndex}>{getRegularStyleSpan(substring)}</Fragment>
-      );
+      )
     }
-  };
+  }
 
   while ((match = regex.exec(text)) !== null) {
-    const [fullMatch, linkText, url, boldText, italicText] = match;
+    const [fullMatch, linkText, url, boldText, italicText] = match
 
-    pushText(text.substring(lastIndex, match.index));
+    pushText(text.substring(lastIndex, match.index))
 
     if (linkText && url) {
-      processedText.push(getLinkStyleSpan(linkText, url));
+      processedText.push(getLinkStyleSpan(linkText, url))
     } else if (boldText) {
-      processedText.push(getRegularBoldSpan(boldText));
+      processedText.push(getRegularBoldSpan(boldText))
     } else if (italicText) {
       processedText.push(
         <span
@@ -40,27 +40,27 @@ const TextProcessor: React.FC<StyledTextProps> = ({ text }) => {
         >
           {italicText}
         </span>
-      );
+      )
     }
 
-    lastIndex = match.index + fullMatch.length;
+    lastIndex = match.index + fullMatch.length
   }
 
-  pushText(text.substring(lastIndex));
+  pushText(text.substring(lastIndex))
 
-  return <div>{processedText}</div>;
-};
+  return <div>{processedText}</div>
+}
 
 const StyledText: FC<StyledTextProps> = ({ text }) => {
   return (
     <div>
       <TextProcessor text={text} />
     </div>
-  );
-};
+  )
+}
 
 function getRegularStyleSpan(text: string) {
-  const typo = Typography.ArticleBody;
+  const typo = Typography.ArticleBody
   return (
     <span
       style={{
@@ -72,11 +72,11 @@ function getRegularStyleSpan(text: string) {
     >
       {text}
     </span>
-  );
+  )
 }
 
 function getRegularBoldSpan(text: string) {
-  const typo = Typography.ArticleBodyBold;
+  const typo = Typography.ArticleBodyBold
   return (
     <span
       style={{
@@ -88,11 +88,11 @@ function getRegularBoldSpan(text: string) {
     >
       {text}
     </span>
-  );
+  )
 }
 
 function getLinkStyleSpan(text: string, url: string) {
-  const typo = Typography.ArticleBodyBold;
+  const typo = Typography.ArticleBodyBold
   return (
     <span
       className="article-link"
@@ -106,7 +106,7 @@ function getLinkStyleSpan(text: string, url: string) {
         {text}
       </a>
     </span>
-  );
+  )
 }
 
-export default StyledText;
+export default StyledText

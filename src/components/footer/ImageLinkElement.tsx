@@ -1,6 +1,6 @@
-import { FC, ReactNode } from "react";
-import "./ImageLinkElement.css";
-import { ReactSVG } from "react-svg";
+import { FC, ReactNode } from "react"
+import "./ImageLinkElement.css"
+import { ReactSVG } from "react-svg"
 
 interface ImageLinkElementProps {
   img?: string;
@@ -26,7 +26,7 @@ const ImageLinkElement: FC<ImageLinkElementProps> = ({
         </a>
       </p>
     </div>
-  );
-};
+  )
+}
 
-export default ImageLinkElement;
+export default ImageLinkElement

@@ -1,8 +1,8 @@
-import "./ActionButton.css";
-import { FC } from "react";
-import { ReactSVG } from "react-svg";
+import "./ActionButton.css"
+import { FC } from "react"
+import { ReactSVG } from "react-svg"
 
-import ArrowLink from "../../../../assets/icons/arrow-top-right.svg";
+import ArrowLink from "../../../../assets/icons/arrow-top-right.svg"
 
 interface ButtonProps {
   label: string;
@@ -23,8 +23,8 @@ const ActionButton: FC<ButtonProps> = ({
   linkTarget,
   onClick,
 }) => {
-  const buttonStyle = style == undefined ? "primary" : style;
-  const target = linkTarget === "blank" ? "_blank" : "_self";
+  const buttonStyle = style == undefined ? "primary" : style
+  const target = linkTarget === "blank" ? "_blank" : "_self"
   return (
     <div className={className}>
       <button
@@ -43,8 +43,8 @@ const ActionButton: FC<ButtonProps> = ({
         )}
       </button>
     </div>
-  );
-};
+  )
+}
 
 function getIconByName(image: string) {
   switch (image) {
@@ -55,4 +55,4 @@ function getIconByName(image: string) {
   }
 }
 
-export default ActionButton;
+export default ActionButton

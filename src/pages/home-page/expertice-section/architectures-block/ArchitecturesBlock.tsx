@@ -1,5 +1,5 @@
-import FlexBox from "../../../../components/common/box/FlexBox";
-import "./ArchitecturesBlock.css";
+import FlexBox from "../../../../components/common/box/FlexBox"
+import "./ArchitecturesBlock.css"
 
 function ArchitecturesBlock() {
   return (
@@ -57,7 +57,7 @@ function ArchitecturesBlock() {
         </div>
       </FlexBox>
     </>
-  );
+  )
 }
 
-export default ArchitecturesBlock;
+export default ArchitecturesBlock

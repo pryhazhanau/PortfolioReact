@@ -6,4 +6,4 @@ interface TechObject {
   jsxElement: JSX.Element;
 }
 
-export default TechObject;
+export default TechObject

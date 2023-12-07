@@ -8,6 +8,6 @@ const Constants = {
     instagram: { display: "Instagram", link: "https://www.instagram.com/pryhazhanau.dev" },
     twitter: {display: "X", link: "https://twitter.com/pryhazhanau"}
   },
-};
+}
 
-export default Constants;
+export default Constants

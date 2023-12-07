@@ -1,31 +1,31 @@
-import { FC, useState } from "react";
-import "./MobileMenu.css";
-import { ReactSVG } from "react-svg";
-import { AnimatePresence, motion } from "framer-motion";
+import { FC, useState } from "react"
+import "./MobileMenu.css"
+import { ReactSVG } from "react-svg"
+import { AnimatePresence, motion } from "framer-motion"
 import AnimationConstants from "../../common/animation/AnimationConstants"
 
-import Constants from "../../../common/ConstantsObj";
-import instImg from "../../../assets/icons/instagram.svg";
-import linkedInImg from "../../../assets/icons/linkedin.svg";
-import telegramImg from "../../../assets/icons/telegram.svg";
-import githubImg from "../../../assets/icons/github.svg";
-import XSVG from "../../../assets/icons/twitter.svg";
-import emailImg from "../../../assets/icons/mail.svg";
-import MobileMenuItem from "./MobileMenuItem";
+import Constants from "../../../common/ConstantsObj"
+import instImg from "../../../assets/icons/instagram.svg"
+import linkedInImg from "../../../assets/icons/linkedin.svg"
+import telegramImg from "../../../assets/icons/telegram.svg"
+import githubImg from "../../../assets/icons/github.svg"
+import XSVG from "../../../assets/icons/twitter.svg"
+import emailImg from "../../../assets/icons/mail.svg"
+import MobileMenuItem from "./MobileMenuItem"
 
 interface MobileMenuProps {
   menuVisibilityChanged: (visible: boolean) => void;
 }
 
 const MobileMenu: FC<MobileMenuProps> = ({ menuVisibilityChanged }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-    menuVisibilityChanged(isMenuOpen);
-  };
+    setIsMenuOpen(!isMenuOpen)
+    menuVisibilityChanged(isMenuOpen)
+  }
 
-  const currentPath = location.pathname;
+  const currentPath = location.pathname
 
   return (
     <div className="menu-mobile-button-container">
@@ -105,8 +105,8 @@ const MobileMenu: FC<MobileMenuProps> = ({ menuVisibilityChanged }) => {
         </AnimatePresence>
       )}
     </div>
-  );
-};
+  )
+}
 
 const variants = {
   visible: {
@@ -129,6 +129,6 @@ const variants = {
       }
     }
   }
-};
+}
 
-export default MobileMenu;
+export default MobileMenu

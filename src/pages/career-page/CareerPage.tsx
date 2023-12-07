@@ -1,15 +1,15 @@
-import "./CareerPage.css";
-import "../../common/css/div-layout.css";
-import MasterContainer from "../../components/master-container/MasterContainer";
-import Footer from "../../components/footer/Footer";
-import CareerTitle from "./career-title/CareerTitle";
-import CompanyCard from "./company-card/CompanyCard";
-import FlexBox from "../../components/common/box/FlexBox";
-import TextContainer from "../../components/common/text-system/TextContainer";
+import "./CareerPage.css"
+import "../../common/css/div-layout.css"
+import MasterContainer from "../../components/master-container/MasterContainer"
+import Footer from "../../components/footer/Footer"
+import CareerTitle from "./career-title/CareerTitle"
+import CompanyCard from "./company-card/CompanyCard"
+import FlexBox from "../../components/common/box/FlexBox"
+import TextContainer from "../../components/common/text-system/TextContainer"
 
-import AndersenImg from "../../assets/companies/andersen.png";
-import ConstantaImg from "../../assets/companies/constanta.png";
-import EpamImg from "../../assets/companies/epam.png";
+import AndersenImg from "../../assets/companies/andersen.png"
+import ConstantaImg from "../../assets/companies/constanta.png"
+import EpamImg from "../../assets/companies/epam.png"
 
 const textMaxWidht = 600
 
@@ -24,11 +24,11 @@ function CareerPage() {
       </MasterContainer>
       <Footer />
     </>
-  );
+  )
 }
 
 const AndersenSection = () => {
-  const companyName = "AndersenLab";
+  const companyName = "AndersenLab"
   return (
     <FlexBox direction="column" gap={48} alignItems="center">
       <FlexBox direction="column" maxWidth={textMaxWidht}>
@@ -52,10 +52,10 @@ const AndersenSection = () => {
         office="Warsaw/Remote"
       />
     </FlexBox>
-  );
-};
+  )
+}
 const ConstantaSection = () => {
-  const companyName = "Constanta";
+  const companyName = "Constanta"
   return (
     <FlexBox direction="column" gap={48} alignItems="center">
       <FlexBox direction="column" maxWidth={textMaxWidht}>
@@ -78,11 +78,11 @@ const ConstantaSection = () => {
         office="Moscow/Remote"
       />
     </FlexBox>
-  );
-};
+  )
+}
 
 const EpamSection = () => {
-  const companyName = "EPAM Systems";
+  const companyName = "EPAM Systems"
   return (
     <FlexBox direction="column" gap={48} alignItems="center">
       <FlexBox direction="column" maxWidth={textMaxWidht}>
@@ -105,8 +105,8 @@ const EpamSection = () => {
         office="Minsk"
       />
     </FlexBox>
-  );
-};
+  )
+}
 
 
 
@@ -139,4 +139,4 @@ const EpamSection = () => {
 // };
 
 
-export default CareerPage;
+export default CareerPage

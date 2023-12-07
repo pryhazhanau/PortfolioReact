@@ -1,15 +1,15 @@
-import { motion, easeOut } from "framer-motion";
-import "./ThanksSection.css";
-import PixelHeart from "./pixel-heart/PixelHeart";
-import { FC, ReactNode, useEffect, useRef, useState } from "react";
-import FlexBox from "../../../components/common/box/FlexBox";
-import Text from "../../../components/common/style/Text";
-import { Typography } from "../../../components/common/style/interface/Typography";
-import { Colors } from "../../../components/common/style/interface/Colors";
-import { InViewScale } from "../../../components/common/animation/in-view/InViewScale";
-import { InViewSlide } from "../../../components/common/animation/in-view/InViewSlide";
+import { motion, easeOut } from "framer-motion"
+import "./ThanksSection.css"
+import PixelHeart from "./pixel-heart/PixelHeart"
+import { FC, ReactNode, useEffect, useRef, useState } from "react"
+import FlexBox from "../../../components/common/box/FlexBox"
+import Text from "../../../components/common/style/Text"
+import { Typography } from "../../../components/common/style/interface/Typography"
+import { Colors } from "../../../components/common/style/interface/Colors"
+import { InViewScale } from "../../../components/common/animation/in-view/InViewScale"
+import { InViewSlide } from "../../../components/common/animation/in-view/InViewSlide"
 
-const BEAT_INTERVAL_S = 4;
+const BEAT_INTERVAL_S = 4
 
 const ThanksSection = () => {
   return (
@@ -45,19 +45,19 @@ const ThanksSection = () => {
         </FlexBox>
       </FlexBox>
     </FlexBox>
-  );
-};
+  )
+}
 
 interface HeartBeatMotionProps {
   children: ReactNode;
 }
 
 const HeartBeatMotion: FC<HeartBeatMotionProps> = (props) => {
-  const [isBeating, setIsBeating] = useState(false);
-  const [isMouseHover, setIsMouseHover] = useState(false);
+  const [isBeating, setIsBeating] = useState(false)
+  const [isMouseHover, setIsMouseHover] = useState(false)
 
-  const beatDuration = 0.5;
-  const heartbeatScale = isMouseHover ? 1.1 : 1.05;
+  const beatDuration = 0.5
+  const heartbeatScale = isMouseHover ? 1.1 : 1.05
   const heartbeatVariants = {
     rest: {
       scale: 1,
@@ -69,41 +69,41 @@ const HeartBeatMotion: FC<HeartBeatMotionProps> = (props) => {
         ease: easeOut,
       },
     },
-  };
+  }
   
-  const beatIntervalTimer = useRef<number | null>(null);
+  const beatIntervalTimer = useRef<number | null>(null)
   const startBeat = (interval: number) => {
-    setIsBeating(true);
-    clearInterval(beatIntervalTimer.current ?? -1);
+    setIsBeating(true)
+    clearInterval(beatIntervalTimer.current ?? -1)
     const intervalId = setInterval(() => {
-      setIsBeating((prev) => !prev);
-    }, interval / 2 - beatDuration * 1000);
-    return intervalId;
-  };
+      setIsBeating((prev) => !prev)
+    }, interval / 2 - beatDuration * 1000)
+    return intervalId
+  }
 
   useEffect(() => {
-    beatIntervalTimer.current = startBeat((BEAT_INTERVAL_S + 1) * 1000);
+    beatIntervalTimer.current = startBeat((BEAT_INTERVAL_S + 1) * 1000)
 
     return () => {
       if (beatIntervalTimer.current) {
-        clearInterval(beatIntervalTimer.current);
+        clearInterval(beatIntervalTimer.current)
       }
-    };
-  }, []);
+    }
+  }, [])
 
   const handleMouseEnter = () => {
-    const enterIntervalId = startBeat(2000);
-    setIsBeating(true);
-    setIsMouseHover(true);
-    beatIntervalTimer.current = enterIntervalId;
-  };
+    const enterIntervalId = startBeat(2000)
+    setIsBeating(true)
+    setIsMouseHover(true)
+    beatIntervalTimer.current = enterIntervalId
+  }
 
   const handleMouseLeave = () => {
-    const leaveIntervalId = startBeat((BEAT_INTERVAL_S + 1) * 1000);
-    beatIntervalTimer.current = leaveIntervalId;
-    setIsMouseHover(false);
-    setIsBeating(false);
-  };
+    const leaveIntervalId = startBeat((BEAT_INTERVAL_S + 1) * 1000)
+    beatIntervalTimer.current = leaveIntervalId
+    setIsMouseHover(false)
+    setIsBeating(false)
+  }
 
   return (
     <motion.div
@@ -115,10 +115,10 @@ const HeartBeatMotion: FC<HeartBeatMotionProps> = (props) => {
     >
       {props.children}
     </motion.div>
-  );
-};
+  )
+}
 
-export default ThanksSection;
+export default ThanksSection
 
 const ThanksText = `Thank you very much for visiting my personal website.
 Your time and attention are greatly appreciated.

@@ -1,28 +1,28 @@
-import "./App.css";
-import { Route, Routes, BrowserRouter } from "react-router-dom";
-import { Analytics } from "@vercel/analytics/react";
+import "./App.css"
+import { Route, Routes, BrowserRouter } from "react-router-dom"
+import { Analytics } from "@vercel/analytics/react"
 
-import "./common/css/section.css";
-import Navbar from "./components/navbar/Navbar.tsx";
-import ProjectsPage from "./pages/projects-page/ProjectsPage.tsx";
-import HomePage from "./pages/home-page/HomePage.tsx";
-import CareerPage from "./pages/career-page/CareerPage.tsx";
-import NotFoundPage from "./components/error/NotFoundPage.tsx";
-import { useState } from "react";
+import "./common/css/section.css"
+import Navbar from "./components/navbar/Navbar.tsx"
+import ProjectsPage from "./pages/projects-page/ProjectsPage.tsx"
+import HomePage from "./pages/home-page/HomePage.tsx"
+import CareerPage from "./pages/career-page/CareerPage.tsx"
+import NotFoundPage from "./components/error/NotFoundPage.tsx"
+import { useState } from "react"
 
 function App() {
   const setOverflowVisible = (visible: boolean) => {
-    document.body.style.overflow = visible ? "visible" : "hidden";
-  };
+    document.body.style.overflow = visible ? "visible" : "hidden"
+  }
 
-  const [error404Visible, setError404Visible] = useState(false);
+  const [error404Visible, setError404Visible] = useState(false)
 
   return (
     <>
       <div className="app-overflow-visible">
         <Navbar
           mobileMenuVisibilityChanged={(visible) => {
-            setOverflowVisible(visible);
+            setOverflowVisible(visible)
           }}
           visible={!error404Visible}
         />
@@ -36,10 +36,10 @@ function App() {
               element={
                 <NotFoundPage
                   onMount={() => {
-                    setError404Visible(true);
+                    setError404Visible(true)
                   }}
                   onUnmount={() => {
-                    setError404Visible(false);
+                    setError404Visible(false)
                   }}
                 />
               }
@@ -49,7 +49,7 @@ function App() {
       </div>
       <Analytics/>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

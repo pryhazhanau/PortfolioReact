@@ -104,6 +104,6 @@ const FrameworksList: FrameworkObj[] = [
   },
   { id: 15, name: "Firebase", description: "Firebase is a comprehensive mobile and web development platform provided by Google. It offers a wide range of tools and services that help developers build, improve, and grow their apps. Firebase is platform-agnostic, which means it can be used for both iOS and Android development, as well as web applications. Here, I'll provide an overview of Firebase in the context of iOS development.", link: "https://firebase.google.com", img: FirebaseImg },
   { id: 16, name: "Tuist", description: "Tuist is a command line tool (CLI) that aims to facilitate the generation, maintenance, and interaction with Xcode projects. It's distributed as a binary, which you can easily install and use without having to depend on other tools to manage dependencies.", link: "https://tuist.io", img: TuistImg },
-];
+]
 
 export default FrameworksList

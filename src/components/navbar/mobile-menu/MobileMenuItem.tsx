@@ -1,7 +1,7 @@
-import { FC } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import AnimationConstants from "../../common/animation/AnimationConstants";
-import "./MobileMenuItem.css";
+import { FC } from "react"
+import { AnimatePresence, motion } from "framer-motion"
+import AnimationConstants from "../../common/animation/AnimationConstants"
+import "./MobileMenuItem.css"
 
 interface MobileMenuItemProps {
   text: string;
@@ -46,7 +46,7 @@ const MobileMenuItem: FC<MobileMenuItemProps> = ({
         },
       },
     },
-  };
+  }
 
   return (
     <AnimatePresence mode="sync">
@@ -66,7 +66,7 @@ const MobileMenuItem: FC<MobileMenuItemProps> = ({
         )}
       </motion.div>
     </AnimatePresence>
-  );
-};
+  )
+}
 
-export default MobileMenuItem;
+export default MobileMenuItem

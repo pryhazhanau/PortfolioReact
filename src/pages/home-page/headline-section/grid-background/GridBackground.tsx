@@ -1,8 +1,8 @@
-import "./GridBackground.css";
-import FlexBox from "../../../../components/common/box/FlexBox";
-import { motion } from "framer-motion";
-import AnimationConstants from "../../../../components/common/animation/AnimationConstants";
-import { FC } from "react";
+import "./GridBackground.css"
+import FlexBox from "../../../../components/common/box/FlexBox"
+import { motion } from "framer-motion"
+import AnimationConstants from "../../../../components/common/animation/AnimationConstants"
+import { FC } from "react"
 
 interface GridBackgroundProps {
   translateX: number;
@@ -41,8 +41,8 @@ const GridBackground: FC<GridBackgroundProps> = (props) => {
         </FlexBox>
       </FlexBox>
     </>
-  );
-};
+  )
+}
 
 const GridLine = ({
   vertical,
@@ -51,7 +51,7 @@ const GridLine = ({
   vertical: boolean;
   delayAnimation: number;
 }) => {
-  let divVariants;
+  let divVariants
 
   if (vertical) {
     divVariants = {
@@ -64,7 +64,7 @@ const GridLine = ({
           ease: AnimationConstants.cubic.easeEase,
         },
       },
-    };
+    }
   } else {
     divVariants = {
       initial: { width: 0 },
@@ -76,7 +76,7 @@ const GridLine = ({
           ease: AnimationConstants.cubic.easeEase,
         },
       },
-    };
+    }
   }
   return (
     <motion.div initial="initial" animate="animate" variants={divVariants}>
@@ -85,7 +85,7 @@ const GridLine = ({
         className={`headline-grid-line-${vertical ? "vertical" : "horizontal"}`}
       />
     </motion.div>
-  );
-};
+  )
+}
 
-export default GridBackground;
+export default GridBackground

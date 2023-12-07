@@ -1,29 +1,29 @@
-import "./HeadlineSection.css";
-import BackgroundImg from "../../../assets/noise-velaro.png";
-import GridBackground from "./grid-background/GridBackground";
-import GridContent from "./grid-content/GridContent";
-import GridContentMobile from "./grid-content/GridContentMobile";
-import GridBackgroundMobile from "./grid-background/GridBackgroundMobile";
-import FlexBox from "../../../components/common/box/FlexBox";
-import { MouseEvent, useEffect, useState } from "react";
-import Image from "../../../components/common/style/Image";
-import { Point } from "../../../common/interface/Geometry";
+import "./HeadlineSection.css"
+import BackgroundImg from "../../../assets/noise-velaro.png"
+import GridBackground from "./grid-background/GridBackground"
+import GridContent from "./grid-content/GridContent"
+import GridContentMobile from "./grid-content/GridContentMobile"
+import GridBackgroundMobile from "./grid-background/GridBackgroundMobile"
+import FlexBox from "../../../components/common/box/FlexBox"
+import { MouseEvent, useEffect, useState } from "react"
+import Image from "../../../components/common/style/Image"
+import { Point } from "../../../common/interface/Geometry"
 
-const mobileWidth = 650;
+const mobileWidth = 650
 
 function HeadlineSection() {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
   const handleResize = () => {
-    setWindowWidth(window.innerWidth);
-  };
+    setWindowWidth(window.innerWidth)
+  }
 
   useEffect(() => {
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", handleResize)
     return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  });
+      window.removeEventListener("resize", handleResize)
+    }
+  })
 
   return (
     <>
@@ -33,29 +33,29 @@ function HeadlineSection() {
         <HeadlineMobileComponent />
       )}
     </>
-  );
+  )
 }
 
 const HeadlineComponent = () => {
-  const [tranlationContent, setTranslationContent] = useState({ x: 0, y: 0 });
+  const [tranlationContent, setTranslationContent] = useState({ x: 0, y: 0 })
   const [tranlationBackground, setTranslationBackground] = useState({
     x: 0,
     y: 0,
-  });
+  })
 
   const handleMouseMove = (event: MouseEvent<HTMLDivElement>) => {
-    const { clientX, clientY } = event;
-    const x = (clientX / window.innerWidth - 0.5) * 2;
-    const y = (clientY / window.innerHeight - 0.5) * 2;
+    const { clientX, clientY } = event
+    const x = (clientX / window.innerWidth - 0.5) * 2
+    const y = (clientY / window.innerHeight - 0.5) * 2
 
-    setTranslationContent(getTranlationForContent({ x, y }));
-    setTranslationBackground(getTranlationForBackground({ x, y }));
-  };
+    setTranslationContent(getTranlationForContent({ x, y }))
+    setTranslationBackground(getTranlationForBackground({ x, y }))
+  }
 
   const handleMouseLeave = () => {
-    setTranslationContent({ x: 0, y: 0 });
-    setTranslationBackground({ x: 0, y: 0 });
-  };
+    setTranslationContent({ x: 0, y: 0 })
+    setTranslationBackground({ x: 0, y: 0 })
+  }
 
   return (
     <FlexBox
@@ -84,8 +84,8 @@ const HeadlineComponent = () => {
         </FlexBox>
       </FlexBox>
     </FlexBox>
-  );
-};
+  )
+}
 
 const HeadlineMobileComponent = () => {
   return (
@@ -107,15 +107,15 @@ const HeadlineMobileComponent = () => {
         </FlexBox>
       </FlexBox>
     </FlexBox>
-  );
-};
+  )
+}
 
 function getTranlationForContent(mousePosition: Point) {
-  return { x: mousePosition.x * -8, y: mousePosition.y * -8 };
+  return { x: mousePosition.x * -8, y: mousePosition.y * -8 }
 }
 
 function getTranlationForBackground(mousePosition: Point) {
-  return { x: mousePosition.x * -4, y: mousePosition.y * -4 };
+  return { x: mousePosition.x * -4, y: mousePosition.y * -4 }
 }
 
-export default HeadlineSection;
+export default HeadlineSection

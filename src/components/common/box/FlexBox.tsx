@@ -1,5 +1,5 @@
-import { FC, ReactNode, MouseEvent } from "react";
-import { EdgeInset } from "../style/interface/EdgeInset";
+import { FC, ReactNode, MouseEvent } from "react"
+import { EdgeInset } from "../style/interface/EdgeInset"
 
 interface FlexBoxProps {
   className?: string;
@@ -73,7 +73,7 @@ const FlexBox: FC<FlexBoxProps> = ({
     paddingRight: padding?.trailing,
     transform,
     backgroundColor,
-  };
+  }
 
   return (
     <div
@@ -86,7 +86,7 @@ const FlexBox: FC<FlexBoxProps> = ({
     >
       {children}
     </div>
-  );
-};
+  )
+}
 
-export default FlexBox;
+export default FlexBox

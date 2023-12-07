@@ -1,6 +1,6 @@
-import { FC } from "react";
-import "./SocialsFooterIcon.css";
-import { ReactSVG } from "react-svg";
+import { FC } from "react"
+import "./SocialsFooterIcon.css"
+import { ReactSVG } from "react-svg"
 
 interface SocialFooterIconProps {
   img: string;
@@ -16,7 +16,7 @@ const SocialFooterIcon: FC<SocialFooterIconProps> = ({ img, link }) => {
       <div className="footer-social-icon" onClick={() => {openUrl(link)}}>
         {img ? <ReactSVG src={img} className="svg-container" /> : null}
       </div>
-  );
-};
+  )
+}
 
-export default SocialFooterIcon;
+export default SocialFooterIcon

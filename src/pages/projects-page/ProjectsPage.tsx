@@ -1,20 +1,20 @@
-import "./ProjectsPage.css";
-import MasterContainer from "../../components/master-container/MasterContainer";
-import AppCard from "./app-card/AppCard";
-import Footer from "../../components/footer/Footer";
-import GradientSectionBackground from "../../components/common/background/GradientSectionBackground";
-import Text from "../../components/common/style/Text";
-import { Typography } from "../../components/common/style/interface/Typography";
-import { Colors } from "../../components/common/style/interface/Colors";
-import FlexBox from "../../components/common/box/FlexBox";
+import "./ProjectsPage.css"
+import MasterContainer from "../../components/master-container/MasterContainer"
+import AppCard from "./app-card/AppCard"
+import Footer from "../../components/footer/Footer"
+import GradientSectionBackground from "../../components/common/background/GradientSectionBackground"
+import Text from "../../components/common/style/Text"
+import { Typography } from "../../components/common/style/interface/Typography"
+import { Colors } from "../../components/common/style/interface/Colors"
+import FlexBox from "../../components/common/box/FlexBox"
 
-import InDriveImg from "../../assets/apps/InDrive.png";
-import FleetImg from "../../assets/apps/FleetInstall.png";
-import RevealImg from "../../assets/apps/RevealInstall.png";
-import FonbetImg from "../../assets/apps/Fonbet.png";
-import HedwigImg from "../../assets/apps/Hedwig.png";
-import YFCImg from "../../assets/apps/YFC.png";
-import { AppProject } from "./support/AppProject";
+import InDriveImg from "../../assets/apps/InDrive.png"
+import FleetImg from "../../assets/apps/FleetInstall.png"
+import RevealImg from "../../assets/apps/RevealInstall.png"
+import FonbetImg from "../../assets/apps/Fonbet.png"
+import HedwigImg from "../../assets/apps/Hedwig.png"
+import YFCImg from "../../assets/apps/YFC.png"
+import { AppProject } from "./support/AppProject"
 
 function ProjectsPage() {
   return (
@@ -36,7 +36,7 @@ function ProjectsPage() {
       <GradientSectionBackground/>
       <Footer />
     </>
-  );
+  )
 }
 
 const apps: AppProject[] = [
@@ -82,6 +82,6 @@ const apps: AppProject[] = [
     body: "Protect enterprise messenger with encrypted messages, calls, data-tranfer.",
     link: undefined,
   },
-];
+]
 
-export default ProjectsPage;
+export default ProjectsPage

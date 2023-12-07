@@ -1,5 +1,5 @@
-import { AnimatePresence, motion } from "framer-motion";
-import { FC, ReactNode } from "react";
+import { AnimatePresence, motion } from "framer-motion"
+import { FC, ReactNode } from "react"
 
 interface FadeProps {
   children?: ReactNode;
@@ -27,7 +27,7 @@ export const FadeInOutBox: FC<FadeProps> = ({
           </motion.div>
         ) : null}
       </AnimatePresence>
-  );
-};
+  )
+}
 
-export default FadeInOutBox;
+export default FadeInOutBox

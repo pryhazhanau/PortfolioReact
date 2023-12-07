@@ -1,12 +1,12 @@
-import { FC, useState, useEffect } from "react";
-import "./ModalFrameworkPopup.css";
-import ActionButton from "../../../../components/common/controls/action-button/ActionButton";
-import { ReactSVG } from "react-svg";
-import { motion, AnimatePresence } from "framer-motion";
-import AnimationConstants from "../../../../components/common/animation/AnimationConstants";
-import CrossImg from "../../../../assets/icons/icon-close.svg";
-import { Origin, Size } from "../../../../common/interface/Geometry";
-import { FrameworkObj } from "../frameworks-block/FrameworkObj";
+import { FC, useState, useEffect } from "react"
+import "./ModalFrameworkPopup.css"
+import ActionButton from "../../../../components/common/controls/action-button/ActionButton"
+import { ReactSVG } from "react-svg"
+import { motion, AnimatePresence } from "framer-motion"
+import AnimationConstants from "../../../../components/common/animation/AnimationConstants"
+import CrossImg from "../../../../assets/icons/icon-close.svg"
+import { Origin, Size } from "../../../../common/interface/Geometry"
+import { FrameworkObj } from "../frameworks-block/FrameworkObj"
 
 interface ModalFrameworkPopupProps {
   visible: boolean;
@@ -16,9 +16,9 @@ interface ModalFrameworkPopupProps {
   onClose: () => void;
 }
 
-const navBarHeight = 70;
-const modalMaxWidth = 500;
-const modalMaxHeight = 400;
+const navBarHeight = 70
+const modalMaxWidth = 500
+const modalMaxHeight = 400
 
 const ModalFrameworkPopup: FC<ModalFrameworkPopupProps> = ({
   visible,
@@ -27,70 +27,70 @@ const ModalFrameworkPopup: FC<ModalFrameworkPopupProps> = ({
   targetSize,
   onClose,
 }) => {
-  const [initialScrollY, setInitialScrollY] = useState(0);
+  const [initialScrollY, setInitialScrollY] = useState(0)
 
   useEffect(() => {
     // Set the initial scrollY value when the component mounts
-    setInitialScrollY(window.scrollY);
+    setInitialScrollY(window.scrollY)
 
     // Clean up event listener when the component unmounts
     return () => {
       // Remove any event listeners or perform cleanup here if needed
-    };
-  }, []);
+    }
+  }, [])
 
   function handleScroll() {
     if (Math.abs(initialScrollY - window.scrollY) > 100) {
-      onClose();
-      window.removeEventListener("scroll", handleScroll);
+      onClose()
+      window.removeEventListener("scroll", handleScroll)
     }
   }
 
-  window.addEventListener("scroll", handleScroll);
+  window.addEventListener("scroll", handleScroll)
 
-  const documentWidth = window.innerWidth;
-  const mobilePaddings = 16;
+  const documentWidth = window.innerWidth
+  const mobilePaddings = 16
 
-  console.log(documentWidth);
-  let modalSize: Size = { height: 0, width: 0 };
-  let modalOrigin: Origin = { x: 0, y: 0 };
+  console.log(documentWidth)
+  let modalSize: Size = { height: 0, width: 0 }
+  let modalOrigin: Origin = { x: 0, y: 0 }
   if (documentWidth < modalMaxWidth) {
     modalSize = {
       width: documentWidth - mobilePaddings * 2,
       height: modalMaxHeight,
-    };
-    let modalOriginY =
-      position.top - modalSize.height / 2 - targetSize.height / 2;
-    if (modalOriginY < navBarHeight) {
-      modalOriginY = navBarHeight + 16;
     }
-    modalOrigin = { x: 16, y: modalOriginY };
+    let modalOriginY =
+      position.top - modalSize.height / 2 - targetSize.height / 2
+    if (modalOriginY < navBarHeight) {
+      modalOriginY = navBarHeight + 16
+    }
+    modalOrigin = { x: 16, y: modalOriginY }
   } else {
     let modalWidth =
       documentWidth - position.left < modalMaxWidth
         ? documentWidth - mobilePaddings * 2
-        : modalMaxWidth;
-    const rightSidePositionX = position.left + modalWidth;
+        : modalMaxWidth
+    const rightSidePositionX = position.left + modalWidth
 
     if (rightSidePositionX > documentWidth) {
-      modalWidth -= rightSidePositionX - documentWidth;
+      modalWidth -= rightSidePositionX - documentWidth
     }
 
-    modalSize = { height: modalMaxHeight, width: modalWidth };
+    modalSize = { height: modalMaxHeight, width: modalWidth }
     const modalOriginX =
       documentWidth < modalMaxWidth
         ? 0
-        : position.left - modalWidth / 2 + targetSize.width / 2;
+        : position.left - modalWidth / 2 + targetSize.width / 2
     let modalOriginY =
-      position.top - modalSize.height / 2 - targetSize.height / 2;
+      position.top - modalSize.height / 2 - targetSize.height / 2
     if (modalOriginY < navBarHeight) {
-      modalOriginY = navBarHeight + mobilePaddings;
+      modalOriginY = navBarHeight + mobilePaddings
     }
 
-    modalOrigin = { x: modalOriginX, y: modalOriginY };
+    modalOrigin = { x: modalOriginX, y: modalOriginY }
   }
 
-  const variantsBackground = getBackgroundAnimation(targetSize, modalSize);
+  const variantsBackground = getBackgroundAnimation(targetSize, modalSize)
   return (
     <>
       <div className="modal-background">
@@ -149,13 +149,13 @@ const ModalFrameworkPopup: FC<ModalFrameworkPopupProps> = ({
         </AnimatePresence>
       </div>
     </>
-  );
-};
+  )
+}
 
-const timing = 0.5;
-const exitTiming = 0.2;
-const easeing = AnimationConstants.cubic.easeInOut;
-const easeingExit = AnimationConstants.cubic.easeIn;
+const timing = 0.5
+const exitTiming = 0.2
+const easeing = AnimationConstants.cubic.easeInOut
+const easeingExit = AnimationConstants.cubic.easeIn
 const variants = {
   visible: {
     scaleY: 1,
@@ -215,7 +215,7 @@ const variants = {
       },
     },
   },
-};
+}
 
 const getBackgroundAnimation = (targetSize: Size, modalSize: Size) => {
   return {
@@ -295,7 +295,7 @@ const getBackgroundAnimation = (targetSize: Size, modalSize: Size) => {
         },
       },
     },
-  };
-};
+  }
+}
 
-export default ModalFrameworkPopup;
+export default ModalFrameworkPopup

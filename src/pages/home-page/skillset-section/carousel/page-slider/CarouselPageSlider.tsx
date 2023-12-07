@@ -1,6 +1,6 @@
-import { FC } from "react";
-import "./CarouselPageSlider.css";
-import FlexBox from "../../../../../components/common/box/FlexBox";
+import { FC } from "react"
+import "./CarouselPageSlider.css"
+import FlexBox from "../../../../../components/common/box/FlexBox"
 
 interface CarouselPageSliderProps {
   cardsInView: number;
@@ -13,7 +13,7 @@ const CarouselPageSlider: FC<CarouselPageSliderProps> = ({
   currentIndex,
   totalNumber,
 }) => {
-  const elements = Array.from({ length: totalNumber - cardsInView + 1 }, (_, index) => index);
+  const elements = Array.from({ length: totalNumber - cardsInView + 1 }, (_, index) => index)
 
   return (
     <FlexBox
@@ -30,8 +30,8 @@ const CarouselPageSlider: FC<CarouselPageSliderProps> = ({
         </div>
       ))}
     </FlexBox>
-  );
-};
+  )
+}
 
 function isDotActive(
   dotIndex: number,
@@ -54,7 +54,7 @@ const Dot: FC<DotProps> = ({ active }) => {
         }`,
       }}
     />
-  );
-};
+  )
+}
 
-export default CarouselPageSlider;
+export default CarouselPageSlider

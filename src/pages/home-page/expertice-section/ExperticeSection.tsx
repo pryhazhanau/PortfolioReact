@@ -1,55 +1,55 @@
-import "./ExperticeSection.css";
-import "../HomePage.css";
-import "../../../common/css/div-layout.css";
-import SectionTitle from "../../../components/common/section-title/SectionTitle";
-import TechBlock from "./tech-block/TechBlock";
-import { useState } from "react";
-import GridButtonsBlock from "./buttons-block/GridButtonsBlock";
-import FadeInOutBox from "../../../components/common/animation/FadeInOutBox";
-import AnimatedTextCommon from "../../../components/common/animation/AnimatedTextCommon";
-import ArchitecturesBlock from "./architectures-block/ArchitecturesBlock";
-import FrameworksBlock from "./frameworks-block/FrameworksBlock";
-import TechObject from "./tech-block/TechObject";
-import ProjectsBlock from "./projects-block/ProjectsBlock";
-import ExperienceBlock from "./experience-block/ExperienceBlock";
-import Text from "../../../components/common/style/Text";
-import { Typography } from "../../../components/common/style/interface/Typography";
-import { Colors } from "../../../components/common/style/interface/Colors";
-import { TechList } from "./TechList";
-import { InViewSlide } from "../../../components/common/animation/in-view/InViewSlide";
+import "./ExperticeSection.css"
+import "../HomePage.css"
+import "../../../common/css/div-layout.css"
+import SectionTitle from "../../../components/common/section-title/SectionTitle"
+import TechBlock from "./tech-block/TechBlock"
+import { useState } from "react"
+import GridButtonsBlock from "./buttons-block/GridButtonsBlock"
+import FadeInOutBox from "../../../components/common/animation/FadeInOutBox"
+import AnimatedTextCommon from "../../../components/common/animation/AnimatedTextCommon"
+import ArchitecturesBlock from "./architectures-block/ArchitecturesBlock"
+import FrameworksBlock from "./frameworks-block/FrameworksBlock"
+import TechObject from "./tech-block/TechObject"
+import ProjectsBlock from "./projects-block/ProjectsBlock"
+import ExperienceBlock from "./experience-block/ExperienceBlock"
+import Text from "../../../components/common/style/Text"
+import { Typography } from "../../../components/common/style/interface/Typography"
+import { Colors } from "../../../components/common/style/interface/Colors"
+import { TechList } from "./TechList"
+import { InViewSlide } from "../../../components/common/animation/in-view/InViewSlide"
 
 function ExperticeSection() {
   const initialJSX: JSX.Element = (
     <p className="subtitle-primary">Utilized key technoligies I use</p>
-  );
+  )
 
   const [techObject, setTechObject] = useState<TechObject | undefined>(
     undefined
-  );
-  const [sectionId, setSectionId] = useState(0);
-  const [sectionName, setSectionName] = useState("architectures");
-  const [titlePostfix, setTitlePostfix] = useState("I use");
+  )
+  const [sectionId, setSectionId] = useState(0)
+  const [sectionName, setSectionName] = useState("architectures")
+  const [titlePostfix, setTitlePostfix] = useState("I use")
 
   const handleMouseEnter = (tech: TechObject) => {
-    setTechObject(tech);
-  };
+    setTechObject(tech)
+  }
 
   const handleMouseLeave = () => {
-    setTechObject(undefined);
-  };
+    setTechObject(undefined)
+  }
 
   const openLink = (url: string) => {
-    window.open(url, "_blank");
-  };
+    window.open(url, "_blank")
+  }
 
   const selectSection = (id: number, name: string, postfix: string) => {
-    setSectionId(id);
-    setSectionName(name.toLowerCase());
-    setTitlePostfix(postfix);
-  };
+    setSectionId(id)
+    setSectionName(name.toLowerCase())
+    setTitlePostfix(postfix)
+  }
 
-  const topTechItems = TechList.slice(0, 4);
-  const bottomTechItems = TechList.slice(4, TechList.length);
+  const topTechItems = TechList.slice(0, 4)
+  const bottomTechItems = TechList.slice(4, TechList.length)
 
   return (
     <>
@@ -114,7 +114,7 @@ function ExperticeSection() {
               <div className="grid-item-large-left grid-cell-section-large">
                 <GridButtonsBlock
                   onSelectSection={(id, name, postfix) => {
-                    selectSection(id, name, postfix);
+                    selectSection(id, name, postfix)
                   }}
                 />
               </div>
@@ -149,9 +149,9 @@ function ExperticeSection() {
         </div>
       </div>
     </>
-  );
+  )
 }
 
-const BodyText = `More detailed information about my experience, tools and technolgies I worked with.`;
+const BodyText = `More detailed information about my experience, tools and technolgies I worked with.`
 
-export default ExperticeSection;
+export default ExperticeSection

@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC } from "react"
 
 interface GradientSectionBackgroundProps {
     height?: 100 | 200 | 300 | 400 | undefined;

@@ -1,22 +1,22 @@
-import "./AboutSection.css";
-import "../HomePage.css";
-import "../../../common/css/div-layout.css";
-import FlexBox from "../../../components/common/box/FlexBox";
-import Text from "../../../components/common/style/Text";
-import Photo from "../../../assets/about-photo.png";
-import SectionTitle from "../../../components/common/section-title/SectionTitle";
-import Image from "../../../components/common/style/Image";
-import { Typography } from "../../../components/common/style/interface/Typography";
-import { Colors } from "../../../components/common/style/interface/Colors";
-import { InViewSlide } from "../../../components/common/animation/in-view/InViewSlide";
-import LoadButton from "../../../components/common/controls/load-button/LoadButton";
-import ArrowDown from "../../../assets/icons/arrow-down.svg";
-import CV from "../../../assets/cv.pdf";
+import "./AboutSection.css"
+import "../HomePage.css"
+import "../../../common/css/div-layout.css"
+import FlexBox from "../../../components/common/box/FlexBox"
+import Text from "../../../components/common/style/Text"
+import Photo from "../../../assets/about-photo.png"
+import SectionTitle from "../../../components/common/section-title/SectionTitle"
+import Image from "../../../components/common/style/Image"
+import { Typography } from "../../../components/common/style/interface/Typography"
+import { Colors } from "../../../components/common/style/interface/Colors"
+import { InViewSlide } from "../../../components/common/animation/in-view/InViewSlide"
+import LoadButton from "../../../components/common/controls/load-button/LoadButton"
+import ArrowDown from "../../../assets/icons/arrow-down.svg"
+import CV from "../../../assets/cv.pdf"
 
 function AboutSection() {
   const openCV = () => {
-    window.open(CV, "_blank");
-  };
+    window.open(CV, "_blank")
+  }
 
   return (
     <>
@@ -63,7 +63,7 @@ function AboutSection() {
         </FlexBox>
       </FlexBox>
     </>
-  );
+  )
 }
 
 const AboutText = `My name is Uladzimir, I am an iOS Developer currently based in  Warsaw, Poland. 
@@ -71,6 +71,6 @@ I was born and lived in a hospitable and cozy city of Minsk, Belarus. Over the p
 I have honed my engineering skills through both professional experience and personal projects. I have a strong and pure base in iOS and MacOS Development. 
 I have a deep understanding of Swift and Objective-C programming languages, as well as the iOS SDK.
 In addition to my technical skills, I am a dedicated and detail-oriented developer who thrives in a collaborative and fast-paced environment.
-I am passionate about creating elegant, user-centric solutions and am committed to delivering products that exceed customer expectations.`;
+I am passionate about creating elegant, user-centric solutions and am committed to delivering products that exceed customer expectations.`
 
-export default AboutSection;
+export default AboutSection

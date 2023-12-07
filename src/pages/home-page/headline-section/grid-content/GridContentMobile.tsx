@@ -1,14 +1,14 @@
-import "./GridContent.css";
-import FlexBox from "../../../../components/common/box/FlexBox";
-import { Colors } from "../../../../components/common/style/interface/Colors";
-import { Typography } from "../../../../components/common/style/interface/Typography";
-import Text from "../../../../components/common/style/Text";
-import ArrowButton from "./arrow-button/ArrowButton";
-import UrlOpener from "../../../../components/common/util/UrlOpener";
-import Constants from "../../../../common/ConstantsObj";
+import "./GridContent.css"
+import FlexBox from "../../../../components/common/box/FlexBox"
+import { Colors } from "../../../../components/common/style/interface/Colors"
+import { Typography } from "../../../../components/common/style/interface/Typography"
+import Text from "../../../../components/common/style/Text"
+import ArrowButton from "./arrow-button/ArrowButton"
+import UrlOpener from "../../../../components/common/util/UrlOpener"
+import Constants from "../../../../common/ConstantsObj"
 
-import cvFile from "../../../../assets/cv.pdf";
-import { useEffect, useState } from "react";
+import cvFile from "../../../../assets/cv.pdf"
+import { useEffect, useState } from "react"
 
 const GridContentMobile = () => {
   return (
@@ -19,21 +19,21 @@ const GridContentMobile = () => {
         <ButtonsCell />
       </FlexBox>
     </FlexBox>
-  );
-};
+  )
+}
 
 const TitleCell = () => {
-  const [underscoreVisible, setUndersocreVisible] = useState(true);
+  const [underscoreVisible, setUndersocreVisible] = useState(true)
 
   useEffect(() => {
     const toggleUnderscore = () => {
-      setUndersocreVisible((prevValue) => !prevValue);
-    };
-    const intervalId = setInterval(toggleUnderscore, 1000);
+      setUndersocreVisible((prevValue) => !prevValue)
+    }
+    const intervalId = setInterval(toggleUnderscore, 1000)
     return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
+      clearInterval(intervalId)
+    }
+  }, [])
 
   return (
     <FlexBox height="33.3%" width="100%">
@@ -49,8 +49,8 @@ const TitleCell = () => {
         </p>
       </FlexBox>
     </FlexBox>
-  );
-};
+  )
+}
 
 const DescriptionCell = () => {
   return (
@@ -67,17 +67,17 @@ const DescriptionCell = () => {
         />
       </FlexBox>
     </FlexBox>
-  );
-};
+  )
+}
 
 const ButtonsCell = () => {
   const sendEmail = () => {
-    window.location.href = Constants.contact.email.link;
-  };
+    window.location.href = Constants.contact.email.link
+  }
 
   const openCV = () => {
-    window.open(cvFile, "_blank");
-  };
+    window.open(cvFile, "_blank")
+  }
 
   return (
     <FlexBox width={"100%"} height={"33.3%"}>
@@ -97,10 +97,10 @@ const ButtonsCell = () => {
         </FlexBox>
       </FlexBox>
     </FlexBox>
-  );
-};
+  )
+}
 
 const DescriptionText = `I am a Software Engineer based in Warsaw, focused on iOS Development.
-I am a curious and easygoing person with a passion for creating awesome applications.`;
+I am a curious and easygoing person with a passion for creating awesome applications.`
 
-export default GridContentMobile;
+export default GridContentMobile
