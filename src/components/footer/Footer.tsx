@@ -9,6 +9,7 @@ import MailSVG from "../../assets/icons/mail.svg"
 import TelegramSVG from "../../assets/icons/telegram.svg"
 import GitHubSVG from "../../assets/icons/github.svg"
 import InstagramSVG from "../../assets/icons/instagram.svg"
+import XSVG from "../../assets/icons/twitter.svg"
 import VercelSVG from "../../assets/vercel.svg"
 import SocialFooterIcon from "./SocialFooterIcon";
 import FlexBox from "../common/box/FlexBox";
@@ -57,6 +58,7 @@ function Footer() {
             <SocialFooterIcon img={TelegramSVG} link={Constants.contact.telegram.link}/>
             <SocialFooterIcon img={GitHubSVG} link={Constants.contact.github.link}/>
             <SocialFooterIcon img={InstagramSVG} link={Constants.contact.instagram.link}/>
+            <SocialFooterIcon img={XSVG} link={Constants.contact.twitter.link}/>
       </div>
       <HorizontalSeparator/>
       <FlexBox alignItems="center" justifyContent="center" height={50}>

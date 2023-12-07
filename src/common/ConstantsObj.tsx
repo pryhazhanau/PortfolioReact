@@ -5,7 +5,8 @@ const Constants = {
     linkedIn: { display: "in/pryhazhanau", link: "https://www.linkedin.com/in/pryhazhanau" },
     telegram: { display: "@prigozhanov", link: "https://t.me/prigozhanov" },
     github: { display: "GitHub", link: "https://github.com/Prigozhanov" },
-    instagram: { display: "Instagram", link: "https://www.instagram.com/pryhazhanau.dev" }
+    instagram: { display: "Instagram", link: "https://www.instagram.com/pryhazhanau.dev" },
+    twitter: {display: "X", link: "https://twitter.com/pryhazhanau"}
   },
 };
 

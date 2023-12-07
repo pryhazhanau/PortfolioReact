@@ -9,6 +9,7 @@ import instImg from "../../../assets/icons/instagram.svg";
 import linkedInImg from "../../../assets/icons/linkedin.svg";
 import telegramImg from "../../../assets/icons/telegram.svg";
 import githubImg from "../../../assets/icons/github.svg";
+import XSVG from "../../../assets/icons/twitter.svg";
 import emailImg from "../../../assets/icons/mail.svg";
 import MobileMenuItem from "./MobileMenuItem";
 
@@ -89,6 +90,13 @@ const MobileMenu: FC<MobileMenuProps> = ({ menuVisibilityChanged }) => {
                       className="social-icon-link"
                     >
                       <ReactSVG className="social-icon" src={emailImg} />
+                    </a>
+                    <a
+                      href={Constants.contact.twitter.link}
+                      target="_blank"
+                      className="social-icon-link"
+                    >
+                      <ReactSVG className="social-icon" src={XSVG} />
                     </a>
                   </div>
                 </div>
