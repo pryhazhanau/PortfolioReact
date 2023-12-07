@@ -48,7 +48,7 @@ const AndersenSection = () => {
         companyLink="https://andersenlab.com"
         companyDesc="A well-established European software development company. It's headquaters based in Warsaw, Poland."
         role="iOS Developer"
-        team="60+"
+        team="60+ Specialists"
         office="Warsaw/Remote"
       />
     </FlexBox>
@@ -74,7 +74,7 @@ const ConstantaSection = () => {
         companyLink="https://const.tech"
         companyDesc="Constanta engaged in product development for the bookmaker and sports industry. Their focus areas include creating software for high-load distributed systems, developing services and client applications"
         role="iOS Developer"
-        team="15"
+        team="15 Specialists"
         office="Moscow/Remote"
       />
     </FlexBox>
@@ -99,9 +99,9 @@ const EpamSection = () => {
         companyName={companyName}
         companyImage={EpamImg}
         companyLink="https://www.epam.com"
-        companyDesc="Constanta engaged in product development for the bookmaker and sports industry. Their focus areas include creating software for high-load distributed systems, developing services and client applications"
+        companyDesc="EPAM is a leading global provider of software product development and digital platform engineering services to hundreds of Fortune 500 and 1000 clients located around the world, primarily in North America, Europe, Asia and Australia."
         role="iOS Developer"
-        team="15 Specialists"
+        team="15-20 Specialists"
         office="Minsk"
       />
     </FlexBox>
