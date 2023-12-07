@@ -6,7 +6,7 @@ interface TextContainerProps {
 }
 
 const TextContainer: FC<TextContainerProps> = (props) => {
-  return <p><StyledText text={props.text}/></p>;
+  return <p><StyledText text={props.text}/></p>;
 };
 
 

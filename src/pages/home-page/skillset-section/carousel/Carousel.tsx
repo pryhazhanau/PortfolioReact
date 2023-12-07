@@ -120,7 +120,7 @@ interface ArrowProps {
 }
 
 const Arrow: FC<ArrowProps> = ({ direction, isAccent, onClick }) => {
-  var style: CSSProperties;
+  let style: CSSProperties;
   if (direction === "right") {
     style = {
       paddingLeft: 2,

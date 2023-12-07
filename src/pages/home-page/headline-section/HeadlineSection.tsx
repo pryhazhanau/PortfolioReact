@@ -7,6 +7,7 @@ import GridBackgroundMobile from "./grid-background/GridBackgroundMobile";
 import FlexBox from "../../../components/common/box/FlexBox";
 import { MouseEvent, useEffect, useState } from "react";
 import Image from "../../../components/common/style/Image";
+import { Point } from "../../../common/interface/Geometry";
 
 const mobileWidth = 650;
 

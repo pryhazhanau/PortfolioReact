@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import { InView } from 'react-intersection-observer';
 
 import "react-circular-progressbar/dist/styles.css";
+import { Size } from "../../../common/interface/Geometry";
 
 interface CircularProgressBarProps {
   percentage: number;

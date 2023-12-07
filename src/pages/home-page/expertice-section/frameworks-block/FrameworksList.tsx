@@ -10,6 +10,7 @@ import TextureImg from "../../../../assets/icons/frameworks/texture.png"
 import NukeImg from "../../../../assets/icons/frameworks/nuke.png"
 import FirebaseImg from "../../../../assets/icons/frameworks/firebase.png"
 import TuistImg from "../../../../assets/icons/frameworks/tuist.png"
+import { FrameworkObj } from "./FrameworkObj"
 
 const FrameworksList: FrameworkObj[] = [
   {

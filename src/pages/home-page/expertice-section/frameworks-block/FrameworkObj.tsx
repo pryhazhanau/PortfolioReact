@@ -1,8 +1,8 @@
 
-interface FrameworkObj {
+export type FrameworkObj = {
   id: number;
   name: string;
   description: string;
   link: string;
-  img: any | undefined;
+  img: string | undefined;
 }

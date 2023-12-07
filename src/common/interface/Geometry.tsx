@@ -1,14 +1,14 @@
-interface Size {
+export type Size = {
     width: number
     height: number
 }
 
-interface Origin {
+export type Origin = {
     x: number
     y: number
 }
 
-interface Point {
+export type Point = {
     x: number
     y: number
 }

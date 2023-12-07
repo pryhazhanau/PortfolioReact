@@ -2,7 +2,7 @@ import { FC, ReactNode } from "react";
 
 interface ImageProps {
   className?: string;
-  src: string | any;
+  src: string;
   width?: string | number;
   height?: string | number;
   maxWidth?: string | number;

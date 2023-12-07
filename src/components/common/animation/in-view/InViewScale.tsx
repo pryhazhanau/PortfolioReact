@@ -1,4 +1,4 @@
-import { FC, ReactNode, useEffect, useRef } from "react";
+import { FC, ReactNode, useCallback, useEffect, useRef } from "react";
 import { useInView } from "framer-motion";
 import { CSSProperties } from "styled-components";
 
@@ -25,17 +25,17 @@ export const InViewScale: FC<InViewScaleProps> = (props) => {
       props.duration ?? DEFAULT_DURATION
     }s cubic-bezier(0.17, 0.55, 0.55, 1) ${props.delay ?? DEFAULT_DELAY}s`,
   };
-
+  const completion = useCallback(() => { props.completion }, [props.completion])
   useEffect(() => {
     if (isInView) {
         setTimeout(() => {
-            if (props.completion) {
-                props.completion()
+            if (completion) {
+              completion()
             }
         }, (props.duration ?? DEFAULT_DURATION) * 1000 + (props.delay ?? DEFAULT_DELAY) * 1000)
     }
     return () => {};
-  }, [isInView]);
+  }, [isInView, props.duration, props.delay, completion]);
 
   const style = { ...props.style, ...componentStyle };
 

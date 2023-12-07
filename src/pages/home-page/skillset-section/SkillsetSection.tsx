@@ -9,6 +9,7 @@ import Text from "../../../components/common/style/Text";
 import { Typography } from "../../../components/common/style/interface/Typography";
 import { Colors } from "../../../components/common/style/interface/Colors";
 import { InViewSlide } from "../../../components/common/animation/in-view/InViewSlide";
+import { SkillCardObj } from "./SkillCardObj";
 
 function SkillsetSection() {
   return (

@@ -43,7 +43,7 @@ const GridLine = ({
   vertical: boolean;
   delayAnimation: number;
 }) => {
-  var divVariants;
+  let divVariants;
 
   if (vertical) {
     divVariants = {

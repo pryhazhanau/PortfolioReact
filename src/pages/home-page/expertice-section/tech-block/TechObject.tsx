@@ -2,7 +2,7 @@ interface TechObject {
   id: number;
   name: string;
   url: string;
-  img: any;
+  img: string;
   jsxElement: JSX.Element;
 }
 

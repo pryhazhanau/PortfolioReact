@@ -6,7 +6,7 @@ import { Typography } from "../../../../components/common/style/interface/Typogr
 import { Colors } from "../../../../components/common/style/interface/Colors";
 
 interface CardProps {
-  img: any;
+  img: string;
   body: string;
   description: string;
 }

@@ -6,6 +6,7 @@ import "./FrameworksBlock.css";
 import Text from "../../../../components/common/style/Text";
 import { Typography } from "../../../../components/common/style/interface/Typography";
 import { Colors } from "../../../../components/common/style/interface/Colors";
+import { FrameworkObj } from "./FrameworkObj";
 
 function FrameworksBlock() {
   const [selectedFramework, setSelectedFramework] = useState<
@@ -49,7 +50,7 @@ function FrameworksBlock() {
         <div className="frameworks-block-inner">
           <Text
             className="frameworks-title"
-            text=" Frameworks and libraries I know well and frequenlty using in my daily work."
+            text=" Frameworks and libraries I know well and frequenlty use in my daily work."
             typography={Typography.BodyText}
             color={Colors.TitaniumGray}
           />

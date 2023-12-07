@@ -7,6 +7,7 @@ import FlexBox from "../../../../components/common/box/FlexBox";
 import Text from "../../../../components/common/style/Text";
 import { Typography } from "../../../../components/common/style/interface/Typography";
 import { Colors } from "../../../../components/common/style/interface/Colors";
+import { SkillCardObj } from "../SkillCardObj";
 
 interface SkillsetCardProps {
   skill: SkillCardObj;

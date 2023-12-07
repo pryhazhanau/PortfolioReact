@@ -8,6 +8,7 @@ import { ReactSVG } from "react-svg";
 
 import ArrowRight from "../../../assets/icons/long-arrow-right.svg"
 import UrlOpener from "../../../components/common/util/UrlOpener";
+import { AppProject } from "../support/AppProject";
 
 interface AppCardProps {
   app: AppProject

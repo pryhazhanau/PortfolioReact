@@ -28,7 +28,7 @@ const CardTypography: Record<string, TypographyStyle> = {
 
 interface CompanyCardProps {
   companyName: string;
-  companyImage: any;
+  companyImage: string;
   companyLink: string;
   companyDesc: string;
   role: string;
@@ -137,7 +137,7 @@ function VerticalDivider() {
 interface LinkWithImageProps {
   url: string;
   text: string;
-  img: any;
+  img: string;
 }
 
 const LinkWithImage: FC<LinkWithImageProps> = (props) => {

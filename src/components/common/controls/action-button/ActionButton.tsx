@@ -8,7 +8,7 @@ interface ButtonProps {
   label: string;
   className?: string;
   style?: "primary" | "outline" | undefined;
-  rightIcon?: "arrow-link" | any;
+  rightIcon?: "arrow-link" | string;
   link?: string;
   linkTarget?: "blank" | "self" | undefined;
   onClick?: () => void | undefined;
@@ -46,7 +46,7 @@ const ActionButton: FC<ButtonProps> = ({
   );
 };
 
-function getIconByName(image: string | any) {
+function getIconByName(image: string) {
   switch (image) {
     case "arrow-link":
       return ArrowLink

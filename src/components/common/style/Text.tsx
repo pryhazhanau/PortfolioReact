@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Color } from "./interface/Colors";
 import { TypographyStyle } from "./interface/Typography";
+import { EdgeInset } from "./interface/EdgeInset";
 
 interface TextProps {
   className?: string;

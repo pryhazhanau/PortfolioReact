@@ -1,4 +1,4 @@
-interface SkillCardObj {
+export type SkillCardObj = {
     id: number
     title: string;
     body: string

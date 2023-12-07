@@ -1,5 +1,6 @@
 import { useEffect, useRef, MouseEvent, FC } from "react";
 import "./PixelHeart.css";
+import { Origin, Point } from "../../../../common/interface/Geometry";
 
 interface PixelHeartProps {}
 
@@ -38,12 +39,12 @@ const glarePixelsDict: { [key: string]: IPixel | null } = {};
 const PixelHeart: FC<PixelHeartProps> = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
   const animationRef = useRef<number | null>(null);
-  let currentMousePos: Point | null;
+  const currentMousePos = useRef<Point | null>();
   let isMouseHover = false;
 
   useEffect(() => {
     moveMouseOverHeart(() => {
-      currentMousePos = autoMouseCoordinates;
+      currentMousePos.current = autoMouseCoordinates;
       return isMouseHover;
     });
 
@@ -58,7 +59,7 @@ const PixelHeart: FC<PixelHeartProps> = () => {
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      var allPixels: IPixel[] = [];
+      let allPixels: IPixel[] = [];
       const column1 = getColumnPixels(0, 2, 5, []);
       const column2 = getColumnPixels(1, 1, 7, []);
       const column3 = getColumnPixels(2, 0, 8, [3, 4]);
@@ -100,9 +101,9 @@ const PixelHeart: FC<PixelHeartProps> = () => {
         pixel.draw(ctx);
       });
 
-      if (currentMousePos) {
-        const x = Math.max(Math.floor(currentMousePos.x / PIXEL_SIZE), 0);
-        const y = Math.max(Math.floor(currentMousePos.y / PIXEL_SIZE), 0);
+      if (currentMousePos.current) {
+        const x = Math.max(Math.floor(currentMousePos.current.x / PIXEL_SIZE), 0);
+        const y = Math.max(Math.floor(currentMousePos.current.y / PIXEL_SIZE), 0);
         const hash = calculateHash(x, y);
         const glarePixels: IPixel[] = [];
 
@@ -133,8 +134,8 @@ const PixelHeart: FC<PixelHeartProps> = () => {
         });
       }
 
-      for (let key in glarePixelsDict) {
-        let pixel = glarePixelsDict[key];
+      for (const key in glarePixelsDict) {
+        const pixel = glarePixelsDict[key];
 
         if (!pixel) {
           continue;
@@ -148,9 +149,9 @@ const PixelHeart: FC<PixelHeartProps> = () => {
             return [];
           }
 
-          var newPixels: IPixel[] = [];
+          const newPixels: IPixel[] = [];
           for (let i = pixel.currentRange ?? 0; i < 10; i++) {
-            let newPixel = Pixel(pixel);
+            const newPixel = Pixel(pixel);
             if (pixel.expandDirection == "top") {
               newPixel.position.y -= pixelRangeStep;
               newPixel.hash = calculateHash(
@@ -161,7 +162,7 @@ const PixelHeart: FC<PixelHeartProps> = () => {
 
               if (glarePixelsDict[newPixel.hash] == null) {
                 for (let j = 0; j < 3; j++) {
-                  let neigborPixel1 = Pixel(newPixel);
+                  const neigborPixel1 = Pixel(newPixel);
                   neigborPixel1.position.x += j;
                   neigborPixel1.hash = calculateHash(
                     neigborPixel1.position.x,
@@ -170,7 +171,7 @@ const PixelHeart: FC<PixelHeartProps> = () => {
                   neigborPixel1.lastUpdatedDirection = Date.now();
                   newPixels.push(neigborPixel1);
 
-                  let neigborPixel2 = Pixel(newPixel);
+                  const neigborPixel2 = Pixel(newPixel);
                   neigborPixel2.position.x -= j;
                   neigborPixel2.hash = calculateHash(
                     neigborPixel2.position.x,
@@ -194,7 +195,7 @@ const PixelHeart: FC<PixelHeartProps> = () => {
 
               if (glarePixelsDict[newPixel.hash] == null) {
                 for (let j = 0; j < 3; j++) {
-                  let neigborPixel1 = Pixel(newPixel);
+                  const neigborPixel1 = Pixel(newPixel);
                   neigborPixel1.position.y += j;
                   neigborPixel1.hash = calculateHash(
                     neigborPixel1.position.x,
@@ -203,7 +204,7 @@ const PixelHeart: FC<PixelHeartProps> = () => {
                   neigborPixel1.lastUpdatedDirection = Date.now();
                   newPixels.push(neigborPixel1);
 
-                  let neigborPixel2 = Pixel(newPixel);
+                  const neigborPixel2 = Pixel(newPixel);
                   neigborPixel2.position.y -= j;
                   neigborPixel2.hash = calculateHash(
                     neigborPixel2.position.x,
@@ -227,7 +228,7 @@ const PixelHeart: FC<PixelHeartProps> = () => {
 
               if (glarePixelsDict[newPixel.hash] == null) {
                 for (let j = 0; j < 3; j++) {
-                  let neigborPixel1 = Pixel(newPixel);
+                  const neigborPixel1 = Pixel(newPixel);
                   neigborPixel1.position.x += j;
                   neigborPixel1.lastUpdatedDirection = Date.now();
                   neigborPixel1.hash = calculateHash(
@@ -236,7 +237,7 @@ const PixelHeart: FC<PixelHeartProps> = () => {
                   );
                   newPixels.push(neigborPixel1);
 
-                  let neigborPixel2 = Pixel(newPixel);
+                  const neigborPixel2 = Pixel(newPixel);
                   neigborPixel2.position.x -= j;
                   neigborPixel2.lastUpdatedDirection = Date.now();
                   neigborPixel2.hash = calculateHash(
@@ -260,7 +261,7 @@ const PixelHeart: FC<PixelHeartProps> = () => {
 
               if (glarePixelsDict[newPixel.hash] == null) {
                 for (let j = 0; j < 3; j++) {
-                  let neigborPixel1 = Pixel(newPixel);
+                  const neigborPixel1 = Pixel(newPixel);
                   neigborPixel1.lastUpdatedDirection = Date.now();
                   neigborPixel1.position.y += j;
                   neigborPixel1.hash = calculateHash(
@@ -269,7 +270,7 @@ const PixelHeart: FC<PixelHeartProps> = () => {
                   );
                   newPixels.push(neigborPixel1);
 
-                  let neigborPixel2 = Pixel(newPixel);
+                  const neigborPixel2 = Pixel(newPixel);
                   neigborPixel2.position.y -= j;
                   neigborPixel2.lastUpdatedDirection = Date.now();
                   neigborPixel2.hash = calculateHash(
@@ -288,7 +289,7 @@ const PixelHeart: FC<PixelHeartProps> = () => {
         };
 
         if (pixel.isInitialPixel) {
-          let pixel1 = Pixel(pixel);
+          const pixel1 = Pixel(pixel);
           pixel1.position.y -= pixelRangeStep;
           pixel1.hash = calculateHash(pixel1.position.x, pixel1.position.y);
           pixel1.expandDirection = "top";
@@ -296,7 +297,7 @@ const PixelHeart: FC<PixelHeartProps> = () => {
           pixel1.currentRange += 1;
           glarePixelsDict[pixel1.hash] = pixel1;
 
-          let pixel2 = Pixel(pixel);
+          const pixel2 = Pixel(pixel);
           pixel2.position.x += pixelRangeStep;
           pixel2.hash = calculateHash(pixel2.position.x, pixel2.position.y);
           pixel2.expandDirection = "right";
@@ -304,7 +305,7 @@ const PixelHeart: FC<PixelHeartProps> = () => {
           pixel2.currentRange += 1;
           glarePixelsDict[pixel2.hash] = pixel2;
 
-          let pixel3 = Pixel(pixel);
+          const pixel3 = Pixel(pixel);
           pixel3.position.y += pixelRangeStep;
           pixel3.hash = calculateHash(pixel3.position.x, pixel3.position.y);
           pixel3.expandDirection = "bottom";
@@ -312,7 +313,7 @@ const PixelHeart: FC<PixelHeartProps> = () => {
           pixel3.currentRange += 1;
           glarePixelsDict[pixel3.hash] = pixel3;
 
-          let pixel4 = Pixel(pixel);
+          const pixel4 = Pixel(pixel);
           pixel4.position.x -= pixelRangeStep;
           pixel4.hash = calculateHash(pixel4.position.x, pixel4.position.y);
           pixel4.expandDirection = "left";
@@ -372,18 +373,18 @@ const PixelHeart: FC<PixelHeartProps> = () => {
         clearTimeout(animationRef.current);
       }
     };
-  }, []);
+  }, [isMouseHover]);
 
   const handleMouseMove = (element: MouseEvent<HTMLDivElement>) => {
     const rect = element.currentTarget.getBoundingClientRect();
     const mouseX = element.clientX - rect.left;
     const mouseY = element.clientY - rect.top;
-    currentMousePos = { x: mouseX, y: mouseY };
+    currentMousePos.current = { x: mouseX, y: mouseY };
     isMouseHover = true;
   };
 
   const handleMouseLeave = () => {
-    currentMousePos = null;
+    currentMousePos.current = null;
     isMouseHover = false;
   };
 
@@ -427,7 +428,7 @@ const calculateNextPixel = (hash: string) => {
     return null;
   }
   const prevAlpha = previousPixel.alpha;
-  var newPixel = previousPixel;
+  let newPixel = previousPixel;
 
   if (prevAlpha < 0.8) {
     newPixel = changePixelIncreasing(hash, true);
@@ -450,7 +451,7 @@ const getColumnPixels = (
   to: number,
   ignoring: number[]
 ) => {
-  var pixels: IPixel[] = [];
+  const pixels: IPixel[] = [];
   for (let i = from; i <= to; i++) {
     if (!ignoring.includes(i)) {
       const pixel = createPixel(column, i);
@@ -498,9 +499,9 @@ const calculateHash = (x: number, y: number) => {
 };
 
 let autoMouseCoordinates: Point | null;
-let autoMouseTimer: any
+let autoMouseTimer: number
 const moveMouseOverHeart = (f: () => boolean) => {
-  let timer: any;
+  let timer: number;
   clearInterval(autoMouseTimer)
   setInterval(() => {
     startMove()

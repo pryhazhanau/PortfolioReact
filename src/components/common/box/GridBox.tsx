@@ -1,4 +1,5 @@
 import { FC, ReactNode } from "react";
+import { EdgeInset } from "../style/interface/EdgeInset";
 
 interface GridBoxProps {
   className?: string;

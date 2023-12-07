@@ -14,6 +14,7 @@ import RevealImg from "../../assets/apps/RevealInstall.png";
 import FonbetImg from "../../assets/apps/Fonbet.png";
 import HedwigImg from "../../assets/apps/Hedwig.png";
 import YFCImg from "../../assets/apps/YFC.png";
+import { AppProject } from "./support/AppProject";
 
 function ProjectsPage() {
   return (

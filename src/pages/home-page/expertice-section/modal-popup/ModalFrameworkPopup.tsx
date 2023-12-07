@@ -4,8 +4,9 @@ import ActionButton from "../../../../components/common/controls/action-button/A
 import { ReactSVG } from "react-svg";
 import { motion, AnimatePresence } from "framer-motion";
 import AnimationConstants from "../../../../components/common/animation/AnimationConstants";
-
 import CrossImg from "../../../../assets/icons/icon-close.svg";
+import { Origin, Size } from "../../../../common/interface/Geometry";
+import { FrameworkObj } from "../frameworks-block/FrameworkObj";
 
 interface ModalFrameworkPopupProps {
   visible: boolean;
@@ -51,21 +52,21 @@ const ModalFrameworkPopup: FC<ModalFrameworkPopupProps> = ({
   const mobilePaddings = 16;
 
   console.log(documentWidth);
-  var modalSize: Size = { height: 0, width: 0 };
-  var modalOrigin: Origin = { x: 0, y: 0 };
+  let modalSize: Size = { height: 0, width: 0 };
+  let modalOrigin: Origin = { x: 0, y: 0 };
   if (documentWidth < modalMaxWidth) {
     modalSize = {
       width: documentWidth - mobilePaddings * 2,
       height: modalMaxHeight,
     };
-    var modalOriginY =
+    let modalOriginY =
       position.top - modalSize.height / 2 - targetSize.height / 2;
     if (modalOriginY < navBarHeight) {
       modalOriginY = navBarHeight + 16;
     }
     modalOrigin = { x: 16, y: modalOriginY };
   } else {
-    var modalWidth =
+    let modalWidth =
       documentWidth - position.left < modalMaxWidth
         ? documentWidth - mobilePaddings * 2
         : modalMaxWidth;
@@ -80,7 +81,7 @@ const ModalFrameworkPopup: FC<ModalFrameworkPopupProps> = ({
       documentWidth < modalMaxWidth
         ? 0
         : position.left - modalWidth / 2 + targetSize.width / 2;
-    var modalOriginY =
+    let modalOriginY =
       position.top - modalSize.height / 2 - targetSize.height / 2;
     if (modalOriginY < navBarHeight) {
       modalOriginY = navBarHeight + mobilePaddings;
@@ -216,7 +217,7 @@ const variants = {
   },
 };
 
-const getBackgroundAnimation = (targetSize: any, modalSize: any) => {
+const getBackgroundAnimation = (targetSize: Size, modalSize: Size) => {
   return {
     visible: {
       width: modalSize.width,

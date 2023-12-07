@@ -1,4 +1,5 @@
 import { FC, ReactNode, MouseEvent } from "react";
+import { EdgeInset } from "../style/interface/EdgeInset";
 
 interface FlexBoxProps {
   className?: string;

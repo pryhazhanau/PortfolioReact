@@ -70,11 +70,11 @@ const HeartBeatMotion: FC<HeartBeatMotionProps> = (props) => {
       },
     },
   };
-
-  let beatIntervalTimer = useRef<any | null>(null);
+  
+  const beatIntervalTimer = useRef<number | null>(null);
   const startBeat = (interval: number) => {
     setIsBeating(true);
-    clearInterval(beatIntervalTimer.current);
+    clearInterval(beatIntervalTimer.current ?? -1);
     const intervalId = setInterval(() => {
       setIsBeating((prev) => !prev);
     }, interval / 2 - beatDuration * 1000);

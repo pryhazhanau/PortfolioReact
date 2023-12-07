@@ -1,4 +1,4 @@
-interface AppProject {
+export type AppProject = {
     id: number,
     img: string,
     title: string,

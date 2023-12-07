@@ -7,7 +7,7 @@ interface LoadButtonProps {
   label: string;
   className?: string;
   link?: string;
-  icon: any;
+  icon: string;
   linkTarget?: "blank" | "self" | undefined;
   onClick?: () => void | undefined;
 }
